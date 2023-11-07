@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <title>Структурний та шаблонний підхід у написанні коду</title>
+</head>
+<body class="structure">
+    <div class="structure_header">
+        <h1>Структурний та шаблонний підхід у написанні коду</h1>
+        <a href="../../index.html">
+            <img src="../structure/img/home.gif" alt="home">
+        </a>
+        
+    </div>
+    <div class="structure_container">
+        <p>
+            Коли проект доволі масштабний, то є сенс розділяти таблицю стилів на 
+            <br>окремі файли. Наприклад: mixins.css, header.scss, main.scss, footer.scss, 
+            <br>blog.scss, home-page.scss. І всі ці файли ми скомпілюємо в один файл style.css. 
+            <br>Тому файл style.css теж потрібен.
+        </p>
+        <p>
+            Щоб підключити до основного файлу стилів інші файли, потрібно на самому початку коду 
+            <br>прописати директиву @import:
+            <br> @import "mixins";
+
+        </p>
+        <p>
+            Крім одного файлу можна підключати декілька, через кому:
+            <br>@import "mixins", "header", "footer";            
+
+        </p>
+        <p>
+            Але є один нюанс. Компілятор крім основного файлу style.css створить однойменні файли
+            <br>до інших файлів із розширенням .scss. Щоб такого не відбувалося і щоб не плодити зайві 
+            <br>файли ми раніше перелічені в списку стилі із розширенням .scss перейменуємо і додамо до 
+            <br>кожного файлу нижнє підкреслення на початку:
+        </p>
+    </div>
+   
+</body>
+</html>

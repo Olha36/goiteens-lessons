@@ -1,0 +1,28 @@
+$borderColor: purple;
+$bodyBackgroundColor: aqua;
+
+.mixin {
+    background-color: $bodyBackgroundColor;
+}
+.mixin_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+        margin-left: 10px;
+    }
+}
+
+@mixin border($someName) {
+    border: 5px dashed;
+    border-radius: 10px;
+    border-color: $someName;
+}
+
+.extend_mixins {
+    text-align: center;
+    h2 {
+        color: blue;
+        @include border(red);
+    }
+}

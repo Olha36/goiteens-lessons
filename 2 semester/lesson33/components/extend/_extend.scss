@@ -1,0 +1,47 @@
+$yellowColor: yellow;
+$backgroundColor: rgb(102, 255, 0);
+$whiteColor: #fff;
+$buttonBackgroundColor: gray;
+$successBackgroundColor: green;
+$errorBackgroundColor: red;
+
+.extend {
+    background-color: $backgroundColor;
+}
+.extend_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & img {
+        margin-left: 10px;
+    }
+}
+.extend_container,
+.extend_stakeholders {
+    text-align: center;
+}
+.extend_container_meaning {
+    font-weight: 700;
+    font-size: 20px;
+    &:hover {
+        background-color: $yellowColor;
+    }
+}
+.extend_container_button {
+    display: inline-flex;
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: $whiteColor;
+    background-color: $buttonBackgroundColor;   
+}
+.extend_button-success {
+    @extend .extend_container_button;
+    background-color: $successBackgroundColor;
+}
+
+.extend_button-error {
+    @extend .extend_container_button;
+    background-color: $errorBackgroundColor;
+}
+

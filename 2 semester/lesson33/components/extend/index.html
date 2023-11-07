@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <title>Директива @extend</title>
+</head>
+<body class="extend">
+    <div class="extend_header">
+        <h1>Директива @extend</h1>
+        <a href="../../index.html">
+            <img src="../structure/img/home.gif" alt="home">
+        </a>
+    </div>
+    <div class="extend_wrapper">
+        <div class="extend_container">
+            <p>
+                Директива <span class="extend_container_meaning">@extend</span> використовується для наслідування (розширення) вже існуючих стилів. 
+                <br>Застосуємо її, щоб створити компонент кнопки з декількома станами:
+            </p>
+            <div class="button_states">
+                <button class="extend_container_button">Extend</button>
+                <button class="extend_button-success">Success</button>
+                <button class="extend_button-error">Error</button>
+            </div>
+            
+            <p>
+                Розширення (наслідування) не зробить копію стилів для кожного селектора, а грамотно додасть <br> потрібні селектори 
+                у перелік до правила з наслідуваними стилями.
+            </p>
+        </div>
+
+        <div class="extend_stakeholders">
+            <h2>Шаблони (плейсхолдери)​ </h2>
+            <p>
+                - довільне ім'я селектора з обов'язковим символом % на початку
+            </p>
+            <p>
+                Існує, якщо ми хочемо розширити набір стилів, для якого не потрібний базовий селектор
+            </p>
+            <p>
+                плейсхолдер - це як спеціальний шаблон або "заготовка" для стилів, який можна використовувати в CSS. 
+                <br> Плейсхолдери допомагають зробити створення стилів більш організованим і ефективним.
+            </p>
+        </div>
+
+    </div>
+    
+</body>
+</html>
