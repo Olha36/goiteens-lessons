@@ -1,0 +1,48 @@
+$yellowColor: yellow;
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & img {
+        margin-left: 10px;
+    }
+}
+.container {
+    margin-left: 30%;
+    ul {
+        padding: 0;
+    }
+    
+}
+.container_bem {
+    font-weight: 700;
+    font-size: 20px;
+    &:hover {
+        background-color: $yellowColor;
+    }
+}
+.container_block, 
+.container_element,
+.container_modificator,
+.container_mixes,
+.container_selectors {
+    margin-left: 30%;
+    ul {
+        padding: 0;
+    }
+}
+.container_block_item:hover,
+.container_element_item:hover,
+.container_modificator_item:hover,
+.container_mixes_item:hover,
+.container_selectors_item:hover {
+    background-color: $yellowColor;
+}
+.wrapper_pic {
+    display: flex;
+    justify-content: center;
+}
+.container_mixes_item,
+.container_selectors_item {
+    color: green;
+}

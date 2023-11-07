@@ -1,0 +1,26 @@
+$hoverYellow: yellow;
+$hoverBlue: blue;
+h1 {
+    text-align: center;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        margin-left: 10px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+.variables_container,
+.variables_container_task {
+    text-align: center;
+}
+.variables_container_hover:hover {
+    color: $hoverYellow;
+}
+.variables_container_color:hover {
+    color: $hoverBlue;
+}
