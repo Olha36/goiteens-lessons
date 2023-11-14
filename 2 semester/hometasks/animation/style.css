@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html, 
+body {
+    height: 100%;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.container_square-wrapper {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: pink;
+}
+.container_square {
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    animation: square 5s infinite;
+}
+
+@keyframes square {
+    0% {
+        transform: translate(0%, 0%);
+    }
+    25% {
+        transform: translateX(100%);
+        background-color: green;
+    }
+    50% {
+        transform: translate(100%, -100%);
+        background-color: yellow;
+    }
+    75% {
+        transform: translate(0, -100%);
+        background-color: red;
+    }
+    100% {
+        transform: translate(0%, 0%);
+        background-color: blue;
+    }
+}

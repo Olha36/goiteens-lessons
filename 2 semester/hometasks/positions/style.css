@@ -1,0 +1,26 @@
+header,
+.contacts {
+    display: flex;
+}
+header {
+    align-items: center;
+    justify-content: space-evenly;
+}
+.test {
+    position: relative;
+    display: none;
+}
+.active {
+    display: block;
+}
+.test-ba {
+    width: 300px;
+    height: 300px;
+    background-color: green;
+}
+.test-text {
+    position: absolute;
+    top: 7px;
+    right: 50%;
+    cursor: pointer;
+}
