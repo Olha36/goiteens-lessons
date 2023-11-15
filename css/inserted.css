@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header a {
+  margin-left: 10px;
+}
+
+.inserted_container {
+  text-align: center;
+}
+.inserted_container .inserted_container_img {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1280px;
+  justify-content: center;
+}
+.inserted_container img {
+  width: 654px;
+  height: 303px;
+}
+.inserted_container span:hover,
+.inserted_container span:focus {
+  background-color: yellow;
+  cursor: pointer;
+}

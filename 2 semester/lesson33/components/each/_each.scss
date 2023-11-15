@@ -1,0 +1,11 @@
+.each {
+    background-color: pink;
+}
+.each_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        margin-left: 10px;
+    }
+}
