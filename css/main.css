@@ -144,7 +144,21 @@ h1 {
 }
 
 .arythmetic {
-  background-color: red;
+  background-color: rgb(233, 87, 131);
+}
+
+.arythmetic_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arythmetic_header h1 {
+  margin-right: 10px;
+}
+
+.arythmetic_container {
+  text-align: center;
 }
 
 body {
