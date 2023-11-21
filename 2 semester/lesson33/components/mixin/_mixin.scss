@@ -15,14 +15,33 @@ $bodyBackgroundColor: aqua;
 
 @mixin border($someName) {
     border: 5px dashed;
-    border-radius: 10px;
     border-color: $someName;
+}
+
+@mixin font($size) {
+    font-family: 'Roboto', sans-serif;
+    font-size: $size;
+}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
 }
 
 .extend_mixins {
     text-align: center;
     h2 {
         color: blue;
-        @include border(red);
+        @include border(rgb(72, 255, 0));
+    }
+    .extend_mixins-try {
+        color: orange;
+        @include border(indigo);
+    }
+    .extend_mixins-size {
+        @include font(23px);
+    }
+    .extend_mixins-radius {
+       @include border-radius(50px);
+       @include border(red);
     }
 }

@@ -74,6 +74,19 @@ h1 {
   background-color: red;
 }
 
+.input-extend-one, .input_extend-two {
+  display: block;
+  padding: 10px;
+  border: 5px solid yellow;
+  border-radius: 10%;
+  font-size: 16px;
+  background-color: lightblue;
+}
+
+.input_extend-two {
+  background-color: red;
+}
+
 .mixin {
   background-color: aqua;
 }
@@ -93,7 +106,20 @@ h1 {
 .extend_mixins h2 {
   color: blue;
   border: 5px dashed;
-  border-radius: 10px;
+  border-color: rgb(72, 255, 0);
+}
+.extend_mixins .extend_mixins-try {
+  color: orange;
+  border: 5px dashed;
+  border-color: indigo;
+}
+.extend_mixins .extend_mixins-size {
+  font-family: "Roboto", sans-serif;
+  font-size: 23px;
+}
+.extend_mixins .extend_mixins-radius {
+  border-radius: 50px;
+  border: 5px dashed;
   border-color: red;
 }
 
@@ -108,6 +134,13 @@ h1 {
 }
 .each_header img {
   margin-left: 10px;
+}
+
+.each_container {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .arythmetic {
