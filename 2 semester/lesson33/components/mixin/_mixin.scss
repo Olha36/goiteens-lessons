@@ -1,0 +1,47 @@
+$borderColor: purple;
+$bodyBackgroundColor: aqua;
+
+.mixin {
+    background-color: $bodyBackgroundColor;
+}
+.mixin_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+        margin-left: 10px;
+    }
+}
+
+@mixin border($someName) {
+    border: 5px dashed;
+    border-color: $someName;
+}
+
+@mixin font($size) {
+    font-family: 'Roboto', sans-serif;
+    font-size: $size;
+}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}
+
+.extend_mixins {
+    text-align: center;
+    h2 {
+        color: blue;
+        @include border(rgb(72, 255, 0));
+    }
+    .extend_mixins-try {
+        color: orange;
+        @include border(indigo);
+    }
+    .extend_mixins-size {
+        @include font(23px);
+    }
+    .extend_mixins-radius {
+       @include border-radius(50px);
+       @include border(red);
+    }
+}

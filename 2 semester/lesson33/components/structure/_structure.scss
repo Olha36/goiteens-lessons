@@ -1,0 +1,30 @@
+$backgroundColor: rgb(233, 138, 252);
+$hoverYellow: yellow;
+$hoverBlue: blue;
+.structure {
+    background-color: $backgroundColor;
+}
+h1 {
+    text-align: center;
+}
+.structure_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        margin-left: 10px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+.structure_container,
+.structure_container_task {
+    text-align: center;
+}
+.structure_container_hover:hover {
+    color: $hoverYellow;
+}
+.structure_container_color:hover {
+    color: $hoverBlue;
+}

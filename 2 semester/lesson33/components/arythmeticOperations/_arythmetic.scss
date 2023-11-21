@@ -1,0 +1,13 @@
+@import '../mixins/mixins';
+.arythmetic {
+    background-color: rgb(233, 87, 131)
+}
+.arythmetic_header {
+    @include centerFlex(flex, center, center);
+}
+.arythmetic_header h1 {
+    margin-right: 10px;
+}
+.arythmetic_container {
+    text-align: center;
+}
