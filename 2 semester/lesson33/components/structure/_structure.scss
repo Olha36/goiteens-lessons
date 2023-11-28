@@ -1,3 +1,4 @@
+@import '../mixins/mixins';
 $backgroundColor: rgb(233, 138, 252);
 $hoverYellow: yellow;
 $hoverBlue: blue;
@@ -8,9 +9,7 @@ h1 {
     text-align: center;
 }
 .structure_header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include centerFlex(flex, center, center);
     img {
         margin-left: 10px;
         &:hover {
