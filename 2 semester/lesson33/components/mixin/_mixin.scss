@@ -5,9 +5,7 @@ $bodyBackgroundColor: aqua;
     background-color: $bodyBackgroundColor;
 }
 .mixin_header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   @include centerFlex (flex, center, center);
     a {
         margin-left: 10px;
     }

@@ -1,27 +1,14 @@
-@import '../../mixins';
 .each {
     background-color: pink;
 }
 .each_header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include centerFlex(flex, center, center);
     img {
         margin-left: 10px;
     }
 }
 
-// @mixin center($flex, $justify, $align) {
-//     display: $flex; //flex
-//     justify-content: $justify; //center
-//     align-items: $align; //center
-// }
-
 .each_container {
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
     flex-direction: column;
-    @include center(flex, center, center);
+    @include centerFlex(flex, center, center);
 }
-

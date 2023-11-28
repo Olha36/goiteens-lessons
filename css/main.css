@@ -8,8 +8,8 @@ h1 {
 
 .structure_header {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 .structure_header img {
   margin-left: 10px;
@@ -37,8 +37,8 @@ h1 {
 
 .extend_header {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 .extend_header img {
   margin-left: 10px;
@@ -57,12 +57,14 @@ h1 {
   background-color: yellow;
 }
 
-.extend_container_button, .extend_button-error, .extend_button-success {
+.extend_container_button, .extend_button-error,
+.extend_button-success {
   display: inline-flex;
   border-radius: 3px;
   font-size: 16px;
   padding: 10px 20px;
   color: #fff;
+  width: 100px;
   background-color: gray;
 }
 
@@ -139,8 +141,8 @@ h1 {
 .each_container {
   flex-direction: column;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .arythmetic {
