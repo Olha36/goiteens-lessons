@@ -1,0 +1,17 @@
+body {
+  background-color: red;
+}
+.example {
+  display: flex;
+  justify-content: space-between;
+}
+.block {
+  width: 500px;
+  height: 500px;
+  background-color: green;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
