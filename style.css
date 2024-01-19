@@ -3,8 +3,25 @@
   padding: 0;
   box-sizing: border-box;
 }
-h2 {
+body {
   color: #FFF;
+}
+h1 {
+  color: #0075FF;
+  left: 14.5%;
+  text-align: center;
+  font-family: Jost;
+  font-size: 96px;
+  font-weight: 900;
+  position: absolute;
+  top: 31%;
+}
+h5,
+.section-five p {
+  color: #000;
+}
+h2,
+h5 {
   font-family: Istok Web;
   font-size: 48px;
   font-weight: 700;
@@ -17,19 +34,21 @@ header > nav {
   padding: 18px 0;
   align-items: center;
 }
-nav > a {
-  color: #fff;
+nav > a,
+.policy a {
   font-family: Jost;
   font-size: 24px;
   font-weight: 400;
   text-decoration: none;
+  color: white;
 }
-nav > a:nth-of-type(3) {
-  color: #FFF;
+nav > a:nth-of-type(3),
+.support-ukraine {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Istok Web;
   font-size: 48px;
   font-weight: 700;
+  color: white;
 }
 .blue {
   color: #0075FF;
@@ -45,27 +64,20 @@ nav > a:nth-of-type(3) {
   display: flex;
   justify-content: flex-end;
 }
-h1 {
-  color: #0075FF;
-  left: 14.5%;
-  text-align: center;
-  font-family: Jost;
-  font-size: 96px;
-  font-weight: 900;
-  position: absolute;
-  top: 31%;
-}
+
 .section-two,
 .section-three {
   display: flex;
   justify-content: center;
   padding: 32px 0 165px;
 }
-.section-three {
+.section-three,
+.section-five {
   background: #060D49;
 }
 .section-two,
-.section-four {
+.section-four,
+.section-six {
   background: #010632;
 }
 .section-four {
@@ -73,11 +85,15 @@ h1 {
   padding-bottom: 53px;
 }
 .section-two p,
-.section-three p {
-  color: #FFF;
+.section-three p,
+.section-five p {
   font-family: Jost;
   font-size: 24px;
   font-weight: 400;
+
+}
+.section-two p,
+.section-three p {
   width: 414px;
 }
 .section-two-images {
@@ -123,4 +139,61 @@ h1 {
 }
 .margin-top {
   margin-top: 21px;
+}
+.img-7,
+.img-11 {
+  margin-right: 36px;
+}
+/* section 5 */
+.section-five h2 {
+  text-align: center;
+  padding: 40px 0 65px;
+}
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 196px;
+}
+.card {
+  width: 365px;
+  height: 487px;
+  text-align: center;
+  background-color: white;
+  padding: 26px 0 18px;
+  margin-right: 50px;
+}
+.card:last-of-type {
+  margin-right: 0;
+}
+.card-img-top {
+  margin: 0 15px;
+}
+.btn {
+  width: 235px;
+  height: 61px;
+  border-radius: 15px;
+  background: #0057FF;
+  color: #FFF;
+  text-align: center;
+  font-family: Jost;
+  font-size: 24px;
+  font-weight: 400;
+  border: none;
+  margin-top: 18px;
+}
+
+.section-six p {
+  text-align: center;
+}
+.section-six p:nth-of-type(2) {
+  font-size: 24px;
+}
+.policy {
+  display: flex;
+  flex-direction: column;
+}
+.socials-circle {
+  width: 65.045px;
+  height: 64px;
+  background-color: #FFC700;
 }
