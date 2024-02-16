@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 309px;
+  background-color: grey;
+  height: 231px;
+  padding: 15px;
+  box-shadow: 12px 12px 41px 12px #6d74a7;
+}
+input {
+  width: 280px;
+  margin-bottom: 5px;
+  height: 30px;
+  box-shadow: 0px 0px 9px 2px #d3c0c0;
+}
+.buttons-wrapper,
+.input-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.buttons-left,
+.buttons-right {
+  display: grid;
+  grid-template-columns: repeat(3, 70px);
+}
+.buttons-right {
+  grid-template-columns: 70px;
+}
+.addition {
+  height: 38px;
+}
