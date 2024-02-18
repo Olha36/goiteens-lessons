@@ -96,17 +96,33 @@
 // })
 
 //task3
-const userList = document.getElementById('userList');
+// const userList = document.getElementById('userList');
 
-function deleteUser(event) {
-  if(event.target.classList.contains('deleteButton')) {
-    console.log('delete button is found');
+// function deleteUser(event) {
+//   if(event.target.classList.contains('deleteButton')) {
+//     console.log('delete button is found');
 
-    const parent = event.target.closest('li');
-    console.log(parent);
+//     const parent = event.target.closest('li');
+//     console.log(parent);
 
-    parent.remove()
-  }
+//     parent.remove()
+//   }
+// }
+
+//task4
+const buttonList = document.querySelectorAll('.btn');
+console.log(buttonList);
+
+const hightLightElement = (event) => {
+  
+  buttonList.forEach(button => {
+    button.classList.remove('active');
+  });
+
+  event.target.classList.add('active');
+
 }
 
-userList.addEventListener('click', deleteUser);
+const buttonElement = buttonList.forEach((button) => {
+  button.addEventListener('click', hightLightElement)
+})
