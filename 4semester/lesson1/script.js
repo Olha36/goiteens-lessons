@@ -17,99 +17,96 @@
 //додати обробники подій і показати результат
 
 // task2
-let output =document.querySelector('.output');
-let colorPalette = document.querySelector('.color-palette');
+// let output =document.querySelector('.output');
+// let colorPalette = document.querySelector('.color-palette');
 
 
 
-const selectColor = (event) => {
-  // В цій функції:
-  //1. Перевірити чи елемент, який викликав подію кліку не є кнопкою. Якщо клікнули по кнопці функція не має виконуватися
-  if(event.target.nodeName !== 'BUTTON') {
-    return;
-  }
+// const selectColor = (event) => {
+//   // В цій функції:
+//   //1. Перевірити чи елемент, який викликав подію кліку не є кнопкою. Якщо клікнули по кнопці функція не має виконуватися
+//   if(event.target.nodeName !== 'BUTTON') {
+//     return;
+//   }
 
   
-  //2. оголосити функцію вибору кольору коли подія спливає. В параметрах вказати подію
+//   //2. оголосити функцію вибору кольору коли подія спливає. В параметрах вказати подію
 
 
-  //2. необхідно отримати колір, що повязаний з кнопкою, яка була натиснута в палітрі кольорів. Для цього:
-  // а)
-  // до елементу, який був клікнутий додамо властивісь DOM-елементів, яка повертає обєкт // що містить усі користувацькі атрибути даних data встановлені на елементі
+//   //2. необхідно отримати колір, що повязаний з кнопкою, яка була натиснута в палітрі кольорів. Для цього:
+//   // а)
+//   // до елементу, який був клікнутий додамо властивісь DOM-елементів, яка повертає обєкт // що містить усі користувацькі атрибути даних data встановлені на елементі
 
-  // б) звернемось до конкретного користувацького атрибута даних "колір" 
+//   // б) звернемось до конкретного користувацького атрибута даних "колір" 
 
-  const selectedColor = event.target.dataset.color;
+//   const selectedColor = event.target.dataset.color;
 
 
-  //3. до пешкі з класом output додати текстове значення з назвою вибраного кольору.
-  output.textContent = `Selected color: ${selectedColor}`;
-  output.style.color = selectedColor;
-}
+//   //3. до пешкі з класом output додати текстове значення з назвою вибраного кольору.
+//   output.textContent = `Selected color: ${selectedColor}`;
+//   output.style.color = selectedColor;
+// }
 
-// оголосити та викликати функцію для генерації та додавання кнопок кольорів:
-// оголосити функцію для рандомних кольорів:
-const randomColor = () => {
-  // В функції повернути шістнадцяткове значення кольору викликом трьох функцій для генерації
-  return `#${randomHex()}${randomHex()}${randomHex()}`;
-  // рандомних значень для червоних, зелених та голубих компонентів кольору
-}
-
-const randomHex = () => {
-  // 1. повернути округлене рандомне число від 0 до 256 (максимальне значення шістнадцяткового значення кольору)
-  return Math.round(Math.random() * 256)
-  .toString(16)
-  .padStart(2,'0');
-  // 2. перевести рандомне число до шістнадцяткового відображення використовуючи необхідний метод та вказати шістнадцятковий код
+// const randomColor = () => {
+ 
+//   return `#${randomHex()}${randomHex()}${randomHex()}`;
   
-  // 3. При роботі із шістнадцятковими числами, які представляють кольори важливо переконатися, що кожне число (наприклад, 3, 8 або d) буде представлене двома
-  // символами, наприклад (03, 08, 0d). Це необхідно для того, щоб кожний компонет кольору мав постійну довжину
-  // в два символи, щоб потім можна було легко скласти його із іншими компонентами для отримання шістнадцяткового кольору
-}
+// }
 
-//1. додати обробник подій на кожен елемент палітри та викликати функцію вибору кольору при сплитті події
-colorPalette.addEventListener('click', selectColor);
+// const randomHex = () => {
+  
+//   return Math.round(Math.random() * 256)
+//   .toString(16)
+//   .padStart(2,'0');
+// }
 
-createPaletteItems();
+// colorPalette.addEventListener('click', selectColor);
+
+// createPaletteItems();
 
 
 
-function createPaletteItems() {
-  // 1. Всередині функції створити пустий масив айтемів, який буде зберігати посилання на новостворені кольорові кнопки
-  let items = [];
-  // 2. оголосити цикл фо, який буде виконуватися 60 раз від 1 до 60
-  for (let i = 0; i< 60; i++) {
-    // 3. в змінну помістити функцію для оголошення кольорів
-    let color = randomColor();
-    // 4. створити кнопку за допомогою спеціального методу та помістити в змінну
-    let button = document.createElement('button');
-    // 5. задати тип створеній кнопці "кнопка"
-    button.type = 'button';
-    // 6. встановити колір для кнопки за допомогою користувацького атрибуту dataset та зберігти дане значення в змінну
-    button.dataset.color = color;
-    // 7. встановити бекграунд колір елементу кнопки значенню змінної для кольору. Дана змінна буде відображати колір кнопки
-    button.style.backgroundColor = color;
-    // 8. додати сss клас item до кнопки
-    button.classList.add('button')
-    // 9. додати кнопку до масиву айтемів
-    items.push(button);
+// function createPaletteItems() {
+  
+//   let items = [];
+//   for (let i = 0; i< 60; i++) {
+//     let color = randomColor();
+//     let button = document.createElement('button');
+//     button.type = 'button';
+//     button.dataset.color = color;
+//     button.style.backgroundColor = color;
+//     button.classList.add('button')
+//     items.push(button);
+//   }
+
+//   colorPalette.append(...items);
+
+// }
+
+
+//example1
+// const btns = document.querySelectorAll('.btn');
+// console.log(btns);
+
+// btns.forEach((button) => {
+//   button.addEventListener('click', function(event) {
+//     console.log(event.currentTarget);
+//     console.log(event.target);
+//   })
+// })
+
+//task3
+const userList = document.getElementById('userList');
+
+function deleteUser(event) {
+  if(event.target.classList.contains('deleteButton')) {
+    console.log('delete button is found');
+
+    const parent = event.target.closest('li');
+    console.log(parent);
+
+    parent.remove()
   }
-
-  colorPalette.append(...items);
-
 }
 
-    
-    
-
-
-
-
-
-
-
-
-// оголосити функцію для генерації шістнадцяткового значення
-
-
-
+userList.addEventListener('click', deleteUser);

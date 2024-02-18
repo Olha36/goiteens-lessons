@@ -28,7 +28,7 @@
 } */
 
 /* task 2 */
-body {
+/* body {
   margin: 8px;
   font-family: sans-serif;
 }
@@ -63,5 +63,13 @@ body {
 
 .color-palette .button:hover {
   transform: scale(1.1);
-}
+} */
 
+.btn {
+  width: 135px;
+  height: 35px;
+  padding: 10px;
+  background-color: rgb(91, 243, 230);
+  border: 1px solid blue;
+  cursor: pointer;
+}
