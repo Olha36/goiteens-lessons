@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>МОДУЛЬ №2 Бібліотека Lodash. Throttle і Debounce</title>
+  </head>
+  <body>
+    <h1>МОДУЛЬ №2 Бібліотека Lodash. Throttle і Debounce</h1>
+    <p class="cta">Scroll me</p>
+
+    <div class="event-counter">
+      <div class="box">
+        <p>No timing function</p>
+        <span class="output vanilla">0</span>
+      </div>
+
+
+      <div class="box">
+        <p>Throttled</p>
+        <span class="output throttled">0</span>
+      </div>
+
+      <div class="box">
+        <p>Debounced</p>
+        <span class="output debounced">0</span>
+      </div>
+  
+    </div>
+
+    <div class="task-one">
+      <div class="box">
+        <input type="text" class="task1-input">
+        <span class="task1 throttled">0</span>
+      </div>
+    </div>
+
+    <div class="task-two">
+      <div class="box">
+        <input type="text" class="task2-input">
+        <span class="task2 debounced">0</span>
+      </div>
+    </div>
+
+    <div class="task-three">
+      <div class="box">
+        <input type="text" class="task3-input">
+        <p>Вітаємо, 
+          <span class="task3 debounced"></span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ht1 -->
+    <div class="slider">
+      <input type="range" min="1" max="100" value="50" class="slider__input">
+      <img src="https://via.placeholder.com/300x300" class="slider__image">
+    </div>
+    
+  
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script src="./script.js"></script>  
+</body>
+
+</html>
