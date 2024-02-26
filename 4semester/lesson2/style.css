@@ -31,7 +31,8 @@ h1 {
   justify-content: center;
 }
 
-.box {
+.box,
+.box-three {
   min-width: 160px;
   display: inline-flex;
   flex-direction: column;
