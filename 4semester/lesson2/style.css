@@ -25,7 +25,7 @@ h1 {
 }
 
 .event-counter {
-  position: sticky;
+  /* position: sticky; */
   top: 100px;
   display: flex;
   justify-content: center;
@@ -53,4 +53,20 @@ h1 {
 .event-counter span {
   font-size: 48px;
   font-family: monospace;
+}
+
+/* ht1 */
+.slider {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.slider__input {
+  width: 100%;
+}
+
+.slider__image {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
 }

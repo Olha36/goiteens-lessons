@@ -67,17 +67,30 @@ console.log(_.includes([1, 2, 3], 1, 0));
 // )
 
 //task 3
-const task3Input = document.querySelector('.task3-input');
-const task3Output = document.querySelector('.task3.debounced')
+// const task3Input = document.querySelector('.task3-input');
+// const task3Output = document.querySelector('.task3.debounced')
 
-task3Input.addEventListener('input', _.debounce(() => {
-  const name = task3Input.value;
-  if (name) {
-    task3Output.textContent = name;
-  } else {
-    task3Output.textContent = '';
-  }
-}, 500));
+// task3Input.addEventListener('input', _.debounce(() => {
+//   const name = task3Input.value;
+//   if (name) {
+//     task3Output.textContent = name;
+//   } else {
+//     task3Output.textContent = '';
+//   }
+// }, 500));
+
+//ht1
+const sliderInput = document.querySelector('.slider__input');
+const sliderImage = document.querySelector('.slider__image');
+
+const updateImageSize = () => {
+  const size = sliderInput.value;
+  sliderImage.style.width = `${size}%`;
+};
+
+sliderInput.addEventListener('input', _.debounce(updateImageSize, 100));
+
+updateImageSize();
 
 
 
