@@ -35,62 +35,57 @@ document.addEventListener(
     debouncedOutput.textContent = eventCounter.debounced;
   }, 300)
 )
-_.forEach([1, 2, 3, 6, 5], function(value) {
+
+
+_.forEach([1, 2, 5, 8, 10, 15], function(value) {
   console.log(value);
 });
 
-
-console.log(_.includes([1, 2, 3], 1, 0));
-// => false
+console.log(_.includes([1, 2, 3, 4], 2, 1));
 
 //task 1
-// const task1Input = document.querySelector('.task1-input');
-// const task1Output = document.querySelector('.task1.throttled')
+// const input = document.querySelector('.task1-input');
+// const counter = document.querySelector('.task1.throttled');
 
-// task1Input.addEventListener('input', _.throttle(() => {
-//   console.log(task1Input.value);
+// input.addEventListener('input',  _.throttle((event) => {
+//   const text = event.target.value;
+//   console.log(text);
 //   eventCounter.task1 += 1;
-//   task1Output.textContent = eventCounter.task1;
-//   }, 500)
-// )
+//   counter.textContent = eventCounter.task1;
+
+// }, 500))
 
 //task2
 
-// const task2Input = document.querySelector('.task2-input');
-// const task2Output = document.querySelector('.task2.debounced')
+// const input2 = document.querySelector('.task2-input');
+// let span = document.querySelector('.task2.debounced');
 
-// task2Input.addEventListener('input', _.debounce(() => {
-//   console.log(task2Input.value);
+// input2.addEventListener('input', _.debounce((event) => {
+//   console.log(event.target.value);
 //   eventCounter.task2 += 1;
-//   task2Output.textContent = eventCounter.task2;
-//   }, 500)
-// )
+//   span.textContent = eventCounter.task2
+// }, 500))
 
 //task 3
-// const task3Input = document.querySelector('.task3-input');
-// const task3Output = document.querySelector('.task3.debounced')
+// const input = document.querySelector('.task3-input');
+// const span = document.querySelector('.task3.debounced');
 
-// task3Input.addEventListener('input', _.debounce(() => {
-//   const name = task3Input.value;
-//   if (name) {
-//     task3Output.textContent = name;
-//   } else {
-//     task3Output.textContent = '';
-//   }
-// }, 500));
+// input.addEventListener('input', _.debounce((event) => {
+//   console.log(event.target.value);
+
+//   span.textContent = `${event.target.value}!`;
+// }, 500))
 
 //ht1
-const sliderInput = document.querySelector('.slider__input');
-const sliderImage = document.querySelector('.slider__image');
+const slider = document.querySelector('.slider');
+const image = document.querySelector('.slider__image');
+const input = document.querySelector('.slider__input');
 
-const updateImageSize = () => {
-  const size = sliderInput.value;
-  sliderImage.style.width = `${size}%`;
-};
+input.addEventListener('input', _.debounce(() => {
+  const newWidth = input.value + "%"
 
-sliderInput.addEventListener('input', _.debounce(updateImageSize, 100));
-
-updateImageSize();
+  image.style.width = newWidth;
+}, 100))
 
 
 
