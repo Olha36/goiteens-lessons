@@ -18,3 +18,44 @@
   transform: translateX(0);
   opacity: 1;
 }
+.fruits-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fruits-list li {
+  flex-basis: calc(33.33% - 10px);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.fruits-list img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fruits-list h3 {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #333;
+  font-size: 20px;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.fruits-list li img.active {
+  transition: transform 0.5s ease-in-out;
+  transform: scale(1.1);
+}
+
+.fruits-list li h3.active {
+  transition: color 0.5s ease-in-out;
+  color: #f00;
+}
