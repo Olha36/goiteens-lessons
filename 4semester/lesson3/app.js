@@ -8,10 +8,11 @@ prompt.start();
 //
 prompt.get(['email'], (err, result) => {
 
-  if (err) {
-    console.error(err);
+  if(err) {
+    console.log(err);
     return;
   }
+ 
   let email = result.email;
 
   if(validator.isEmail(email)) {
