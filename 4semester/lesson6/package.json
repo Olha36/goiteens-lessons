@@ -1,0 +1,12 @@
+{
+  "name": "lesson6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node ./main.js"
+  },
+  "author": "Olha",
+  "license": "ISC"
+}
