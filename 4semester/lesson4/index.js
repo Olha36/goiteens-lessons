@@ -3,11 +3,6 @@
 // const addTaskBtn = document.querySelector('#addTaskBtn');
 // const div = document.querySelector('div');
 
-// let nanoid = require('nanoid/non-secure');
-
-// model.id = nanoid();
-// console.log(model.id)
-
 
 // const ctx = document.getElementById('myChart');
 
@@ -71,7 +66,7 @@ const addTask = () => {
 	const checkBox = document.createElement('input');
 	checkBox.type = 'checkbox';
 	const newContent = document.createTextNode(taskInput.value);
-
+  
 	listElement.appendChild(newContent);
 	listElement.appendChild(checkBox)
 
@@ -102,3 +97,4 @@ const buttonDoneContent = document.createTextNode('done');
 
 	div.insertAdjacentElement("beforeend", doneTaskButton);
 }
+// console.log(crypto.randomUUID());

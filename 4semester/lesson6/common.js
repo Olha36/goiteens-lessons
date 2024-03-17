@@ -9,15 +9,15 @@
 // }
 
 // welcomeUser();
-const name = require('./script2')
 
+
+const hello = 'hello, world!'
 const age = 25;
 
-const userAge = () => {
-return age;
-}
+const userAge = () =>  age;
+const helloMessage = () => hello;
 
 module.exports = {
   userAge,
-  name
+  helloMessage
 }
