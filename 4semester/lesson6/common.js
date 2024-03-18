@@ -13,11 +13,18 @@
 
 const hello = 'hello, world!'
 const age = 25;
+const victory = 'Ukraine will win!'
 
 const userAge = () =>  age;
 const helloMessage = () => hello;
+// const ukrainianVictory = () => victory;
+
+const ukrainianVictory = () => {
+  return victory;
+}
 
 module.exports = {
   userAge,
-  helloMessage
+  helloMessage,
+  ukrainianVictory
 }

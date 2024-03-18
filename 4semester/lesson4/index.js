@@ -65,12 +65,26 @@ const addTask = () => {
 	const listElement = document.createElement('li');
 	const checkBox = document.createElement('input');
 	checkBox.type = 'checkbox';
+
 	const newContent = document.createTextNode(taskInput.value);
+
+	const taskID = crypto.randomUUID();
+	console.log('new task with unique ID:', taskID);
   
 	listElement.appendChild(newContent);
 	listElement.appendChild(checkBox)
 
 	taskList.appendChild(listElement);
+
+	checkBox.addEventListener('change', function () {
+		if (this.checked) {
+			listElement.classList.add('checked');
+		} else {
+			listElement.classList.remove('checked');
+		}
+	})
+
+
 
 }
 
@@ -97,4 +111,3 @@ const buttonDoneContent = document.createTextNode('done');
 
 	div.insertAdjacentElement("beforeend", doneTaskButton);
 }
-// console.log(crypto.randomUUID());
