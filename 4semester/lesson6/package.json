@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "npm test",
-    "start": "node ./main.js"
+    "start": "+"
   },
   "author": "Olha",
   "license": "ISC"
