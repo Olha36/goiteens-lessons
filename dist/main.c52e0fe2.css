@@ -1,0 +1,201 @@
+.structure {
+  background-color: rgb(233, 138, 252);
+}
+
+h1 {
+  text-align: center;
+}
+
+.structure_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.structure_header img {
+  margin-left: 10px;
+}
+.structure_header img:hover {
+  cursor: pointer;
+}
+
+.structure_container,
+.structure_container_task {
+  text-align: center;
+}
+
+.structure_container_hover:hover {
+  color: yellow;
+}
+
+.structure_container_color:hover {
+  color: blue;
+}
+
+.extend {
+  background-color: rgb(102, 255, 0);
+}
+
+.extend_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.extend_header img {
+  margin-left: 10px;
+}
+
+.extend_container,
+.extend_stakeholders {
+  text-align: center;
+}
+
+.extend_container_meaning {
+  font-weight: 700;
+  font-size: 20px;
+}
+.extend_container_meaning:hover {
+  background-color: yellow;
+}
+
+.extend_container_button, .extend_button-error,
+.extend_button-success {
+  display: inline-flex;
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 10px 20px;
+  color: #fff;
+  width: 100px;
+  background-color: gray;
+}
+
+.extend_button-success {
+  background-color: green;
+}
+
+.extend_button-error {
+  background-color: red;
+}
+
+.input-extend-one, .input_extend-two {
+  display: block;
+  padding: 10px;
+  border: 5px solid yellow;
+  border-radius: 10%;
+  font-size: 16px;
+  background-color: lightblue;
+}
+
+.input_extend-two {
+  background-color: red;
+}
+
+.mixin {
+  background-color: aqua;
+}
+
+.mixin_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mixin_header a {
+  margin-left: 10px;
+}
+
+.extend_mixins {
+  text-align: center;
+}
+.extend_mixins h2 {
+  color: blue;
+  border: 5px dashed;
+  border-color: rgb(72, 255, 0);
+}
+.extend_mixins .extend_mixins-try {
+  color: orange;
+  border: 5px dashed;
+  border-color: indigo;
+}
+.extend_mixins .extend_mixins-size {
+  font-family: "Roboto", sans-serif;
+  font-size: 23px;
+}
+.extend_mixins .extend_mixins-radius {
+  border-radius: 50px;
+  border: 5px dashed;
+  border-color: red;
+}
+
+.each {
+  background-color: pink;
+}
+
+.each_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.each_header img {
+  margin-left: 10px;
+}
+
+.each_container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arythmetic {
+  background-color: rgb(233, 87, 131);
+}
+
+.arythmetic_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arythmetic_header h1 {
+  margin-right: 10px;
+}
+
+.arythmetic_container {
+  text-align: center;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(250, 250, 107);
+}
+
+h1 {
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button-wrapper {
+  padding: 5px;
+  width: 300px;
+  height: 100px;
+  margin-right: 10px;
+  box-shadow: 6px 2px 25px #7d6e6e;
+  margin-bottom: 10px;
+}
+.button-wrapper:hover {
+  background: linear-gradient(0deg, rgb(41, 232, 235) 0%, rgba(250, 255, 53, 0.893995098) 85%);
+}
+.button-wrapper a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(39, 27, 211);
+}
+
+/*# sourceMappingURL=/main.c52e0fe2.css.map */

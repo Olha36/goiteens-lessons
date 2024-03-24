@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Olha",
+  "author": "Olha36",
   "license": "ISC",
   "dependencies": {
     "handlebars": "^4.7.8",
