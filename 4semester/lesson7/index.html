@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="menu-container"></div>
 
-  <script id="user-template" type="text/x-handlebars-template">
-    <div class="user">
-      <h2>{{name}}</h2>
-      <p>{{email}}</p>
-    </div>
-  </script>
+    <template id="menu-template">
+      <div class="menu">
+        <h3 class="menu-title">{{title}}</h3>
+        <ul class="menu-list">
+          {{#each items}}
+          <li class="menu-item">{{this}}</li>
+          {{/each}}
+        </ul>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-  <script src="./script.js"></script>
-</body>
+        <ul class="menu-list">
+          {{#each characters}}
+          <li class="menu-item">{[this]}></li>
+          {{/each}}
+        </ul>
+      </div>
+    </template>
+
+    <div class="wrapper"></div>
+    <template id="user-template">
+      <div class="user">
+        <h2>{{name}}</h2>
+        <p>{{email}}</p>
+      </div>
+    </template>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
 </html>
