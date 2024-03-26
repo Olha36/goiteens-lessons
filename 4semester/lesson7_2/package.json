@@ -4,12 +4,11 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm test"
   },
-  "keywords": [],
-  "author": "Olha36",
+  "author": "Olha",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "parcel-bundler": "^1.12.5"
   }
 }

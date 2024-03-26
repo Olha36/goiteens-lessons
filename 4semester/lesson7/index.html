@@ -14,22 +14,17 @@
       <div class="menu">
         <h3 class="menu-title">{{title}}</h3>
         <ul class="menu-list">
-          {{#each items}}
-          <li class="menu-item">{{this}}</li>
-          {{/each}}
+          
+          <li class="menu-item">{{name}}</li>
+          <li class="menu-item">{{age}}</li>
+          <li class="menu-item">{{position}}</li>
+       
         </ul>
 
   
       </div>
     </template>
 
-    <div class="wrapper"></div>
-    <template id="user-template">
-      <div class="user">
-        <h2>{{name}}</h2>
-        <p>{{email}}</p>
-      </div>
-    </template>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="./script.js"></script>
