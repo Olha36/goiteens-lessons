@@ -42,37 +42,37 @@
 // console.log('Продовжив виконуватися [main] після виходу з [fnA]'); 
 
 //task1
-const withDraw = function(amount, balance) {
-  if(amount === 0) {
-    console.log('Enter amount more than 0');
-  } else if(amount > balance) {
-    console.log('not enough money');
-  } else {
-    console.log('success');
-  }
-}
+// const withDraw = function(amount, balance) {
+//   if(amount === 0) {
+//     console.log('Enter amount more than 0');
+//   } else if(amount > balance) {
+//     console.log('not enough money');
+//   } else {
+//     console.log('success');
+//   }
+// }
 
-withDraw(0, 300);
-withDraw(500, 100);
-withDraw(500, 1000);
+// withDraw(0, 300);
+// withDraw(500, 100);
+// withDraw(500, 1000);
 
 
-const withDraw2 = function(amount, balance) {
-  if(amount === 0) {
-    console.log('Enter amount more than 0');
-    return;
-  } 
-  if(amount > balance) {
-    console.log('not enough money');
-    return;
-  } 
-  console.log('success');
+// const withDraw2 = function(amount, balance) {
+//   if(amount === 0) {
+//     console.log('Enter amount more than 0');
+//     return;
+//   } 
+//   if(amount > balance) {
+//     console.log('not enough money');
+//     return;
+//   } 
+//   console.log('success');
   
-}
+// }
 
-withDraw2(0, 300);
-withDraw2(500, 200);
-withDraw2(200, 500)
+// withDraw2(0, 300);
+// withDraw2(500, 200);
+// withDraw2(200, 500)
 
 // //example 3
 // const count = function(countFrom = 0, countTo = 10, step = 1) {
@@ -86,3 +86,29 @@ withDraw2(200, 500)
 // count(2); // countFrom = 2, countTo = 10, step = 1
 // count(undefined, 5, 2); // countFrom = 0, countTo = 5, step = 2
 // count(); // countFrom = 0, countTo = 10, step = 1
+
+
+const fruits = [
+  {name: 'banana', quantity: 100, isFresh: true},
+  {name: 'apples', quantity: 150, isFresh: false},
+  {name: 'grapes', quantity: 200, isFresh: true},
+  {name: 'strawberry', quantity: 200, isFresh: true}
+]
+
+const filter = function(array, test) {
+  const filteredElements = [];
+
+  for (const element of array) {
+    const passed = test(element);
+
+    if(passed) {
+      filteredElements.push(element);
+    }
+  }
+
+  return filteredElements;
+}
+
+const freshFruit = filter(fruits, fruit => !fruit.isFresh);
+console.log(freshFruit);
+

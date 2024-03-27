@@ -1,62 +1,63 @@
 // let name = 'Resort Hotel';
 // let stars = 5;
+// let weather = 'warm';
+
 
 // const myArray = {
-//   age: 25,
+//   age: 15,
 //   city: "Zhytomyr",
 //   occupation: "developer",
 //   name: name,
 //   stars: stars,
-//   increaseAge: function(age) { // Додав метод increaseAge до об'єкту myArray
-//     this.age += age;
-//   },
-//   changeOccupation: function(position) {
-//     this.occupation = position;
-//   }
+//   finishedGraduation: true,
+//   weatherWarm: weather
 // }
+// console.log(myArray.city, myArray.age);
 
-// myArray.increaseAge(15);
-// myArray.changeOccupation('teacher')
-// console.log(myArray.age);
-// console.log(myArray.occupation);
+// myArray.occupation = "student";
+// console.log(myArray);
 
+
+
+
+const greeting = () => {
+  console.log('hello')
+}
+greeting()
+// console.log(myArray.weather)
 
 // const person = {
 //   name: "Katya",
 //   age: 15,
 //   gender: "female",
-//   showValues: function(name2, age2, gender2) {
-//     this.name = name2;
-//     this.age = age2;
-//     this.gender = gender2;
-//   }
+//   
 // }
-// person.showValues("Vasya", 17, "male")
-// console.log(person.age);
 
-const students = [
-  {
-    name: "Katya",
-    age: 15,
-    gender: "female",
-    grade: 95
-  },
-  {
-    name: "Nastya",
-    age: 16,
-    gender: "female",
-    grade: 45
-  },
-  {
-    name: "Masha",
-    age: 15,
-    gender: "female",
-    grade: 75
-  }
-]
+// const students = [
+//   {
+//     name: "Katya",
+//     age: 15,
+//     gender: "female",
+//     grade: 95
+//   },
+//   {
+//     name: "Nastya",
+//     age: 16,
+//     gender: "female",
+//     grade: 45
+//   },
+//   {
+//     name: "Masha",
+//     age: 15,
+//     gender: "female",
+//     grade: 75
+//   }
+// ]
 
-const averageScore = (students) => {
-  console.log(students.grade);
 
-}
-averageScore()
+// const book = {
+//   title: 'Harry Potter',
+//   author: 'J.K. Rowling',
+//   year: 2010,
+//   genre: 'fantasy'
+// }
