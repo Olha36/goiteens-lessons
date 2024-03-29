@@ -55,12 +55,3 @@ const userData = [
   }
 ]
 
-
-// Compile the template
-const addressTemplate = Handlebars.compile(document.querySelector('#address-template').innerHTML);
-
-// Select the element where the template will be rendered
-const userTemplateElement = document.querySelector('#user-template');
-
-// Render the template with userData and inject into the userTemplateElement
-userTemplateElement.innerHTML = addressTemplate( userData );
