@@ -55,3 +55,13 @@ const userData = [
   }
 ]
 
+const addressTemplate = document.querySelector('#address-template');
+console.log(addressTemplate);
+const compileTemplate = Handlebars.compile(addressTemplate.innerHTML);
+console.log(compileTemplate);
+
+const userTemplateElement = document.querySelector('#user-template');
+console.log(userTemplateElement);
+
+userTemplateElement.innerHTML = compileTemplate(userData)
+
