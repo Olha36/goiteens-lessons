@@ -13,12 +13,13 @@
 //   }
 // }`
 
-
+// console.log(json)
 
 // const data = JSON.parse(json);
 // console.log(data); 
 
-
+// const stringify = JSON.stringify(data);
+// console.log(stringify);
 
 
 
@@ -26,28 +27,23 @@
 // const book = `{
 //   "name": "Harry Potter",
 //   "author": "J.K Rowling",
-//   "year": 1997,
-//   "genre": "fantasy"
+//   "publicationYear": 1997,
+//   genre": "fantasy"
 // }`
+// console.log(book);
 
 // const checkJson = JSON.parse(book);
 // console.log(checkJson);
 
 //task 2
-// const name = prompt('Enter your name');
-// const age = prompt('Enter your age');
+const name = prompt('enter your name');
+const age = prompt('enter your age');
 
-// const data = {
-//   "name": name,
-//   "age": parseInt(age)
-// }
-// // console.log(data);
-
-// const transformIntoJson = JSON.stringify(data);
-// // console.log(transformIntoJson);
-
-// const checkJson = JSON.parse(transformIntoJson);
-// console.log(checkJson);
+const json = `{
+  "name": name,
+  "age": parseInt(age)
+}`;
+console.log(JSON.parse(json));
 
 //task3
 
@@ -59,14 +55,8 @@
 //   "grades": [90, 40, 85, 100]
 // }`
 
-// function jsObject() {
-//   const object = JSON.parse(jsonData);
-//   return object;
-// }
 
-// const result = jsObject();
-// console.log(result);
-
+//task4
 
 // const jsonData = `{
 //   "name":"Pizza",
@@ -75,19 +65,5 @@
 //   "ingredients":["tomatoes","mushrooms","cheese","chicken"]
 // }`
 
-// const checkJson = JSON.parse(jsonData);
-// console.log(checkJson);
 
-const film = `{
-  "name": "Titanic",
-  "year": 1997,
-  "producer": "James Kameron",
-  "genre": "drama",
-  "actors": ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"]
-}`
-
-const transform = JSON.parse(film);
-console.log(transform);
-
-const intoJson = JSON.stringify(transform);
-console.log(intoJson);
+//task 5
