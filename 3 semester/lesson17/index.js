@@ -1,9 +1,14 @@
 //example 1
 // const numbers = [1, 2, 3, 4, 5];
-// const sum = numbers.reduce((acc, value) => acc + value, 0);
+// const sum = numbers.reduce((num1Prev, numNext) => num1Prev + numNext, 0);
 
 // console.log(sum); 
 
+// let sum = 0
+// for (let i = 0; i < numbers.length; i++) {
+//   sum += numbers[i];
+//   console.log(sum);
+// }
 //example 2
 // const tweets = [
 //   { id: '000', likes: 5, tags: ['js', 'nodejs'] },
@@ -13,11 +18,12 @@
 //   { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
 // ];
 
-// const likes = tweets.reduce((totalLikes, tweet) => totalLikes + tweet.likes, 0);
+// console.log(tweets[1].tags);
+// // const likes = tweets.reduce((totalLikes, tweet) => totalLikes + tweet.likes, 0);
 
-// console.log(likes); // 32
+// // console.log(likes); // 32
 
-// const countLikes = tweets =>
+// const countLikes = () => 
 //   tweets.reduce((totalLikes, tweet) => totalLikes + tweet.likes, 0)
 
 // console.log(countLikes(tweets));
@@ -107,8 +113,8 @@
 // console.log(tagCount);
 
 //example 4
-// const numbers = [2, 1, 4, 3, 5];
-// // Відсортує по зростанню
+// const numbers = [1, 2, 3, 4, 5];
+// // // Відсортує по зростанню
 // console.log('Before sort: ', numbers); 
 // console.log('After sort: ', numbers.sort()); 
 
@@ -116,7 +122,7 @@
 // const clients = ['Mango', 'Ajax', 'Poly', 'Chelsey'];
 
 
-// // Відсортує за алфавітом
+// Відсортує за алфавітом
 // console.log('Before sort: ', clients); 
 // console.log('After sort: ', clients.sort()); 
 
@@ -178,5 +184,8 @@ const salary = {
   ajax: 150,
 };
 
-const totalSalary = Object.values(salary).reduce((currValue, salary) => currValue + salary, 0) 
+const values = Object.values(salary);
+const totalSalary = values.reduce((a, b) => a + b)
+
+
 console.log(totalSalary);
