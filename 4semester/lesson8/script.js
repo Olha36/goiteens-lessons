@@ -40,10 +40,11 @@ const name = prompt('enter your name');
 const age = prompt('enter your age');
 
 const json = `{
-  "name": name,
-  "age": parseInt(age)
+  "name": "${name}",
+  "age": '${parseInt(age)}'
 }`;
 console.log(JSON.parse(json));
+
 
 //task3
 
