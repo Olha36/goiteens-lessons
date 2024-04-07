@@ -95,7 +95,7 @@
 // console.log(names);
 
 //example 7
-const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 15];
+// const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 15];
 
 //const num = [15]
 
@@ -154,4 +154,56 @@ const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 15];
 
 // console.log([2, 5, 8, 1, 4].some(isBigEnough)); // false
 // console.log([12, 5, 8, 1, 4].some(isBigEnough)); // true
+
+//task 1
+const players = [
+  { id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, online: false },
+  { id: 'player-2', name: 'Poly', timePlayed: 470, points: 92, online: true },
+  { id: 'player-3', name: 'Kiwi', timePlayed: 230, points: 48, online: true },
+  { id: 'player-4', name: 'Ajax', timePlayed: 150, points: 71, online: false },
+  { id: 'player-5', name: 'Chelsy', timePlayed: 80, points: 48, online: true },
+];
+
+// const checkFilter = players.map((player) => player.name);
+// console.log(checkFilter);
+
+//Збільшити кількість поінтів кожного гравця на 10% (розпорошуємо старий об'єкт)
+const forEachMethod =players.forEach(player => {
+  player.points *= 1.1; // збільшуємо кількість поінтів на 10%
+});
+console.log(players);
+
+
+//Збільшити кількість годин гравця по id. Переписати на тернарник
+const playerIdToUpdate = 'player-2'; // приклад id гравця, час якого потрібно збільшити
+
+const updatedPlayers = players.map(player => {
+  return player.id === playerIdToUpdate ? { ...player, timePlayed: player.timePlayed + 100 } : player;
+});
+console.log(updatedPlayers);
+
+//Отримати масив всіх гравців онлайн
+const onlinePlayers = players.filter(player => player.online);
+console.log(onlinePlayers);
+
+//Отримати масив всіх гравців офлайн
+const offlinePlayers = players.filter(player => !player.online);
+console.log(offlinePlayers);
+// Отримати масив всіх хардкорних гравців з часом більше 250
+const hardcorePlayers = players.filter(player => player.timePlayed > 250);
+console.log(hardcorePlayers);
+// Знайти гравця по id
+// const playerIdToFind = 'player-3'; // Приклад id гравця, якого потрібно знайти
+const foundPlayerById = players.find(player => player.id === 'player-3');
+console.log(foundPlayerById);
+// Знайти гравця по імені
+const foundPlayerByName = players.find(player => player.name ==='Poly');
+console.log(foundPlayerByName);
+
+// Перевірити чи всі гравці мають час більше 200
+const allPlayersHaveEnoughTime = players.every(player => player.timePlayed > 200);
+console.log(allPlayersHaveEnoughTime);
+// Перевірити чи всі гравці онлайн
+const allPlayersAreOnline = players.every(player => player.online);
+console.log(allPlayersAreOnline);
 
