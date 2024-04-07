@@ -1,0 +1,11 @@
+body {
+  margin: 16px;
+  text-align: center;
+}
+
+.change-color {
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+  background-color: yellow;
+}
