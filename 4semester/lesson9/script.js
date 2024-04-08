@@ -25,92 +25,121 @@
 // document.write(localStorage.info)
 
 //task1
-// function addToLocalStorage(key, object) {
-//   let objectString = JSON.stringify(object);
+function addToLocalStorage(key, object) {
+  let objectString = JSON.stringify(object);
 
-//   localStorage.setItem(key, objectString)
-//   return object;
-// }
+  localStorage.setItem(key, objectString)
+  return object;
+}
 
-// const key = 'task 1'
+const key = 'task 1'
 
-// const object = {
-//   name: 'John',
-//   age: 30
-// }
+const object = {
+  name: 'John',
+  age: 30
+}
 
-// addToLocalStorage(key, object);
+addToLocalStorage(key, object);
+
+
 
 //task 2
-// function getFromLocalStorage(key) {
-//  const stringToObj = localStorage.getItem(key);
+function getFromLocalStorage(key) {
+ const stringToObj = localStorage.getItem(key);
 
-//   const object = JSON.parse(stringToObj);
-//   return object;
-// }
+  const object = JSON.parse(stringToObj);
+  return object;
+}
 
 // console.log(getFromLocalStorage(key));
 //task 3
 
+// function removeItem() {
+//   localStorage.removeItem(key)
+// }
+
+// removeItem(key)
 // task 4
+// function clearStorage() {
+//   localStorage.clear();
+// }
+// clearStorage();
 
 //task 5
+function lengthStorage() {
+  return localStorage.length;
+}
+// console.log(lengthStorage());
 
 //task 6
 
-//task 7
+// function  returnList() {
+// const keys = [];
 
+// for (let i = 0; i < localStorage.length; i++) {
+//   keys.push(localStorage.key(i))
+// }
+// return keys;
+
+// }
+// console.log(returnList());
+
+// localStorage.setItem('key1', 'value1');
+// localStorage.setItem('key2', 'value2');
+
+function  returnList() {
+  const keys = [];
+  
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i)
+    if (key !== null) {
+      keys.push(key);
+    }
+  }
+  return keys;
+  
+  }
+//   console.log(returnList());
+//task 7
+function checkKey(key) {
+  return localStorage.getItem(key) !== null;
+}
+// console.log(checkKey());
 //task 8
+function checkValue(value) {
+  return localStorage.getItem(value) !== null;
+}
+// console.log(checkValue('somevalue1'));
 
 //task 9
+function addItems(item, value) {
+  const existingArr = JSON.parse(localStorage.getItem(item)) || [];
 
-// const name = prompt('Enter your name');
-// const age = prompt('Enter your age');
-// const email = prompt('Enter your email');
+  existingArr.push(value);
 
-// const userData = `{
-//   "name": "${name}",
-//   "age": ${parseInt(age)},
-//   "email": "${email}"
-// }`;
-
-// console.log(userData);
-
-// const transferToObj = JSON.parse(userData);
-// console.log(transferToObj);
+  localStorage.setItem(item, JSON.stringify(existingArr))
+}
+addItems('myArray', 'value45');
+console.log(JSON.parse(localStorage.getItem('myArray')));
 
 
-// localStorage.setItem('userData', JSON.stringify(userData))
 
-// document.write(localStorage.getItem('userData')) 
+//3
+const name = prompt('Enter your name');
+const age = prompt('Enter your age');
+const email = prompt('Enter your email');
 
+// 3.2
 
-//3.2
-// Функція, яка буде викликатися при поданні форми
 function handleSubmit(event) {
-    event.preventDefault(); // Зупиняємо дефолтну подію форми (щоб сторінка не перезавантажувалася)
+  event.preventDefault();
 
-    let name = document.getElementById('name').value;
-    const age = document.getElementById('age').value;
-    const email = document.getElementById('email').value;
-
-    updateUserData(name, age, email);
-
-    // Додайте будь-яку додаткову логіку, яку потрібно виконати після оновлення даних
-
-    // Вивід повідомлення про успішне оновлення (опціонально)
-    alert('Your data has been updated successfully!');
+  let name = document.getElementById('name').value;
+  console.log(name);
+  let age = document.getElementById('age').value;
+  console.log(age);
+  let email = document.getElementById('email').value;
+  console.log(email);
 }
 
-function updateUserData(name, age, email) {
-  const userData = `{
-  "name": "${name}",
-  "age": ${parseInt(age)},
-  "email": "${email}"
-}`;
- localStorage.setItem('userData', JSON.stringify(userData))
-}
-// Додаємо обробник подання форми
-document.getElementById('userDataForm').addEventListener('submit', handleSubmit);
-
-
+ 
