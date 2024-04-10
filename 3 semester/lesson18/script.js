@@ -19,3 +19,141 @@ const data = {
 
 }
 console.log(data.getData());
+
+//example 1
+// const animal = {
+//   legs: 4,
+//  };
+//  const dog = Object.create(animal);
+//  dog.name = "Манго";
+ 
+//  console.log(dog); // { name: 'Манго', __proto__: animal }
+//  console.log(animal.isPrototypeOf(dog)); // true
+
+
+ //example 2
+// console.log(dog.hasOwnProperty("name")); // true
+// console.log(dog.name); // 'Манго'
+
+// console.log(dog.hasOwnProperty("legs")); // false
+// console.log(dog.legs); // 4
+
+//example 3
+// const animal = { eats: true };
+// const dog = Object.create(animal);
+// dog.barks = true;
+// for (const key in dog) {
+//  console.log(key); // barks, eats
+// }
+
+//example 4
+// const animal = {
+//   eats: true,
+//  };
+//  const dog = Object.create(animal);
+//  dog.barks = true; 
+//  for (const key in dog) {
+//   if (!dog.hasOwnProperty(key)) continue;
+//   console.log(key); // barks
+//  }
+
+
+//example 5
+// class User {
+//   // Синтаксис оголошення методу класу
+//   constructor(name, email) {
+//     // Ініціалізація властивостей екземпляра
+//     this.name = name;
+//     this.email = email;
+//   }
+//  }
+ 
+//  const mango = new User("Манго", "mango@mail.com");
+//  console.log(mango); // { name: 'Манго', email: 'mango@mail.com' }
+ 
+//  const poly = new User("Поли", "poly@mail.com");
+//  console.log(poly); // { name: 'Поли', email: 'poly@mail.com' }
+
+
+//example 6
+// class User {
+//   constructor({ name, email }) {
+//     this.name = name;
+//     this.email = email;
+//   }
+ 
+//   // Метод getEmail
+//   getEmail() {
+//     return this.email;
+//   }
+ 
+//   // Метод changeEmail
+//   changeEmail(newEmail) {
+//     this.email = newEmail;
+//   }
+//  }
+
+// example 7
+// class User {
+//   #email;
+ 
+ 
+//   constructor({ name, email }) {
+//     this.name = name;
+//     this.#email = email;
+//   }
+  
+//   // Геттер email
+//   get email() {
+//     return this.#email;
+//   }
+  
+//   // Сеттер email
+//   set email(newEmail) {
+//     this.#email = newEmail;
+//   }
+//  }
+
+
+//example 8
+// class User {
+//   #email;
+  
+//   constructor(email) {
+//     this.#email = email;
+//   }
+ 
+//    get email() {
+//     return this.#email;
+//   }
+ 
+//    set email(newEmail) {
+//     this.#email = newEmail;
+//   }
+//  }
+  
+//  class ContentEditor extends User {
+//   // Тіло класу ContentEditor
+//  }
+  
+//  const editor = new ContentEditor("mango@mail.com");
+//  console.log(editor); // { email: "mango@mail.com" }
+//  console.log(editor.email); // "mango@mail.com"
+
+//example 9
+class ContentEditor extends User {
+  constructor({ email, posts }) {
+    super(email);
+    this.posts = posts;
+  }
+  
+  addPost(post) {
+    this.posts.push(post);
+  }
+ }
+  
+ const editor = new ContentEditor({ email: "mango@mail.com", posts: [] });
+ console.log(editor); // { email: 'mango@mail.com', posts: [] }
+ console.log(editor.email); // 'mango@mail.com'
+ editor.addPost("post-1");
+ console.log(editor.posts); // ['post-1']
