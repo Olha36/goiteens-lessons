@@ -178,14 +178,45 @@
 // console.log(result);
 
 //task1
-const salary = {
-  mango: 100,
-  poly: 50,
-  ajax: 150,
-};
+// const salary = {
+//   mango: 100,
+//   poly: 50,
+//   ajax: 150,
+// };
 
-const values = Object.values(salary);
-const totalSalary = values.reduce((a, b) => a + b)
+// const values = Object.values(salary);
+// const totalSalary = values.reduce((a, b) => a + b)
 
 
-console.log(totalSalary);
+// console.log(totalSalary);
+
+
+// const button = document.querySelector('.button');
+
+// button.addEventListener('click', () => {
+//   alert('hello world!')
+// })
+
+const guessField = document.getElementById('guessField');
+const button = document.querySelector('button');
+const text = document.querySelector('#guessResult');
+
+function getRandomNumber() {
+  return Math.floor(Math.random() * 100) + 1;
+} 
+
+function checkGuess() {
+  const checkInput = Number(guessField.value);
+  console.log(checkInput);
+  console.log(getRandomNumber());
+
+  if (checkInput == getRandomNumber()) {
+    console.log('you have won');
+    text.textContent = 'you have won'
+  } else {
+    console.log('you have failed');
+    text.textContent = 'you have failed'
+  }
+
+  guessField.value = ' ';
+}
