@@ -9,24 +9,32 @@
 
 // console.log(getData(name, age, surname))
 
-const data = {
-  name: 'goIteens',
-  age: 15,
-  rate: 12,
-  getData() {
-    return this.name + ' ' + this.age + ' ' + this.rate;
-  }
+// const data = {
+//   name: 'goIteens',
+//   age: 15,
+//   rate: 12,
+//   getData() {
+//     return this.name + ' ' + this.age + ' ' + this.rate;
+//   }
 
-}
-console.log(data.getData());
+// }
+// console.log(data.getData());
 
 //example 1
 // const animal = {
 //   legs: 4,
+//   name: 'cat'
 //  };
+//  console.log(animal);
+
+// //  const bird = {
+// //   name: 'sparrow',
+// //   tail: true
+// //  }
 //  const dog = Object.create(animal);
 //  dog.name = "Манго";
- 
+
+
 //  console.log(dog); // { name: 'Манго', __proto__: animal }
 //  console.log(animal.isPrototypeOf(dog)); // true
 
@@ -47,15 +55,15 @@ console.log(data.getData());
 // }
 
 //example 4
-// const animal = {
-//   eats: true,
-//  };
-//  const dog = Object.create(animal);
-//  dog.barks = true; 
-//  for (const key in dog) {
-//   if (!dog.hasOwnProperty(key)) continue;
-//   console.log(key); // barks
-//  }
+const animal = {
+  eats: true,
+ };
+ const dog = Object.create(animal);
+ dog.barks = true; 
+ for (const value in animal) {
+  if (!animal.hasOwnProperty(value)) continue;
+  console.log(value); // barks
+ }
 
 
 //example 5
@@ -66,9 +74,9 @@ console.log(data.getData());
 //     this.name = name;
 //     this.email = email;
 //   }
-//  }
+// }
  
-//  const mango = new User("Манго", "mango@mail.com");
+//  const mango = new User("Манго", "mango2@mail.com");
 //  console.log(mango); // { name: 'Манго', email: 'mango@mail.com' }
  
 //  const poly = new User("Поли", "poly@mail.com");
@@ -93,6 +101,15 @@ console.log(data.getData());
 //   }
 //  }
 
+// const user1 = new User({ name: "John Doe", email: "john@example.com" });
+
+// console.log("Email:", user1.getEmail());
+
+// user1.changeEmail("john.doe@example.com");
+
+// console.log("Updated Email:", user1.getEmail());
+
+
 // example 7
 // class User {
 //   #email;
@@ -114,6 +131,13 @@ console.log(data.getData());
 //   }
 //  }
 
+//  const user1 = new User({ name: "John Doe", email: "john@example.com" });
+
+// console.log("Email:", user1.email);
+
+// user1.email = "john.doe@example.com";
+
+// console.log("Updated Email:", user1.email);
 
 //example 8
 // class User {
@@ -141,19 +165,19 @@ console.log(data.getData());
 //  console.log(editor.email); // "mango@mail.com"
 
 //example 9
-class ContentEditor extends User {
-  constructor({ email, posts }) {
-    super(email);
-    this.posts = posts;
-  }
+// class ContentEditor extends User {
+//   constructor({ email, posts }) {
+//     super(email);
+//     this.posts = posts;
+//   }
   
-  addPost(post) {
-    this.posts.push(post);
-  }
- }
+//   addPost(post) {
+//     this.posts.push(post);
+//   }
+//  }
   
- const editor = new ContentEditor({ email: "mango@mail.com", posts: [] });
- console.log(editor); // { email: 'mango@mail.com', posts: [] }
- console.log(editor.email); // 'mango@mail.com'
- editor.addPost("post-1");
- console.log(editor.posts); // ['post-1']
+//  const editor = new ContentEditor({ email: "mango@mail.com", posts: [] });
+//  console.log(editor); // { email: 'mango@mail.com', posts: [] }
+//  console.log(editor.email); // 'mango@mail.com'
+//  editor.addPost("post-1");
+//  console.log(editor.posts); // ['post-1']
