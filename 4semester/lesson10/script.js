@@ -68,6 +68,14 @@
 //   console.log(`Interval with id ${timerId} has stopped!`);
 // });
 
+//example 6
+// let num = 0;
+// setTimeout(() => alert(i), 100); // ?
+// // припустимо, що час виконання цієї функції > 100 мс
+// for(let i = 0; i < 100000000; i += 1) {
+//   num+=1;
+//   setTimeout(() => alert(i), 100); // ?
+// }
 
 //task 1
 // let num = 0;
@@ -114,3 +122,5 @@
 
 // // Встановлення інтервалу для зміни тексту кожні 2 секунди
 // setInterval(changeText, 2000);
+
+
