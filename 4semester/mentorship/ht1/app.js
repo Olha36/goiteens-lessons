@@ -64,57 +64,29 @@ const galleryItems = [
   },
 ];
 
-const jsGallery = document.querySelector(".js-gallery");
-const lightboxImage = document.querySelector('.lightbox__image');
-const lightbox = document.querySelector(".lightbox");
-const closeButton = document.querySelector('[data-action="close-lightbox"]');
-
-const currentLink = document.getElementById('currentLink');
+const jsGallery = document.querySelector('.js-gallery');
+const lightboxImage = document.querySelector('.lightbox_image');
+// const closeButton = document.querySelector('[data-action=""close-lightbox"]');
+const lightbox = document.querySelector('.lightbox');
 
 const createGalleryMarkup = (items) => {
-  return items.map(({ preview, original, description }) => {
-    console.log(preview, original, description);
+  return items.map(( {preview, original, description}) => {
     return `
     <li class="gallery__item">
-    <a
-      class="gallery__link"
-      href="${original}"
-    >
-      <img
-        class="gallery__image"
-        src="${preview}"
-        data-source="${original}"
-        alt="${description}"
-      />
-    </a>
-  </li>
-  `;
-  }).join('');
-
-  
+  <a
+    class="gallery__link"
+    href="${original}"
+  >
+    <img
+      class="gallery__image"
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
+    />
+  </a>
+</li>`
+  }).join('')
 }
 
 const galleryMarkup = createGalleryMarkup(galleryItems);
-jsGallery.insertAdjacentHTML('afterbegin', galleryMarkup);
-
-const openModal = (imgUrl) => {
-  lightbox.classList.add('is-open');
-  lightboxImage.src = imgUrl;
-}
-
-const closeModal = () => {
-  lightbox.classList.remove('is-open');
-  lightboxImage.src = "";
-}
-
-const originalImgPath = (event) => {
-  event.preventDefault();
-
-  if(event.target.classList.contains('gallery__image')) {
-    const mainImgUrl = event.target.dataset.source;
-    openModal(mainImgUrl);
-  }
-}
-
-jsGallery.addEventListener('click', originalImgPath);
-closeButton.addEventListener('click', closeModal)
+jsGallery.insertAdjacentHTML('afterbegin', galleryMarkup)
