@@ -5,3 +5,20 @@ body {
   font-size: 24px;
   color:aqua
 }
+
+.bgc {
+  background-color: yellow;
+}
+
+.navigation {
+  color: red;
+}
+
+.lastElement {
+  color: orange;
+}
+
+.styles {
+  background-color: blue;
+
+}
