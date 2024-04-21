@@ -15,3 +15,45 @@
 `Створіть таймер, який має можливість налаштування часу (години, хвилини, секунди) з використанням елементів керування на сторінці (наприклад, input або select). Після досягнення встановленого часу виведіть повідомлення "Таймер завершено!".`
 
 
+let startTime;
+let timerInterval;
+let running = false;
+let pausedTime = 0;
+
+function interval() {
+  timerInterval = setInterval(() => {
+    const currentTime = new Date();
+    const elapsedTime = currentTime - startTime + pausedTime;
+    const hours = Math.floor(elapsedTime / 3600000);
+    const minutes = Math.floor((elapsedTime % 3600000) / 60000);
+    const seconds = Math.floor((elapsedTime % 60000) / 1000);
+    const milliseconds = elapsedTime % 1000;
+    
+    console.log(`${hours}:${minutes}:${seconds}.${milliseconds}`);
+  }, 1000);
+}
+
+
+function startTimer() {
+  if(!running) {
+    startTime = new Date()
+    interval();
+    running = true;  
+  }
+}
+function stopTimer() {
+  if (running) {
+    clearInterval(timerInterval);
+    pausedTime += new Date() - startTime;
+    running = false;
+  }
+}
+function resetTimer() {
+  clearInterval(timerInterval);
+  running = false;
+  pausedTime = 0;
+}
+
+start.addEventListener("click", startTimer);
+stop.addEventListener("click", stopTimer);
+reset.addEventListener("click", resetTimer);
