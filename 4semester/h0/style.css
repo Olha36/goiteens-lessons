@@ -3,3 +3,17 @@
   height: 50px;
   background-color: red;
 }
+
+.pictures {
+  display: flex;
+  flex-direction: column;
+}
+/* .pictures img {
+  width: 70%;
+} */
+
+img { 
+  width: 30%;
+  height: 30%; 
+  background-color: #f0f0f0; 
+}
