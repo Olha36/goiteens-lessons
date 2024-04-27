@@ -1,31 +1,31 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 const app = express();
-const port = 3000;
+const port = 61227;
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/feedbackFormDB', { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('Connected to MongoDB');
-});
+// mongoose.connect('mongodb://localhost:27017/feedbackFormDB', { useNewUrlParser: true, useUnifiedTopology: true });
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+//   console.log('Connected to MongoDB');
+// });
 
 // Create a schema for storing form data
-const feedbackSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  message: String
-});
+// const feedbackSchema = new mongoose.Schema({
+//   name: String,
+//   email: String,
+//   message: String
+// });
 
-const Feedback = mongoose.model('Feedback', feedbackSchema);
+// const Feedback = mongoose.model('Feedback', feedbackSchema);
 
 app.use(bodyParser.json());
 
 // Route for storing form data
-app.post('/submit-feedback', async (req, res) => {
+app.post('/4semester/ht5/index.html', async (req, res) => {
   try {
     // Process the incoming request body containing form data
     const { name, email, message } = req.body;
