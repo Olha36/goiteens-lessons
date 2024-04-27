@@ -1,14 +1,70 @@
-const chartData = {
-  labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30'],
-  datasets: [{
-    label: 'Продажі за останній місяць',
-    data: [150, 220, 180, 200, 250, 300, 280, 350, 400, 380, 420, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350],
-    backgroundColor: '#2196f3',
-    borderColor: '#2196f3',
-    borderWidth: 1
-  }]
-};
+function createForm() {
+  const form = document.createElement('form');
+  const nameLabel = document.createElement('label');
+  const nameInput = document.createElement('input');
+  const emailLabel = document.createElement('label');
+  const emailInput = document.createElement('input');
+  const messageLabel = document.createElement('label');
+  const messageTextarea = document.createElement('textarea');
+  const button = document.createElement('button');
 
+  button.textContent = 'Submit';
+  button.type = 'submit';
 
-const canvas = document.getElementById('sales-chart');
+  nameLabel.textContent = 'Enter your name';
+  nameLabel.setAttribute('for', 'name');
 
+  nameInput.type = 'text';
+  nameInput.setAttribute('id', 'name');
+  nameInput.setAttribute('name', 'name');
+
+  emailLabel.textContent = 'Enter your email';
+  emailLabel.setAttribute('for', 'email');
+  emailInput.type = 'email';
+  emailInput.setAttribute('id', 'email');
+  emailInput.setAttribute('name', 'email');
+
+  messageLabel.textContent = 'Your message';
+  messageLabel.setAttribute('for', 'message');
+  messageTextarea.setAttribute('id', 'message');
+  messageTextarea.setAttribute('name', 'message');
+
+  form.classList.add('form');
+
+  document.body.append(form);
+  form.append(nameLabel, nameInput, emailLabel, emailInput, messageLabel, messageTextarea, button);
+}
+
+createForm();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('.form');
+  const successMessage = document.getElementById('success-message');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const formDataObject = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/submit-feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formDataObject)
+      });
+
+      if (response.ok) {
+        // Display success message or handle success feedback appropriately
+        console.log('Feedback submitted successfully!');
+        form.reset();
+      } else {
+        console.error('Failed to submit feedback');
+      }
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+    }
+  });
+});
