@@ -10,12 +10,3 @@
 5.	Додайте повідомлення про успішне відправлення форми зворотного зв'язку користувачеві.
 6.	Використайте Parcel.js для збирання та оптимізації фронтенду.
 7.	Додайте стилі та оформлення сторінки.
-
-
-<form action="#">
-    <label for="">name</label>
-    <input type="text">
-    <label for="">email</label>
-    <input type="email">
-    <textarea name="" id="" cols="30" rows="10"></textarea>
-  </form>
