@@ -39,6 +39,28 @@
 
 //task 2 Подія сабміту форми - показати приклад на практиці. Можна використати наступну розмітку
 
+const buttonEl = document.querySelector('.add-style');
+// console.log(buttonEl.textContent);
+// const example = document.querySelector('.example')
 
-//task 3 
+function handleClick(event) {
+  // alert('clicked');
 
+console.log('event type:', event.type);
+console.log('event target:', event.target);
+console.log('event current target:', event.currentTarget);
+
+buttonEl.style.backgroundColor = 'blue'
+}
+
+buttonEl.addEventListener('click',  handleClick);
+// example.addEventListener('dblclick', handleClick)
+// // buttonEl.removeEventListener('click', handleClick);
+
+// const linkEl = document.querySelector('.link-el');
+
+// function handleEvent(event) {
+//   event.preventDefault();
+//   alert('link')
+// }
+// linkEl.addEventListener('click', handleEvent)
