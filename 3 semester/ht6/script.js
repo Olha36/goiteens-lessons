@@ -1,23 +1,28 @@
 import users from "./users.js";
 
+// console.log(users)
+
 // //task 1 Отримати масив імен всіх користувачів (поле name).
 // const getUserNames = users => {
-
+//   // твій код
 //   users.forEach((user) => {
-//     console.log(user.name)
+//     console.log(user.name);
 //   })
 // };
 
 // console.log(getUserNames(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
 
-// task 2 Отримати масив об'єктів користувачів за кольором очей (поле eyeColor).
+// task 2 Отримати масив об'єктів користувачів за кольором очей (поле
+// eyeColor).
 
 // const getUsersWithEyeColor = (users, color) => {
-//   return users.filter(user => user.eyeColor === color);
+//   // твій код
+//  return users.filter(user => user.eyeColor === color);
 // };
 
-// console.log(getUsersWithEyeColor(users, 'blue'));
+// console.log(getUsersWithEyeColor(users, 'brown'));
+// [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Carey Barr]
 
 //task 3 Отримати масив імен користувачів за статтю (поле gender).
 
@@ -28,23 +33,25 @@ import users from "./users.js";
 //     .map((user) => user.name);
 // };
 
-// console.log(getUsersWithGender(users, "male")); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
+// console.log(getUsersWithGender(users, "female")); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
 
 //task 4 Отримати масив тільки неактивних користувачів (поле isActive).
 
 // const getInactiveUsers = users => {
 //   // твій код
-//  return users.filter(user => !user.isActive)
+//   return users.filter(user => !user.isActive)
 // };
 
 // console.log(getInactiveUsers(users)); // [об'єкт Moore Hensley, об'єкт Ross Vazquez, об'єкт Blackburn Dotson]
 
-
-//task 5 Отримати користувача (не масив) по email (поле email, він унікальний).
+//task 5 Отримати користувача (не масив) по email (поле email, він 
+// унікальний).
 
 // const getUserWithEmail = (users, email) => {
 //   // твій код
-//   return users.find(users => users.email === email)
+// //  return users.find(user => user.email === email);
+// return users.find(user => user);
+ 
 // };
 
 // console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {об'єкт користувача Sheree Anthony}
@@ -55,7 +62,6 @@ import users from "./users.js";
 
 // const getUsersWithAge = (users, min, max) => {
 //   // твій код
-//   return users.filter(users => users.age > min && users.age < max)
 // };
 
 // console.log(getUsersWithAge(users, 20, 30)); // [об'єкт Ross Vazquez, об'єкт Elma Head, об'єкт Carey Barr]
@@ -63,12 +69,10 @@ import users from "./users.js";
 // console.log(getUsersWithAge(users, 30, 40));
 // [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Blackburn Dotson, об'єкт Sheree Anthony]
 
-
 // task 7 Отримати загальну суму балансу (поле balance) всіх користувачів.
 
 // const calculateTotalBalance = users => {
 //   // твій код
-//   return users.reduce((total, users) => total + users.balance, 0)
 // };
 
 // console.log(calculateTotalBalance(users)); // 20916
@@ -77,7 +81,6 @@ import users from "./users.js";
 
 // const getUsersWithFriend = (users, friendName) => {
 //   // твій код
-//   return users.filter(users => users.friends.includes(friendName))
 // };
 
 // console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
@@ -87,29 +90,17 @@ import users from "./users.js";
 
 // const getNamesSortedByFriendsCount = users => {
 //   // твій код
-//   const usersCopy = [...users];
-//   usersCopy.sort((a, b) => a.friends.length - b.friends.length);
-//   return usersCopy.map(users => users.name)
 // };
 
 // console.log(getNamesSortedByFriendsCount(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
 
-// task 10 Отримати масив всіх умінь всіх користувачів (поле skills), при цьому не має 
+// task 10 Отримати масив всіх умінь всіх користувачів (поле skills), при цьому не має
 // бути повторюваних умінь і вони повинні бути відсортовані в алфавітному порядку.
 
-const getSortedUniqueSkills = users => {
-  // твій код
-   // Отримуємо всі уміння з об'єктів користувачів та зливаємо їх в один масив
-  const allSkills = users.flatMap(user => user.skills);
+// const getSortedUniqueSkills = users => {
+//   // твій код
+// };
 
-  // Фільтруємо унікальні уміння, за допомогою Set
-  const uniqueSkills = [...new Set(allSkills)];
-
-  // Сортуємо уміння в алфавітному порядку
-  return uniqueSkills.sort();
-};
-
-console.log(getSortedUniqueSkills(users));
+// console.log(getSortedUniqueSkills(users));
 // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
-
