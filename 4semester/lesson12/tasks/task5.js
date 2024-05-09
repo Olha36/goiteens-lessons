@@ -5,7 +5,7 @@ function addNumbers(a, b) {
 
 const promise = new Promise((resolve, reject) => {
   resolve(addNumbers(5, 15));
-  reject("error");
+  reject("Неправильні аргументи");
 });
 
 promise

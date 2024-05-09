@@ -5,7 +5,11 @@
 // const task2 = require("./tasks/task2.js");
 // const task3 = require("./tasks/task3.js");
 // const task4 = require("./tasks/task4.js");
-const task5 = require("./tasks/task5.js");
-console.log(task5);
+// const task5 = require("./tasks/task5.js");
+// const task6 = require("./tasks/task6.js");
+const task7 = require("./tasks/task7.js");
+console.log(task7);
+
+
 
 
