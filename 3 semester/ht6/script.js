@@ -1,5 +1,4 @@
-import users from "./users.js";
-
+import users from './users.js'
 // console.log(users)
 
 // //task 1 Отримати масив імен всіх користувачів (поле name).
@@ -44,14 +43,13 @@ import users from "./users.js";
 
 // console.log(getInactiveUsers(users)); // [об'єкт Moore Hensley, об'єкт Ross Vazquez, об'єкт Blackburn Dotson]
 
-//task 5 Отримати користувача (не масив) по email (поле email, він 
+//task 5 Отримати користувача (не масив) по email (поле email, він
 // унікальний).
 
 // const getUserWithEmail = (users, email) => {
 //   // твій код
-// //  return users.find(user => user.email === email);
-// return users.find(user => user);
- 
+// return users.find(user => user.email === email);
+
 // };
 
 // console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {об'єкт користувача Sheree Anthony}
@@ -62,9 +60,11 @@ import users from "./users.js";
 
 // const getUsersWithAge = (users, min, max) => {
 //   // твій код
+//  return users.filter(user => user.age > min && user.age < max)
 // };
 
-// console.log(getUsersWithAge(users, 20, 30)); // [об'єкт Ross Vazquez, об'єкт Elma Head, об'єкт Carey Barr]
+// console.log(getUsersWithAge(users, 20, 30)); 
+// // [об'єкт Ross Vazquez, об'єкт Elma Head, об'єкт Carey Barr]
 
 // console.log(getUsersWithAge(users, 30, 40));
 // [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Blackburn Dotson, об'єкт Sheree Anthony]
@@ -73,6 +73,7 @@ import users from "./users.js";
 
 // const calculateTotalBalance = users => {
 //   // твій код
+//   return users.reduce((totalBalance, userBalance) => totalBalance + userBalance.balance, 0)
 // };
 
 // console.log(calculateTotalBalance(users)); // 20916
@@ -81,25 +82,35 @@ import users from "./users.js";
 
 // const getUsersWithFriend = (users, friendName) => {
 //   // твій код
+//   return users.filter(user => user.friends.includes(friendName))
 // };
 
-// console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
-// console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
+// console.log(getUsersWithFriend(users, 'Briana Decker')); 
+// // [ 'Sharlene Bush', 'Sheree Anthony' ]
+// console.log(getUsersWithFriend(users, 'Goldie Gentry')); 
+// [ 'Elma Head', 'Sheree Anthony' ]
 
-//task 9 Масив імен (поле name) людей, відсортованих в залежності від кількості їх друзів (поле friends)
+//task 9 Масив імен (поле name) людей, відсортованих в залежності від 
+// кількості їх друзів (поле friends)
 
 // const getNamesSortedByFriendsCount = users => {
 //   // твій код
+//   return users.sort((a, b) => a.friends.length - b.friends.length)
 // };
 
 // console.log(getNamesSortedByFriendsCount(users));
-// [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
+// [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 
+// 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
 
 // task 10 Отримати масив всіх умінь всіх користувачів (поле skills), при цьому не має
 // бути повторюваних умінь і вони повинні бути відсортовані в алфавітному порядку.
 
 // const getSortedUniqueSkills = users => {
 //   // твій код
+//   const allSkills = users.flatMap(user => user.skills);
+
+//   const uniqueSkills = [...new Set(allSkills)];
+//   return uniqueSkills.sort();
 // };
 
 // console.log(getSortedUniqueSkills(users));

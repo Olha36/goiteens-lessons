@@ -33,7 +33,7 @@ export default [
     balance: 3793,
     skills: ['nulla', 'anim', 'proident', 'ipsum', 'elit'],
     gender: 'male',
-    age: 24,
+    age: 30,
   },
   {
     id: '249b6175-5c30-44c6-b154-f120923736f5',
