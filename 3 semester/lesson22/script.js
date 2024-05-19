@@ -34,19 +34,44 @@ const textFieldSuggestedKey = document.querySelector('.suggested-key');
 const textFiledResult = document.querySelector('.result');
 const resetGameButton = document.querySelector('.reset-game')
 
-const keys = ['q', '3', '9', 'n', '+', 'g', 't', 'v', 'w', 'c'];
+const keys = ['q', '3', '9', 'n', '+', 'G', 't', 'v', 'w', 'c'];
 let currentKeyIndex = 0;
+let interval;
 
 function getRandomIndex(index) {
   return Math.floor(Math.random() * index)
 }
 
 function handleStartClick() {
-  setInterval(() => {
+ interval =  setInterval(() => {
     console.log('interval');
     currentKeyIndex = getRandomIndex(keys.length)
     console.log(keys[currentKeyIndex]);
+    textFieldSuggestedKey.textContent = keys[currentKeyIndex];
   }, 1000)
 }
 
+function getPressedKey(event) {
+  // console.log(event.key);
+  const pressedKey = event.key;
+  const keyRegister = keys[currentKeyIndex].toLowerCase();
+  console.log(pressedKey, keyRegister);
+  if(pressedKey === keyRegister) {
+    console.log('win');
+  } else {
+    console.log('failed');
+    clearInterval(interval);
+    textFiledResult.textContent = 'Ви програли( Спробуйте ще раз';
+    textFiledResult.style.color = 'red'
+  }
+}
+
+function resetGame() {
+  textFieldSuggestedKey.textContent = '';
+  textFiledResult.textContent = '';
+  handleStartClick()
+}
+
 startGameButton.addEventListener('click', handleStartClick)
+document.addEventListener('keypress', getPressedKey);
+resetGameButton.addEventListener('click', resetGame);
