@@ -26,7 +26,7 @@
 
 // task 2
 function randomDelay(value, delay) {
-  const delay = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
+ delay = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
   new Promise((resolve) => {
     setTimeout(() => {
       resolve(value);
