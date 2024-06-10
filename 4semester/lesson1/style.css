@@ -28,7 +28,7 @@
 } */
 
 /* task 2 */
-/* body {
+body {
   margin: 8px;
   font-family: sans-serif;
 }
@@ -49,7 +49,7 @@
 }
 
 
-.color-palette .button{
+.color-palette .item {
   padding: 0;
   margin: 0;
   border: none;
@@ -61,9 +61,10 @@
 }
 
 
-.color-palette .button:hover {
+.color-palette .item:hover {
   transform: scale(1.1);
-} */
+}
+
 
 /* task3 */
 /* .btn {
@@ -77,7 +78,7 @@
 
 
 /* task4 */
-body {
+/* body {
   font-family: Roboto, sans-serif;
 }
 
@@ -135,4 +136,4 @@ body {
 .active {
   color: #fff;
   background-color: #2196f3;
-}
+} */

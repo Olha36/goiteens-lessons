@@ -17,71 +17,58 @@
 //додати обробники подій і показати результат
 
 // task2
-// let output =document.querySelector('.output');
-// let colorPalette = document.querySelector('.color-palette');
+const colorPalette = document.querySelector(".color-palette");
+const output = document.querySelector(".output");
+
+
+colorPalette.addEventListener("click", selectColor);
+
+
+// This is where delegation «magic» happens
+function selectColor(event) {
+  if (event.target.nodeName !== "BUTTON") {
+    return;
+  }
+
+
+  const selectedColor = event.target.dataset.color;
+  output.textContent = `Selected color: ${selectedColor}`;
+  output.style.color = selectedColor;
+}
+
+
+// Some helper functions to render palette items
+createPaletteItems();
+
+
+function createPaletteItems() {
+  const items = [];
+  for (let i = 0; i < 60; i++) {
+    const color = getRandomColor();
+    const item = document.createElement("button");
+    item.type = "button";
+    item.dataset.color = color;
+    item.style.backgroundColor = color;
+    item.classList.add("item");
+    items.push(item);
+  }
+  colorPalette.append(...items);
+}
+
+
+function getRandomColor() {
+  return `#${getRandomHex()}${getRandomHex()}${getRandomHex()}`;
+}
+
+
+function getRandomHex() {
+  return Math.round(Math.random() * 256)
+    .toString(16)
+    .padStart(2, "0");
+}
 
 
 
-// const selectColor = (event) => {
-//   // В цій функції:
-//   //1. Перевірити чи елемент, який викликав подію кліку не є кнопкою. Якщо клікнули по кнопці функція не має виконуватися
-//   if(event.target.nodeName !== 'BUTTON') {
-//     return;
-//   }
-
-  
-//   //2. оголосити функцію вибору кольору коли подія спливає. В параметрах вказати подію
-
-
-//   //2. необхідно отримати колір, що повязаний з кнопкою, яка була натиснута в палітрі кольорів. Для цього:
-//   // а)
-//   // до елементу, який був клікнутий додамо властивісь DOM-елементів, яка повертає обєкт // що містить усі користувацькі атрибути даних data встановлені на елементі
-
-//   // б) звернемось до конкретного користувацького атрибута даних "колір" 
-
-//   const selectedColor = event.target.dataset.color;
-
-
-//   //3. до пешкі з класом output додати текстове значення з назвою вибраного кольору.
-//   output.textContent = `Selected color: ${selectedColor}`;
-//   output.style.color = selectedColor;
-// }
-
-// const randomColor = () => {
- 
-//   return `#${randomHex()}${randomHex()}${randomHex()}`;
-  
-// }
-
-// const randomHex = () => {
-  
-//   return Math.round(Math.random() * 256)
-//   .toString(16)
-//   .padStart(2,'0');
-// }
-
-// colorPalette.addEventListener('click', selectColor);
-
-// createPaletteItems();
-
-
-
-// function createPaletteItems() {
-  
-//   let items = [];
-//   for (let i = 0; i< 60; i++) {
-//     let color = randomColor();
-//     let button = document.createElement('button');
-//     button.type = 'button';
-//     button.dataset.color = color;
-//     button.style.backgroundColor = color;
-//     button.classList.add('button')
-//     items.push(button);
-//   }
-
-//   colorPalette.append(...items);
-
-// }
 
 
 //example1
