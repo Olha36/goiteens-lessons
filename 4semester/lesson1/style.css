@@ -1,4 +1,4 @@
-/* 1
+/* 1 */
 #parent,
 #child,
 #descendant {
@@ -25,10 +25,10 @@
 
 #descendant {
   background-color: #ff9800;
-} */
+}
 
 /* task 2 */
-body {
+/* body {
   margin: 8px;
   font-family: sans-serif;
 }
@@ -63,7 +63,7 @@ body {
 
 .color-palette .item:hover {
   transform: scale(1.1);
-}
+} */
 
 
 /* task3 */
@@ -78,7 +78,7 @@ body {
 
 
 /* task4 */
-/* body {
+body {
   font-family: Roboto, sans-serif;
 }
 
@@ -136,4 +136,4 @@ body {
 .active {
   color: #fff;
   background-color: #2196f3;
-} */
+}
