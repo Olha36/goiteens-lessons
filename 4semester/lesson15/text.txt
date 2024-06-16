@@ -1,0 +1,11 @@
+ <div class="modal">
+    <h1 id="heading-title">Welcome to AJAX🎈</h1>
+    <p id="modal-text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sint debitis doloribus voluptatum! Unde officiis tempore laborum provident culpa magnam doloremque! Minus exercitationem quas illum mollitia alias asperiores molestiae harum.
+      Molestiae ipsam asperiores totam natus exercitationem veniam esse, obcaecati qui, vero vel expedita veritatis nam nobis fuga! Doloribus voluptates suscipit architecto, ipsum ea ex tenetur totam molestiae possimus, molestias rem?
+      Dolor unde omnis incidunt repellat. Nihil deleniti vero ipsa, facilis vitae iusto dicta iure provident assumenda accusamus ex modi nobis magnam quidem ipsam nam impedit voluptatibus! Blanditiis quis facilis porro.
+      Repellendus quam enim quae illo reiciendis ullam. Facere at commodi omnis ut quas veniam ullam quos inventore, reprehenderit modi. Beatae eius et quaerat laudantium perferendis ullam dicta error pariatur reprehenderit?
+      Numquam qui dolore est ea corporis nostrum fugit necessitatibus, dolores optio ab, quasi officia unde autem voluptatem odio recusandae! Placeat vitae voluptatum incidunt ipsa impedit eveniet eius! Aut, qui autem?
+    </p>
+  </div>
+
