@@ -1,3 +1,4 @@
+import './pokemon.js'
 // example 1
 // const button = document.querySelector('button');
 
@@ -14,8 +15,8 @@
 // button.addEventListener('click', loadDoc)
 
 // example 2
-const verseChoose = document.querySelector("select");
-const poemDisplay = document.querySelector("pre");
+// const verseChoose = document.querySelector("select");
+// const poemDisplay = document.querySelector("pre");
 
 // function updateDisplay(verse) {
 //   verse = verse.replace(" ", "").toLowerCase();
@@ -55,29 +56,29 @@ const poemDisplay = document.querySelector("pre");
 
 // example 3
 
-fetch("https://jsonplaceholder.typicode.com/users?${searchParams}")
- .then(response => {
-   if (!response.ok) {
-     throw new Error(response.status);
-   }
-   return response.json();
- })
- .then(data => {
-  console.log(data)
-   // Data handling
- })
- .catch(error => {
-   // Error handling
-   console.log(error)
- });
+// fetch("https://jsonplaceholder.typicode.com/users?${searchParams}")
+//  .then(response => {
+//    if (!response.ok) {
+//      throw new Error(response.status);
+//    }
+//    return response.json();
+//  })
+//  .then(data => {
+//   console.log(data)
+//    // Data handling
+//  })
+//  .catch(error => {
+//    // Error handling
+//    console.log(error)
+//  });
 
- const searchParams = new URLSearchParams({
-  _limit: 7,
-  _sort: "email"
- })
- console.log(searchParams.toString());
- const headers = {
-  "Content-Type": "application/json",
-  "X-Custom-Header": "custom value",
- };
+//  const searchParams = new URLSearchParams({
+//   _limit: 7,
+//   _sort: "email"
+//  })
+//  console.log(searchParams.toString());
+//  const headers = {
+//   "Content-Type": "application/json",
+//   "X-Custom-Header": "custom value",
+//  };
  
