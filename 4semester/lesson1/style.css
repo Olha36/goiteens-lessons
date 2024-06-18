@@ -1,5 +1,5 @@
 /* 1 */
-#parent,
+/* #parent,
 #child,
 #descendant {
   margin: 16px;
@@ -63,7 +63,7 @@ body {
 
 .color-palette .item:hover {
   transform: scale(1.1);
-}
+} */
 
 
 /* task3 */
@@ -133,7 +133,7 @@ body {
 }
 
 
-.active {
+/* .active {
   color: #fff;
   background-color: #2196f3;
-}
+} */
