@@ -16,7 +16,7 @@ const cityInput = document.getElementById('city-name');
 const searchButton = document.querySelector('.search-button');
 const weatherResultContainer = document.getElementById('weather-container');
 
-const url = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m`
+const url = `https://sinoptik.pl/stats/ad/display/am/22959804296/sinoptik.pl_300x250_right_bottom_self?ts=1718818820490`
 
 async function getWeatherApi(name) {
   

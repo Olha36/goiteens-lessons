@@ -1,11 +1,13 @@
-const vanillaOutput = document.querySelector(".output.vanilla");
-const throttledOutput = document.querySelector(".output.throttled");
-const debouncedOutput = document.querySelector(".output.debounced");
-// const eventCounter = {
-//   vanilla: 0,
-//   throttled: 0,
-//   debounced: 0,
-// };
+// const vanillaOutput = document.querySelector(".output.vanilla");
+// const throttledOutput = document.querySelector(".output.throttled");
+// const debouncedOutput = document.querySelector(".output.debounced");
+const eventCounter = {
+  vanilla: 0,
+  throttled: 0,
+  debounced: 0,
+  task1: 0,
+  task2: 0
+};
 
 
 // document.addEventListener("scroll", () => {
@@ -30,18 +32,29 @@ const debouncedOutput = document.querySelector(".output.debounced");
 //   }, 300)
 // )
 
+//task 1
+const task1Input = document.querySelector('.task1-input');
+const task1Counter = document.querySelector('.task1.throttled');
+console.log(task1Input, task1Counter);
 
-// _.forEach([1, 2, 5, 8, 10, 15], function(value) {
-//   console.log(value);
-// });
+task1Input.addEventListener('input', _.throttle((event) => {
+  const text = event.target.value;
+  console.log(text);
+    eventCounter.task1 += 1;
+    task1Counter.textContent = eventCounter.task1;
+}, 500))
 
-// console.log(_.includes([1, 2, 3, 4], 2, 1));
+//task 2
+const task2Input = document.querySelector('.task2-input');
+const task2Counter = document.querySelector('.task2.debounced');
+console.log(task2Counter);
 
-function updatePosition() {
-  console.log('Hellow world!!!');
-}
+task2Input.addEventListener('input', _.debounce((event) => {
+    const text = event.target.value;
+  console.log(text);
+  eventCounter.task2 += 1;
+  task2Counter.textContent = eventCounter.task2;
+}, 500));
 
-
-document.addEventListener('scroll', _.throttle(updatePosition, 6000));
 
 
