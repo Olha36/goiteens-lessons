@@ -64,29 +64,10 @@ const galleryItems = [
   },
 ];
 
-const jsGallery = document.querySelector('.js-gallery');
-const lightboxImage = document.querySelector('.lightbox_image');
-// const closeButton = document.querySelector('[data-action=""close-lightbox"]');
-const lightbox = document.querySelector('.lightbox');
+const jsGallery = document.querySelector(".js-gallery");
+const lightboxImage = document.querySelector('.lightbox__image');
+const lightbox = document.querySelector(".lightbox");
+const closeButton = document.querySelector('[data-action="close-lightbox"]');
 
-const createGalleryMarkup = (items) => {
-  return items.map(( {preview, original, description}) => {
-    return `
-    <li class="gallery__item">
-  <a
-    class="gallery__link"
-    href="${original}"
-  >
-    <img
-      class="gallery__image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-  </a>
-</li>`
-  }).join('')
-}
+const currentLink = document.getElementById('currentLink');
 
-const galleryMarkup = createGalleryMarkup(galleryItems);
-jsGallery.insertAdjacentHTML('afterbegin', galleryMarkup)
