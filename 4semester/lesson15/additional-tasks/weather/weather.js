@@ -16,21 +16,47 @@ const cityInput = document.getElementById('city-name');
 const searchButton = document.querySelector('.search-button');
 const weatherResultContainer = document.getElementById('weather-container');
 
-const url = `https://sinoptik.pl/stats/ad/display/am/22959804296/sinoptik.pl_300x250_right_bottom_self?ts=1718818820490`
+const apiKey = 'e5fba43dd1c0b016e669357a4e827091'; // Replace with your actual API key
 
 async function getWeatherApi(name) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${apiKey}`;
   
+  try {
     const response = await fetch(url);
     if (!response.ok) {
-        throw new Error(`Could not fetch data for ${name}: ${response.statusText}`);
+      throw new Error(`Could not fetch data for ${name}: ${response.statusText}`);
     }
     return response.json();
+  } catch (error) {
+    console.error('Fetch error: ', error);
+    return null;
+  }
 }
 
-function showWeather() {
-  const inputWeatherValue = cityInput.value;
-  weatherResultContainer.textContent = inputWeatherValue;
-}
-getWeatherApi('London')
+async function showWeather(event) {
+  event.preventDefault();
+  let inputWeatherValue = cityInput.value;
 
-searchButton.addEventListener('click', showWeather)
+  const weatherData = await getWeatherApi(inputWeatherValue);
+
+  if (weatherData) {
+    const { main, wind, weather } = weatherData;
+    const weatherDescription = weather[0].description;
+    const weatherTemp = main.temp;
+    const windSpeed = wind.speed;
+
+    weatherResultContainer.innerHTML = `
+      <h2>Weather in ${inputWeatherValue}</h2>
+      <p>Weather description: ${weatherDescription}</p>
+      <p>The temperature is ${weatherTemp}</p>
+      <p>The wind speed is ${windSpeed}</p>
+    `;
+
+    
+  } else {
+    weatherResultContainer.innerHTML = `<p>Could not retrieve weather data for ${inputWeatherValue}</p>`;
+  }
+  cityInput.value = '';
+}
+
+searchButton.addEventListener('click', showWeather);
