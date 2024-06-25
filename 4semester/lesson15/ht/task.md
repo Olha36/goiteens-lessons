@@ -1,0 +1,1 @@
+Проект зібраний за допомогою parcel-project-template.
