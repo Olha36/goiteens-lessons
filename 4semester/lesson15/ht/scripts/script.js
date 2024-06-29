@@ -44,11 +44,11 @@ function createPixieDustEffect() {
     const particle = document.createElement('div');
     particle.classList.add('particle');
 
-    const xOffset = Math.random() * input.offsetWidth - input.offsetWidth / 2;
-    const yOffset = Math.random() * input.offsetHeight - input.offsetHeight / 2;
+    const xOffset = Math.random() * input.offsetWidth - input.offsetWidth / 1;
+    const yOffset = Math.random() * input.offsetHeight - input.offsetHeight / 1;
     
-    particle.style.left = `${input.offsetLeft + input.offsetWidth / 2 + xOffset}px`;
-    particle.style.top = `${input.offsetTop + input.offsetHeight / 2 + yOffset}px`;
+    particle.style.left = `${input.offsetLeft + input.offsetWidth / 1 + xOffset}px`;
+    particle.style.top = `${input.offsetTop + input.offsetHeight / 1 + yOffset}px`;
     particle.style.animationDelay = `${Math.random() * 0.5}s`;
 
     document.body.appendChild(particle);
