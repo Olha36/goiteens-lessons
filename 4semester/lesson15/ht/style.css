@@ -15,7 +15,6 @@ input {
 }
 input:focus {
   outline:none;
-  color:rgba(255,255,255,.75);
   border-color:rgba(255,255,255,.75);
 }
 input.keyup {
@@ -78,6 +77,10 @@ input.keyup {
   outline: none;
   position: relative;
   z-index: 1; /* Ensure the input is above the animated background */
+  background-color: white;
+  color:black;
+  margin: 2% auto;
+  display: block;
 }
 
 .particle {
