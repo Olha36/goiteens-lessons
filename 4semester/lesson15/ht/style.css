@@ -1,0 +1,105 @@
+html {
+  background:#333 url('https://img.freepik.com/photos-premium/chute-eau-vue-nuit-dans-jungle_635705-837.jpg') no-repeat center bottom;
+  background-size:cover;
+  height:100%;
+  overflow:hidden;
+}
+input {
+  border:2px solid rgba(255,255,255,.5);
+  font-size:1.75em;
+  padding:.25em .5em .3125em;
+  color:rgba(255,255,255,.5);
+  border-radius:.25em;
+  background:transparent;
+  transition:all .100s;
+}
+input:focus {
+  outline:none;
+  color:rgba(255,255,255,.75);
+  border-color:rgba(255,255,255,.75);
+}
+input.keyup {
+  color:white;
+    border-color:white;
+    text-shadow:0 0 .125em white;
+    box-shadow:0 0 .25em white,inset 0 0 .25em white;
+}
+
+/* Apply styles to resultContainer and its children */
+.resultContainer {
+  display: none;
+  background-color: #f9f9f9; /* Light background */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding inside the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 600px; /* Max width of the container */
+  margin: 20px auto; /* Center the container horizontally */
+  font-family: 'Arial', sans-serif; /* Font family */
+}
+
+.resultContainer h2 {
+  font-size: 1.8em; /* Larger font size for the heading */
+  color: #333; /* Dark text color */
+  border-bottom: 2px solid #ccc; /* Border at the bottom */
+  padding-bottom: 10px; /* Padding below the heading */
+  margin-bottom: 15px; /* Space below the heading */
+}
+
+.resultContainer p {
+  font-size: 1.1em; /* Slightly larger font size */
+  color: #555; /* Medium text color */
+  margin-bottom: 10px; /* Space below each paragraph */
+}
+
+.resultContainer ul {
+  list-style-type: disc; /* Bullet points */
+  padding-left: 20px; /* Padding on the left */
+  color: #555; /* Medium text color */
+}
+
+.resultContainer li {
+  font-size: 1.1em; /* Slightly larger font size */
+  margin-bottom: 5px; /* Space below each list item */
+}
+
+.resultContainer img {
+  max-width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 10px; /* Space above the image */
+  border: 1px solid #ccc; /* Border around the image */
+  border-radius: 4px; /* Rounded corners for the image */
+}
+
+.find-country {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  position: relative;
+  z-index: 1; /* Ensure the input is above the animated background */
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: pixieDust 2s ease-out infinite;
+  filter: blur(1px);
+  opacity: 0;
+}
+
+@keyframes pixieDust {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(300px) translateY(-100px) scale(0.1);
+    opacity: 0;
+  }
+}
+
