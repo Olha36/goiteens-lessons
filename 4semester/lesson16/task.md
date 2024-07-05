@@ -5,3 +5,18 @@
 Реалізуйте пагінацію, яка включає номери сторінок, кнопки "Попередня сторінка" та "Наступна сторінка".
 При кліці на номер сторінки або кнопку "Попередня/Наступна сторінка" відобразіть відповідний список користувачів на новій сторінці.
  
+
+
+async function getFetchApi() {
+  try {
+    const response = await fetch(catUrl);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    console.log(`Fetch error: ${error}`);
+    throw error; // Re-throw the error so it can be caught by getCatsImg
+  }
+}

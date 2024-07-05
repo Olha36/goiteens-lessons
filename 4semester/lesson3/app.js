@@ -1,40 +1,18 @@
-var validator = require('validator');
+// console.log("hi");
 var prompt = require('prompt');
+  //
+  // Start the prompt
+  //
+  prompt.start();
 
-prompt.start();
-
-//
-// Get two properties from the user: username and email
-//
-prompt.get(['email'], (err, result) => {
-
-  if(err) {
-    console.log(err);
-    return;
-  }
- 
-  let email = result.email;
-
-  if(validator.isEmail(email)) {
-    console.log('email is valid');
-  } else {
-    console.log('email is not valid');
-  }
-});
-
-// const validateEmail = email => {
-//   return validator.isEmail(email);
-// }
-
-// console.log("Is mango@mail.com a valid email?:",
-// validateEmail('mango@mail.com')
-// );
-
-// console.log("Is mangomail.com a valid email?:",
-// validateEmail('mangomail.com')
-// );
-
-
-
-// console.log('hello');
-
+  //
+  // Get two properties from the user: username and email
+  //
+  prompt.get(['username', 'email'], function (err, result) {
+    //
+    // Log the results.
+    //
+    console.log('Command-line input received:');
+    console.log('  username: ' + result.username);
+    console.log('  email: ' + result.email);
+  });
