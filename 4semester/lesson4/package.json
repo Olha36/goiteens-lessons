@@ -11,8 +11,6 @@
   "author": "Olha",
   "license": "ISC",
   "dependencies": {
-    "basiclightbox": "^5.0.4",
-    "chart.js": "^4.4.2",
-    "nanoid": "^5.0.6"
+    "chart.js": "^4.4.3"
   }
 }

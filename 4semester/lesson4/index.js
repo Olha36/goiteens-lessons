@@ -4,7 +4,7 @@
 // const div = document.querySelector('div');
 
 
-// const ctx = document.getElementById('myChart');
+const ctx = document.getElementById('myChart');
 
 //   new Chart(ctx, {
 //     type: 'bar',
@@ -24,6 +24,48 @@
 //       }
 //     }
 //   });
+
+
+new Chart(ctx,{
+  data: {
+    labels: [
+      'Eating',
+      'Drinking',
+      'Sleeping',
+      'Designing',
+      'Coding',
+      'Cycling',
+      'Running'
+    ],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [65, 59, 90, 81, 56, 55, 40],
+      fill: true,
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      borderColor: 'rgb(255, 99, 132)',
+      pointBackgroundColor: 'rgb(255, 99, 132)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(255, 99, 132)'
+    }, {
+      label: 'My Second Dataset',
+      data: [28, 48, 40, 19, 96, 27, 100],
+      fill: true,
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgb(54, 162, 235)',
+      pointBackgroundColor: 'rgb(54, 162, 235)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(54, 162, 235)'
+    }]
+  },
+  // config: {
+  //   type: 'doughnut',
+  //   data: data,
+  // },
+})
+
+// можете подивитись приклад по цій бібліотеці
 // const basicLightbox = require('basiclightbox')
 // import * as basicLightbox from 'basiclightbox';
 
@@ -34,80 +76,4 @@
 // 	`).show()
 
 // }
-
-const taskInput = document.querySelector('#taskInput');
-console.log(taskInput);
-const taskList = document.querySelector('#taskList');
-console.log(taskList);
-const addTaskBtn = document.querySelector('#addTaskBtn');
-console.log(addTaskBtn);
-const div = document.querySelector('div');
-console.log(div);
-
-let isFunctionExecuted = false;
-
-addTaskBtn.addEventListener('click', () => {
-	console.log('hi');
-	addTask();
-
-	if(!isFunctionExecuted) {
-		deleteTask();
-		markTaskDone();
-
-		isFunctionExecuted = true;
-	}
-
-	taskInput.value ="";
-	
-})
-
-const addTask = () => {
-	const listElement = document.createElement('li');
-	const checkBox = document.createElement('input');
-	checkBox.type = 'checkbox';
-
-	const newContent = document.createTextNode(taskInput.value);
-
-	const taskID = crypto.randomUUID();
-	console.log('new task with unique ID:', taskID);
-  
-	listElement.appendChild(newContent);
-	listElement.appendChild(checkBox)
-
-	taskList.appendChild(listElement);
-
-	checkBox.addEventListener('change', function () {
-		if (this.checked) {
-			listElement.classList.add('checked');
-		} else {
-			listElement.classList.remove('checked');
-		}
-	})
-
-
-
-}
-
-const deleteTask = () => {
-	const deleteButton = document.createElement('button');
-	const buttonContent = document.createTextNode('delete');
-
-	deleteButton.appendChild(buttonContent);
-
-	div.insertAdjacentElement("beforeend", deleteButton);
-
-	deleteButton.addEventListener('click', () => {
-		const checkedItems = document.querySelectorAll('li.checked');
-		console.log(checkedItems);
-		checkedItems.forEach(item => item.remove());
-	})
-}
-
-const markTaskDone = () => {
-const  doneTaskButton= document.createElement('button');
-const buttonDoneContent = document.createTextNode('done');
-
-	doneTaskButton.appendChild(buttonDoneContent);
-
-	div.insertAdjacentElement("beforeend", doneTaskButton);
-}
+   
