@@ -1,5 +1,5 @@
 
-  {{#each posts}}
+  {{#>each posts}}
     <div class="post">
       <h2><a href="/posts/{{id}}">{{title}}</a></h2>
       <p>Views: {{views}}</p>

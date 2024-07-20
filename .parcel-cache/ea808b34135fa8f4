@@ -5,4 +5,4 @@
       <p>Views: {{views}}</p>
     </div>
   {{/each}}
-
+</div>

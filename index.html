@@ -6,9 +6,31 @@
     <title>Semester project</title>
 </head>
 <body>
-   
-   
+    <div id="menu-container"></div>
 
+    <template id="menu-template">
+      <div class="menu">
+        <ul class="menu-list">
+          {{#each posts}}
+          <li class="menu-item">{{this.id}}, {{this.title}}, {{this.views}}</li>
+          {{/each}}
+        </ul>
+
+        <ul class="menu-list">
+            {{#each comments}}
+            <li class="menu-item">{{this.id}}, {{this.text}}, {{this.postId}}</li>
+            {{/each}}
+        </ul>
+
+        <ul class="menu-list">
+            {{#each }}
+            <li class="menu-item">{{profile.name}}</li>
+            {{/each}}
+        </ul>
+      </div>
+    </template>
+    <!-- <script src="./home.handlebars"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
