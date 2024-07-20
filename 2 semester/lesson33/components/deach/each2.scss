@@ -1,5 +1,0 @@
-@each $animal in bird, cat, dog, turtle {
-    .each_container_animals_#{$animal}-icon {
-        background-image: url(../img/#{$animal}-icon.png);
-    }
-}
