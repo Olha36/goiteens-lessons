@@ -1,6 +1,10 @@
 Створіть веб-додаток блогу, який дозволяє користувачам створювати, переглядати, оновлювати та видаляти пости. 
 Інструкції:
 1. Використовуйте Node.js для створення сервера.
+* npm init -y
+* npm install express
+* create server.mjs file and fill it
+* check on port 3000 running node server.mjs
 2. Використовуйте json-server для створення серверу та обробки запитів.
 `how to do this task`
     * npm install json-server
