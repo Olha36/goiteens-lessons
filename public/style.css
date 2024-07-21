@@ -115,7 +115,7 @@ body {
 }
 
 .box {
-  width: 100px;
+  width: 250px;
   display: flex;
   perspective: 500px;
   margin-right: 100px;

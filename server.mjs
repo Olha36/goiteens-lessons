@@ -15,3 +15,26 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+app.post('/posts', (req, res) => {
+  const newPost = req.body;
+
+  fs.readFile('./db.json', (err, data) => {
+    if (err) {
+      res.status(500).send('Error reading database file');
+      return;
+    }
+
+    const db = JSON.parse(data);
+    db.posts.push(newPost);
+
+    fs.writeFile('./db.json', JSON.stringify(db, null, 2), (err) => {
+      if (err) {
+        res.status(500).send('Error writing to database file');
+        return;
+      }
+
+      res.status(201).send('Post added successfully');
+    });
+  });
+});
