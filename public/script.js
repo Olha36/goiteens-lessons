@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', async function () {
  try{
   const response = await fetch('/db.json');
@@ -14,3 +13,5 @@ document.addEventListener('DOMContentLoaded', async function () {
   console.log('Error fetching or processing data', error)
  } 
 });
+
+console.log('hi');

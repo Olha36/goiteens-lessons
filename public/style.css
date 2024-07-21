@@ -1,36 +1,34 @@
-body{
+/* Global styles */
+body {
   background-image: url('https://images.unsplash.com/photo-1534310808879-0239eaced87a?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyMjYyMDQ0Mw&ixlib=rb-1.2.1&q=85');
-   background-repeat: no-repeat;
-   background-position: center center;
-   background-size: cover;
-   height:100vh;
-   width:100vw;
-   overflow: hidden;
-   position:relative;
- }
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Container styles */
 #menu-container {
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Heading styles */
-#menu-container h1 {
-  font-size: 2.5rem;
+#menu-container h1, #post-list h2 {
+  font-size: 2rem;
   color: #333;
   margin-bottom: 1rem;
   text-align: center;
   font-weight: bold;
-}
-
-#menu-container h3 {
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 1rem;
-  text-align: center;
 }
 
 /* Form styles */
@@ -41,7 +39,7 @@ body{
 }
 
 /* Input and textarea styles */
-#posts input[type="text"] {
+#posts input[type="text"], #posts textarea {
   padding: 0.75rem;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -50,11 +48,6 @@ body{
 }
 
 #posts textarea {
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-  width: 100%;
   min-height: 150px;
   resize: vertical;
 }
@@ -74,16 +67,9 @@ body{
 #posts button:hover {
   background-color: #0056b3;
 }
+
 #post-list {
   margin-top: 2rem;
-}
-
-#post-list h2 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-weight: bold;
 }
 
 .post {
@@ -108,91 +94,68 @@ body{
 /* Responsive design */
 @media (max-width: 600px) {
   #menu-container {
-    padding: 1rem;
+      padding: 1rem;
   }
 
-  #menu-container h1 {
-    font-size: 2rem;
+  #menu-container h1, #post-list h2 {
+      font-size: 1.5rem;
   }
 
-  #posts input[type="text"],
-  #posts textarea,
-  #posts button {
-    font-size: 0.875rem;
+  #posts input[type="text"], #posts textarea, #posts button {
+      font-size: 0.875rem;
   }
 }
 
+/* Animation styles */
+.outer {
+  width: 500px;
+  position: absolute;
+  animation: floatup 20s linear infinite, sideways 20s linear infinite, change 10s linear infinite alternate;
+}
 
- .outer{
-   width: 500px;
-   position:absolute;
-   animation: floatup 20s linear infinite, sideways 20s linear infinite, change 10s linear infinite alternate;
- }
- .box {
-   width: 100px;
-   display: flex;
-   perspective: 500px;
-   margin-right:100px;
- }
- 
- .box::before,
- .box::after {
-   content: "";
-   padding-top: 56%;
-   flex: 1;
-   background-image: url("https://static.vecteezy.com/system/resources/thumbnails/027/182/050/small/beautiful-color-butterfly-isolated-on-a-transparent-background-png.png");
-   background-size: 200% 100%;
-   animation: left 0.5s linear infinite alternate;
-   transform-origin: right;
- }
- 
- .box::after {
-   background-position: right;
-   animation-name: right;
-   transform-origin: left;
- }
- 
- @keyframes left {
-   from {
-     transform: translateZ(80px) rotateY(-10deg)
-   }
-   to {
-     transform:translateZ(0px) rotateY(50deg) 
-   }
- }
- 
- @keyframes right {
-   from { 
-     transform: translateZ(80px) rotateY(10deg)
-   }
-   to {
-     transform:translateZ(0px) rotateY(-50deg) 
-   }
- }
- 
- @keyframes flutter {
-   from{ 
-     margin-left: 0;
-     margin-top:100%; 
-     }
-   to{
-     margin-left: 100%;
-     margin-top:0;
-     }
-   }
- 
- @keyframes floatup{
-   0% {top: 100%;}
-   /* 50% {top: (random(100) * 1%);} */
-   100% {top:-300px;}
- }
- @keyframes sideways{
-   /* from {left: (random(100) * 1px);}
-   50%{left: (random(100) * 1%);} */
-   to{left: (random(100) * 10px);}
- }
- @keyframes change{
-   from {transform: rotate((random(5) * 5deg));}
-   to {transform: rotate(45deg);}
- }
- 
+.box {
+  width: 100px;
+  display: flex;
+  perspective: 500px;
+  margin-right: 100px;
+}
+
+.box::before, .box::after {
+  content: "";
+  padding-top: 56%;
+  flex: 1;
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/027/182/050/small/beautiful-color-butterfly-isolated-on-a-transparent-background-png.png");
+  background-size: 200% 100%;
+  animation: left 0.5s linear infinite alternate;
+  transform-origin: right;
+}
+
+.box::after {
+  background-position: right;
+  animation-name: right;
+  transform-origin: left;
+}
+
+@keyframes left {
+  from { transform: translateZ(80px) rotateY(-10deg); }
+  to { transform: translateZ(0px) rotateY(50deg); }
+}
+
+@keyframes right {
+  from { transform: translateZ(80px) rotateY(10deg); }
+  to { transform: translateZ(0px) rotateY(-50deg); }
+}
+
+@keyframes floatup {
+  0% { top: 100%; }
+  100% { top: -300px; }
+}
+
+@keyframes sideways {
+  to { left: calc(100% * 1); }
+}
+
+@keyframes change {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(45deg); }
+}

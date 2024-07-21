@@ -1,2 +1,2 @@
-import './butterflies';
-import './script'
+import './butterflies.js';
+import './script.js'
