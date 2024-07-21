@@ -74,6 +74,36 @@ body{
 #posts button:hover {
   background-color: #0056b3;
 }
+#post-list {
+  margin-top: 2rem;
+}
+
+#post-list h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.post {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.post h3 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.post p {
+  font-size: 1rem;
+  color: #666;
+}
 
 /* Responsive design */
 @media (max-width: 600px) {
