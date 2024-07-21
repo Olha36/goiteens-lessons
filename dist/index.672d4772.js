@@ -1,16 +1,13 @@
-// const menuData = {
-//   title: 'Eat it createElement, templates rule!',
-//   items: ['Handlebars', 'LoDash', 'Pug', 'EJS', 'lit-html'],
-// };
-// const employees  = {
-//   name: 'person1',
-//   age: 35,
-//   position: 'teacher'
-// }
-// console.log('check');
-// const source = document.querySelector('#menu-template').innerHTML; //в меню темплейт буде додано
-// const template = Handlebars.compile(source); // скомпілювали і додали
-// document.querySelector('#menu-container').innerHTML = template(employees)
-console.log("ccheck");
+console.log("check"); // document.addEventListener('DOMContentLoaded', function () {
+ //   fetch('./db.json')
+ //     .then((response) => response.json())
+ //     .then((data) => {
+ //       const source = document.querySelector('#menu-template').innerHTML; // Ensure the template is correctly selected
+ //       const template = Handlebars.compile(source); // Compile the template
+ //       // Render the template with the `employees` data and insert it into the container
+ //       document.querySelector('#menu-container').innerHTML = template(data);
+ //     })
+ //     .catch((error) => console.log(error));
+ // });
 
 //# sourceMappingURL=index.672d4772.js.map
