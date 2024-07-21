@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta nastyleme="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./style.css">
     <title>Semester project</title>
 </head>
 <body>
-    <div id="menu-container"></div>
+    <div id="menu-container">
+      <h1
+      
+      log>Пости</h1>
+      <form id="posts">
+        <h3 id="instructions"></h3>
+        <input type="text" id="create-post"><textarea name="" id="contentArea"></textarea><button id="submit"></button></form>
+    </div>
 
     <template id="menu-template">
       <div class="menu">
@@ -29,6 +37,7 @@
     </template>
     <!-- <script src="./home.handlebars"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script src="./script.js"></script>
+    <!-- <script src="./script.js"></script> -->
+    <script src="./butterflies.js"></script>
 </body>
 </html>
