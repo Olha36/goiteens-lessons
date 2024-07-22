@@ -1,3 +1,4 @@
+const menuItemLiElement = document.querySelectorAll('.menu-item')
 let template; // Define the template variable globally
 
 document.addEventListener('DOMContentLoaded', async function () {
@@ -66,4 +67,12 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 
   document.getElementById('posts').addEventListener('submit', getPostRequest);
+
+  menuItemLiElement.forEach(item => {
+    item.addEventListener('click', function() {
+      console.log('hi');
+    })
+  })
+  
 })
+

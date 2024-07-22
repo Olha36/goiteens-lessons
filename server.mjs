@@ -44,6 +44,30 @@ app.post('/posts', (req, res) => {
   });
 });
 
+app.put('/posts', (req, res) => {
+  const updatedPost = req.body;
+
+  fs.readFile('./public/db.json', 'utf8', (err, data) => {
+    if(err) {
+      res.status(500).send('Error reading database file');
+      return;
+    }
+
+    const updatedDb = Json.parse(data);
+    updatedDb.posts.push(updatedPost);
+
+    fs.writeFile('./public/db.json', JSON.stringify(db, null, 2), 'utf8', (err) => {
+      if(err) {
+        console.log('Error updating to database file');
+        return;
+      }
+
+      console.log('Your post was successfully updated');
+      res.status(201).send('Post updated successfully')
+    })
+  })
+})
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

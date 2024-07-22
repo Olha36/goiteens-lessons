@@ -6,7 +6,6 @@ body {
   background-size: cover;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
   position: relative;
   font-family: Arial, sans-serif;
   color: #333;
@@ -30,6 +29,10 @@ body {
   margin-bottom: 1rem;
   text-align: center;
   font-weight: bold;
+}
+.menu-item:hover {
+  cursor: pointer;
+  color: palevioletred;
 }
 
 /* Form styles */
