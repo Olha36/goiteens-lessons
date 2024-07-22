@@ -45,6 +45,7 @@ app.post('/posts', (req, res) => {
 });
 
 app.put('/posts', (req, res) => {
+  const postId = req.params.id;
   const updatedPost = req.body;
 
   fs.readFile('./public/db.json', 'utf8', (err, data) => {
@@ -53,17 +54,27 @@ app.put('/posts', (req, res) => {
       return;
     }
 
-    const updatedDb = Json.parse(data);
-    updatedDb.posts.push(updatedPost);
+    const updatedDb = JSON.parse(data);
+    const postIndex = db.posts.findIndex(post => post.id === postId);
 
-    fs.writeFile('./public/db.json', JSON.stringify(db, null, 2), 'utf8', (err) => {
+    if (postIndex === -1) {
+      res.status(404).send('Post not found');
+      return;
+    }
+
+    db.posts[postIndex] = { ...db.posts[postIndex], ...updatedPost };
+
+   
+
+    fs.writeFile('./public/db.json', JSON.stringify(updatedDb, null, 2), 'utf8', (err) => {
       if(err) {
-        console.log('Error updating to database file');
+        console.log('Error updating to database file', err);
+        res.status(500).send('Error writing to a database file');
         return;
       }
 
       console.log('Your post was successfully updated');
-      res.status(201).send('Post updated successfully')
+      res.status(200).send('Post updated successfully')
     })
   })
 })

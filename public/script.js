@@ -1,4 +1,4 @@
-const menuItemLiElement = document.querySelectorAll('.menu-item')
+
 let template; // Define the template variable globally
 
 document.addEventListener('DOMContentLoaded', async function () {
@@ -15,7 +15,12 @@ document.addEventListener('DOMContentLoaded', async function () {
   } catch (error) {
     console.log('Error fetching or processing data', error);
   }
+  const menuItemLiElement = document.querySelectorAll('.menu-item')
+  console.log(menuItemLiElement);
 
+  menuItemLiElement.forEach(item => {
+    item.addEventListener('click', getUpdateRequest)
+  })
   // Handle form submission
 
   async function getPostRequest(e) {
@@ -64,15 +69,53 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
   }
+  async function getUpdateRequest(e) {
+    console.log('update');
+    e.preventDefault();
 
+    try {
+      const id = e.target.dataset.id; // Get the id of the selected post from the dataset
+      const title = prompt('Enter the new title'); // Prompt the user to enter the new title
+      const content = prompt('Enter the new content'); // Prompt the user to enter the new content
+
+      const updatedPost = {
+        id: id,
+        title: title,
+        content: content
+      };
+
+      const updateResponse = await fetch(`/posts`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedPost)
+      });
+
+      console.log('Server response:', updateResponse);
+
+      if (!updateResponse.ok) {
+        const errorText = await updateResponse.text();
+        console.error('Server error response:', errorText);
+        throw new Error('Failed to update post in database');
+      }
+
+      alert('Post updated successfully');
+
+      // Fetch and display updated data
+      const updatedResponse = await fetch('/db.json');
+      if (!updatedResponse.ok) {
+        throw new Error('Failed to fetch updated data');
+      }
+      const updatedData = await updatedResponse.json();
+      document.querySelector('#menu-container').innerHTML = template(updatedData);
+    } catch (error) {
+      console.log('Error updating post in database', error);
+    }
+  }
 
   document.getElementById('posts').addEventListener('submit', getPostRequest);
 
-  menuItemLiElement.forEach(item => {
-    item.addEventListener('click', function() {
-      console.log('hi');
-    })
-  })
+  
   
 })
-
