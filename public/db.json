@@ -87,6 +87,24 @@
       "title": "New test post",
       "views": 0,
       "content": "ddfff"
+    },
+    {
+      "id": "5169",
+      "title": "Butterfly",
+      "views": 0,
+      "content": "Let me tell you about these brilliant insects"
+    },
+    {
+      "id": "3779",
+      "title": "English",
+      "views": 0,
+      "content": "English is a world wide language"
+    },
+    {
+      "id": "939",
+      "title": "German",
+      "views": 0,
+      "content": "German is a really popular language in Europe"
     }
   ],
   "comments": [

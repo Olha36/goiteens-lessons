@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         throw new Error('Failed to add post to database');
       }
 
-      console.log('Post added successfully');
+      alert('Post added successfully');
 
       // Fetch and display updated data
       const updatedResponse = await fetch('/db.json');
