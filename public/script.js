@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   // Handle form submission
-  document.getElementById('posts').addEventListener('submit', async function (e) {
+
+  async function getPostRequest(e) {
     e.preventDefault();
 
     const title = document.getElementById('create-post').value;
@@ -60,7 +61,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     } catch (error) {
       console.log('Error adding post to database', error);
     }
-  });
-});
 
-console.log('hi');
+  }
+
+
+  document.getElementById('posts').addEventListener('submit', getPostRequest);
+})
