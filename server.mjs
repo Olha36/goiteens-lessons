@@ -45,7 +45,7 @@ app.post('/posts', (req, res) => {
 });
 
 // Handle PUT requests to update a post
-app.put('/posts/:id', (req, res) => {
+app.put('/posts', (req, res) => {
   const postId = req.params.id;
   const updatedPost = req.body;
 
