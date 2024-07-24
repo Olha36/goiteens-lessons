@@ -22,6 +22,7 @@
     <div id="posts-container"></div>
   </div>
     <div id="menu-container"></div>
+
     <template id="menu-template">
       <div class="menu">
         <ul class="menu-list">
@@ -42,9 +43,20 @@
       </div>
     </template>
 
+    <div class="menu-wrapper">
+      <h3>Update a Post</h3>
+      <form id="update-post">
+          <input type="text" id="post-id" placeholder="Post ID" required>
+          <input type="text" id="update-title" placeholder="New Title">
+          <textarea placeholder="New Content" id="update-content"></textarea>
+          <button id="update-submit">Update Post</button>
+      </form>
+  </div>
+  
     <div class="outer">
       <div class="box"></div>
     </div>
+
     <!-- <script src="./home.handlebars"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <!-- <script src="./script.js"></script> -->

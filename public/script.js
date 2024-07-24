@@ -1,4 +1,3 @@
-
 let template; // Define the template variable globally
 
 document.addEventListener('DOMContentLoaded', async function () {
@@ -12,17 +11,15 @@ document.addEventListener('DOMContentLoaded', async function () {
     const source = document.querySelector('#menu-template').innerHTML;
     template = Handlebars.compile(source); // Compile the template globally
     document.querySelector('#menu-container').innerHTML = template(data);
+
+    // Add event listeners to dynamically created <li> elements
+    addClickListeners();
+
   } catch (error) {
     console.log('Error fetching or processing data', error);
   }
-  const menuItemLiElement = document.querySelectorAll('.menu-item')
-  console.log(menuItemLiElement);
-
-  menuItemLiElement.forEach(item => {
-    item.addEventListener('click', getUpdateRequest)
-  })
-  // Handle form submission
-
+  
+  // Handle form submission for new post
   async function getPostRequest(e) {
     e.preventDefault();
 
@@ -57,34 +54,30 @@ document.addEventListener('DOMContentLoaded', async function () {
       alert('Post added successfully');
 
       // Fetch and display updated data
-      const updatedResponse = await fetch('/db.json');
-      if (!updatedResponse.ok) {
-        throw new Error('Failed to fetch updated data');
-      }
-      const updatedData = await updatedResponse.json();
-      document.querySelector('#menu-container').innerHTML = template(updatedData);
-
+      fetchAndDisplayPosts();
     } catch (error) {
       console.log('Error adding post to database', error);
     }
-
   }
-  async function getUpdateRequest(e) {
-    console.log('update');
+
+  // Handle form submission for updating post
+  async function updatePostRequest(e) {
     e.preventDefault();
 
+    const postId = document.getElementById('post-id').value;
+    const title = document.getElementById('update-title').value;
+    const content = document.getElementById('update-content').value;
+
+    const updatedPost = {
+      id: postId,
+      title: title,
+      content: content
+    };
+
+    console.log('Sending updated post:', updatedPost);
+
     try {
-      const id = e.target.dataset.id; // Get the id of the selected post from the dataset
-      const title = prompt('Enter the new title'); // Prompt the user to enter the new title
-      const content = prompt('Enter the new content'); // Prompt the user to enter the new content
-
-      const updatedPost = {
-        id: id,
-        title: title,
-        content: content
-      };
-
-      const updateResponse = await fetch(`/posts`, {
+      const updateResponse = await fetch(`/posts/${postId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -103,19 +96,43 @@ document.addEventListener('DOMContentLoaded', async function () {
       alert('Post updated successfully');
 
       // Fetch and display updated data
-      const updatedResponse = await fetch('/db.json');
-      if (!updatedResponse.ok) {
-        throw new Error('Failed to fetch updated data');
-      }
-      const updatedData = await updatedResponse.json();
-      document.querySelector('#menu-container').innerHTML = template(updatedData);
+      fetchAndDisplayPosts();
     } catch (error) {
       console.log('Error updating post in database', error);
     }
   }
 
   document.getElementById('posts').addEventListener('submit', getPostRequest);
+  document.getElementById('update-post').addEventListener('submit', updatePostRequest);
+  
+  // Fetch and display posts
+  async function fetchAndDisplayPosts() {
+    try {
+      const response = await fetch('/db.json');
+      if (!response.ok) {
+        throw new Error('Network response was not ok!');
+      }
+      const data = await response.json();
+      document.querySelector('#menu-container').innerHTML = template(data);
 
-  
-  
-})
+      // Add event listeners to dynamically created <li> elements
+      addClickListeners();
+    } catch (error) {
+      console.log('Error fetching or processing data', error);
+    }
+  }
+
+  // Function to add click listeners to <li> elements
+  function addClickListeners() {
+    const listItems = document.querySelectorAll('.menu-item');
+    listItems.forEach(item => {
+      item.addEventListener('click', function () {
+        const postId = this.textContent.split(',')[0].trim(); // Extract post ID from text content
+        document.getElementById('post-id').value = postId;
+
+        // Optionally fetch post details here to pre-fill update form
+        console.log(`Clicked on post ID: ${postId}`);
+      });
+    });
+  }
+});

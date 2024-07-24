@@ -44,17 +44,19 @@ app.post('/posts', (req, res) => {
   });
 });
 
-app.put('/posts', (req, res) => {
+// Handle PUT requests to update a post
+app.put('/posts/:id', (req, res) => {
   const postId = req.params.id;
   const updatedPost = req.body;
 
   fs.readFile('./public/db.json', 'utf8', (err, data) => {
-    if(err) {
+    if (err) {
+      console.error('Error reading database file:', err);
       res.status(500).send('Error reading database file');
       return;
     }
 
-    const updatedDb = JSON.parse(data);
+    const db = JSON.parse(data);
     const postIndex = db.posts.findIndex(post => post.id === postId);
 
     if (postIndex === -1) {
@@ -62,22 +64,20 @@ app.put('/posts', (req, res) => {
       return;
     }
 
-    db.posts[postIndex] = { ...db.posts[postIndex], ...updatedPost };
+    db.posts[postIndex] = updatedPost;
 
-   
-
-    fs.writeFile('./public/db.json', JSON.stringify(updatedDb, null, 2), 'utf8', (err) => {
-      if(err) {
-        console.log('Error updating to database file', err);
-        res.status(500).send('Error writing to a database file');
+    fs.writeFile('./public/db.json', JSON.stringify(db, null, 2), 'utf8', (err) => {
+      if (err) {
+        console.error('Error writing to database file:', err);
+        res.status(500).send('Error writing to database file');
         return;
       }
 
-      console.log('Your post was successfully updated');
-      res.status(200).send('Post updated successfully')
-    })
-  })
-})
+      console.log('Post updated successfully');
+      res.status(200).send('Post updated successfully');
+    });
+  });
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
