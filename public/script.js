@@ -60,44 +60,43 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   async function getUpdateRequest(e) {
     e.preventDefault();
-
     try {
       const response = await fetch('/db.json');
       if (!response.ok) {
         throw new Error('Failed to fetch data from db.json');
       }
       const data = await response.json();
-
-      const postTitle = 'New test post';
-      const post = data.posts.find(post => post.title === postTitle);
+      const postId = '1'; // ID of the post to update
+  
+      const post = data.posts.find(post => post.id === postId);
       if (!post) {
         throw new Error('Post not found');
       }
-
-      const id = post.id;
-      const title = prompt('Enter the new title');
-      const content = prompt('Enter the new content');
-
+  
+      const title = prompt('Enter the new title', post.title);
+      const content = prompt('Enter the new content', post.content);
+  
       const updatedPost = {
-        id: id,
+        id: postId,
         title: title,
         content: content
       };
-
-      const updateResponse = await fetch(`/posts/${id}`, {
+  
+      const updateResponse = await fetch(`/posts/${postId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(updatedPost)
       });
-
+  
       if (!updateResponse.ok) {
         const errorText = await updateResponse.text();
-        throw new Error('Failed to update post in database');
+        throw new Error(`Failed to update post: ${errorText}`);
       }
-
+  
       alert('Post updated successfully');
+  
       const updatedResponse = await fetch('/db.json');
       if (!updatedResponse.ok) {
         throw new Error('Failed to fetch updated data');
@@ -105,9 +104,13 @@ document.addEventListener('DOMContentLoaded', async function () {
       const updatedData = await updatedResponse.json();
       document.querySelector('#menu-container').innerHTML = template(updatedData);
     } catch (error) {
-      console.log('Error updating post in database', error);
+      console.error('Error updating post:', error);
     }
   }
+  
+  console.log('Updating post with ID:', postId);
+console.log('Updated post data:', updatedPostData);
 
   document.getElementById('posts').addEventListener('submit', getPostRequest);
+  
 });

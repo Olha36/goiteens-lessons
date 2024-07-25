@@ -2,8 +2,9 @@
   "posts": [
     {
       "id": "1",
-      "title": "a title",
-      "views": 100
+      "title": "1, title",
+      "views": 100,
+      "content": "500"
     },
     {
       "id": "2",
@@ -58,15 +59,15 @@
     },
     {
       "id": "8319",
-      "title": "New test post",
+      "title": null,
       "views": 0,
-      "content": "I adore developing!!!"
+      "content": null
     },
     {
       "id": "2608",
-      "title": "New test post",
+      "title": "123",
       "views": 0,
-      "content": "I adore developing!!!"
+      "content": "dcfgh"
     },
     {
       "id": "7270",
