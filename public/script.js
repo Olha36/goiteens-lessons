@@ -108,8 +108,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
   
-  console.log('Updating post with ID:', postId);
-console.log('Updated post data:', updatedPostData);
 
   document.getElementById('posts').addEventListener('submit', getPostRequest);
   
