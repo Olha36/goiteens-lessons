@@ -1,6 +1,8 @@
+
 let template;
 
 document.addEventListener('DOMContentLoaded', async function () {
+
   try {
     const response = await fetch('/db.json');
     if (!response.ok) {
@@ -108,6 +110,61 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
   
+  function addEventListenersToDeleteButton() {
+    const deletePostButton = document.querySelectorAll('.delete-post');
+    console.log(deletePostButton);
+  }
+  async function deletePostRequest(e) {
+    addEventListenersToDeleteButton()
+    
+    e.preventDefault();
+    try {
+      const response = await fetch('/db.json');
+      if (!response.ok) {
+        throw new Error('Failed to fetch data from db.json');
+      }
+      const data = await response.json();
+      const postId = '1'; // ID of the post to delete
+  
+      const post = data.posts.find(post => post.id === postId);
+      if (!post) {
+        throw new Error('Post not found');
+      }
+      
+      const title = document.getElementById('create-post').value;
+      const content = document.getElementById('contentArea').value;
+
+      const deletedPost = {
+        id: postId,
+        title: title,
+        content: content
+      };
+  
+      const deleteResponse = await fetch(`/posts/${postId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(deletedPost)
+      });
+  
+      if (!deleteResponse.ok) {
+        const errorText = await deleteResponse.text();
+        throw new Error(`Failed to update post: ${errorText}`);
+      }
+  
+      alert('Post deleted successfully');
+  
+      const deletedResponse = await fetch('/db.json');
+      if (!deletedResponse.ok) {
+        throw new Error('Failed to fetch updated data');
+      }
+      const deletedData = await deletedResponse.json();
+      document.querySelector('#menu-container').innerHTML = template(deletedData);
+    } catch (error) {
+      console.error('Error updating post:', error);
+    }
+  }
 
   document.getElementById('posts').addEventListener('submit', getPostRequest);
   

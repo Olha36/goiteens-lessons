@@ -30,9 +30,30 @@ body {
   text-align: center;
   font-weight: bold;
 }
-.menu-item:hover {
+
+.menu-list-wrapper {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  margin-bottom: 1rem; /* Space between list items */
+}
+
+.menu-item {
+  flex: 1; /* Takes up available space */
+  margin-right: 1rem; /* Space between item and button */
+}
+
+.delete-post {
+  background-color: #dc3545; /* Red button color */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   cursor: pointer;
-  color: palevioletred;
+  transition: background-color 0.3s ease;
+}
+
+.delete-post:hover {
+  background-color: #c82333; /* Darker red on hover */
 }
 
 /* Form styles */
@@ -98,15 +119,15 @@ body {
 /* Responsive design */
 @media (max-width: 600px) {
   #menu-container {
-      padding: 1rem;
+    padding: 1rem;
   }
 
   #menu-container h1, #post-list h2 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   #posts input[type="text"], #posts textarea, #posts button {
-      font-size: 0.875rem;
+    font-size: 0.875rem;
   }
 }
 

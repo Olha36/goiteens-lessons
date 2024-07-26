@@ -2,9 +2,9 @@
   "posts": [
     {
       "id": "1",
-      "title": "new title",
+      "title": null,
       "views": 100,
-      "content": "test"
+      "content": null
     },
     {
       "id": "2",
@@ -128,6 +128,12 @@
       "title": "234",
       "views": 0,
       "content": "sdfghj"
+    },
+    {
+      "id": "6669",
+      "title": "Ivanhoe",
+      "views": 0,
+      "content": "Novel"
     }
   ],
   "comments": [
