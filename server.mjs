@@ -120,6 +120,7 @@ app.delete('/posts/:id', (req, res) => {
     }
 
     const db = JSON.parse(data);
+    
     const postIndex = db.posts.findIndex(post => post.id === postId);
 
     if (postIndex === -1) {
@@ -128,7 +129,7 @@ app.delete('/posts/:id', (req, res) => {
     }
 
     // Delete the post
-    db.posts[postIndex] = { ...db.posts[postIndex], ...deletedPostData };
+    db.posts.splice(postIndex, 1);
 
     // Write the updated database back to the file
     fs.writeFile(path.join(__dirname, 'public', 'db.json'), JSON.stringify(db, null, 2), 'utf8', (err) => {
@@ -138,7 +139,7 @@ app.delete('/posts/:id', (req, res) => {
         return;
       }
 
-      res.status(200).send('Post deleted successfully');
+      res.status(200).send('Post deleted successfully. Server');
     });
   });
 });

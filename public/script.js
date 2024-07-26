@@ -159,6 +159,13 @@ document.addEventListener('DOMContentLoaded', async function () {
         throw new Error('Failed to fetch deleted data');
       }
       const deletedData = await deletedResponse.json();
+
+      const deletedListItem = document.querySelector(`.menu-list-wrapper`);
+      console.log(deletedListItem);
+      if (deletedListItem) {
+        console.log(deletedListItem.remove()); // Remove the parent element (wrapper)
+      }
+
       document.querySelector('#menu-container').innerHTML = template(deletedData);
     } catch (error) {
       console.error('Error deleting post:', error);
