@@ -2,9 +2,9 @@
   "posts": [
     {
       "id": "1",
-      "title": null,
-      "views": 100,
-      "content": null
+      "title": "",
+      "views": 0,
+      "content": ""
     },
     {
       "id": "2",
