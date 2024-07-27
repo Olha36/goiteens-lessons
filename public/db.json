@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": "2",
-      "title": "another title",
-      "views": 200
-    },
-    {
-      "id": "4380",
-      "title": "123",
-      "content": "sdfghj"
-    },
-    {
       "id": "9490",
       "title": "exchange",
       "views": 0,
