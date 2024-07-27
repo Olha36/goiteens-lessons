@@ -1,5 +1,7 @@
-
 let template;
+let currentPage = 1;
+const postsPerPage = 3;
+let postsData = [];
 
 document.addEventListener('DOMContentLoaded', async function () {
 
@@ -8,24 +10,63 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (!response.ok) {
       throw new Error('Network response was not ok!');
     }
+
     const data = await response.json();
+
+    postsData = data.posts;
+
     const source = document.querySelector('#menu-template').innerHTML;
     template = Handlebars.compile(source);
-    document.querySelector('#menu-container').innerHTML = template(data);
+    pagination();
   } catch (error) {
     console.log('Error fetching or processing data', error);
   }
-
   const menuItemLiElement = document.querySelectorAll('.menu-item');
   menuItemLiElement.forEach(item => {
     item.addEventListener('click', getUpdateRequest);
   });
+  document.getElementById('posts').addEventListener('submit', getPostRequest);
+  document.getElementById('prev-page').addEventListener('click', showPreviousPage);
+  document.getElementById('next-page').addEventListener('click', showNextPage);
+
+  function pagination() {
+    const start = (currentPage - 1) * postsPerPage;
+    const end = start + postsPerPage;
+    const paginatedPosts = postsData.slice(start, end);
+
+    const paginatedData = { posts: paginatedPosts, comments: [], profile: { name: "User" } };
+    document.querySelector('#menu-container').innerHTML = template(paginatedData);
+    setDeleteButtonListeners();
+    updatePageInfo();
+  }
+
+  function updatePageInfo() {
+    const pageInfo = document.getElementById('page-info');
+    const totalPages = Math.ceil(postsData.length / postsPerPage);
+    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+  }
+
+  function showPreviousPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      pagination();
+    }
+  }
+
+  function showNextPage() {
+    const totalPages = Math.ceil(postsData.length / postsPerPage);
+    if (currentPage < totalPages) {
+      currentPage++;
+      pagination();
+    }
+  }
 
   async function getPostRequest(e) {
     e.preventDefault();
 
     const title = document.getElementById('create-post').value;
     const content = document.getElementById('contentArea').value;
+
     const newPost = {
       id: (Math.random() * 10000).toFixed(0),
       title: title,
@@ -48,15 +89,59 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
 
       alert('Post added successfully');
+
       const updatedResponse = await fetch('/db.json');
       if (!updatedResponse.ok) {
         throw new Error('Failed to fetch updated data');
       }
       const updatedData = await updatedResponse.json();
-      document.querySelector('#menu-container').innerHTML = template(updatedData);
-
+      postsData = updatedData.posts;
+      currentPage = 1; // Reset to first page after adding a new post
+      pagination();
     } catch (error) {
       console.log('Error adding post to database', error);
+    }
+  }
+
+  function setDeleteButtonListeners() {
+    const deletePostButtons = document.querySelectorAll('.delete-post');
+
+    deletePostButtons.forEach(button => {
+      button.addEventListener('click', deletePostRequest);
+    });
+  }
+
+  async function deletePostRequest(e) {
+    console.log('post', e.target);
+
+    e.preventDefault();
+    const postId = e.target.getAttribute('data-id');
+    console.log('Deleting post with ID:', postId);
+
+    try {
+      const deleteResponse = await fetch(`/posts/${postId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (!deleteResponse.ok) {
+        const errorText = await deleteResponse.text();
+        throw new Error(`Failed to delete post: ${errorText}`);
+      }
+
+      alert('Post deleted successfully');
+
+      const updatedResponse = await fetch('/db.json');
+      if (!updatedResponse.ok) {
+        throw new Error('Failed to fetch updated data');
+      }
+      const updatedData = await updatedResponse.json();
+      postsData = updatedData.posts;
+      pagination();
+    } catch (error) {
+      console.error('Error deleting post:', error);
     }
   }
 
@@ -109,53 +194,4 @@ document.addEventListener('DOMContentLoaded', async function () {
       console.error('Error updating post:', error);
     }
   }
-  
-  function setDeleteButtonListeners() {
-    const deletePostButtons = document.querySelectorAll('.delete-post');
-
-    deletePostButtons.forEach(button => {
-      button.addEventListener('click', deletePostRequest);
-    });
-  }
-
-  async function deletePostRequest(e) {
-    console.log('post', e.target);
-  
-    e.preventDefault();
-    const postId = e.target.getAttribute('data-id');
-    console.log('Deleting post with ID:', postId);
-  
-    try {
-      const deleteResponse = await fetch(`/posts/${postId}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-  
-      if (!deleteResponse.ok) {
-        const errorText = await deleteResponse.text();
-        throw new Error(`Failed to delete post: ${errorText}`);
-      }
-  
-      alert('Post deleted successfully');
-  
-      const updatedResponse = await fetch('/db.json');
-      if (!updatedResponse.ok) {
-        throw new Error('Failed to fetch updated data');
-      }
-      const updatedData = await updatedResponse.json();
-      document.querySelector('#menu-container').innerHTML = template(updatedData);
-
-      setDeleteButtonListeners()
-    } catch (error) {
-      console.error('Error deleting post:', error);
-    }
-  }
-  
-  
-  
-  document.getElementById('posts').addEventListener('submit', getPostRequest);
-  setDeleteButtonListeners();
-  
 });

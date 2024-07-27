@@ -20,40 +20,45 @@
   <div id="post-list">
     <h2>Пости:</h2>
     <div id="posts-container"></div>
+    
   </div>
 
-    <div id="menu-container"></div>
-
-    <template id="menu-template">
-      <div class="menu">
-        <ul class="menu-list">
-          {{#each posts}}
-          <div class="menu-list-wrapper">
-            <li class="menu-item">{{this.id}}, {{this.title}}, {{this.views}} </li>
-            <button class="delete-post" data-id="{{this.id}}">Delete</button>
-          </div>
-          {{/each}}
-        </ul>
-
-        <ul class="menu-list">
-            {{#each comments}}
-            <li class="menu-item">{{this.id}}, {{this.text}}, {{this.postId}}</li>
-            {{/each}}
-        </ul>
-
-        <ul class="menu-list">
-          <li class="menu-item">{{profile.name}}</li>
-        </ul>
-      </div>
-    </template>
-
- 
-
-    <div class="outer">
-      <div class="box"></div>
+  <div id="menu-container"></div>
+  <template id="menu-template">
+    <div class="menu">
+      <ul class="menu-list">
+        {{#each posts}}
+        <div class="menu-list-wrapper">
+          <li class="menu-item">{{this.id}}, {{this.title}}, {{this.views}}</li>
+          <button class="delete-post" data-id="{{this.id}}">Delete</button>
+        </div>
+        {{/each}}
+      </ul>
+      <ul class="menu-list">
+        {{#each comments}}
+        <li class="menu-item">{{this.id}}, {{this.text}}, {{this.postId}}</li>
+        {{/each}}
+      </ul>
+      <ul class="menu-list">
+        <li class="menu-item">{{profile.name}}</li>
+      </ul>
     </div>
+  </template>
 
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script src="./main.js" type="module"></script>
+
+  <div id="pagination-controls">
+    <button id="prev-page">Previous</button>
+    <span id="page-info"></span>
+    <button id="next-page">Next</button>
+  </div>
+
+  <div class="outer">
+    <div class="box"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <script src="./main.js" type="module"></script>
 </body>
+
+
 </html>

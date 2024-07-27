@@ -38,6 +38,7 @@ body {
 }
 
 .menu-item {
+  cursor: pointer;
   flex: 1; /* Takes up available space */
   margin-right: 1rem; /* Space between item and button */
 }
