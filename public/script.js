@@ -12,19 +12,15 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     const data = await response.json();
-
     postsData = data.posts;
 
     const source = document.querySelector('#menu-template').innerHTML;
     template = Handlebars.compile(source);
-    pagination();
+    pagination(); // Initial rendering of posts
   } catch (error) {
     console.log('Error fetching or processing data', error);
   }
-  const menuItemLiElement = document.querySelectorAll('.menu-item');
-  menuItemLiElement.forEach(item => {
-    item.addEventListener('click', getUpdateRequest);
-  });
+  
   document.getElementById('posts').addEventListener('submit', getPostRequest);
   document.getElementById('prev-page').addEventListener('click', showPreviousPage);
   document.getElementById('next-page').addEventListener('click', showNextPage);
@@ -34,9 +30,12 @@ document.addEventListener('DOMContentLoaded', async function () {
     const end = start + postsPerPage;
     const paginatedPosts = postsData.slice(start, end);
 
-    const paginatedData = { posts: paginatedPosts, comments: [], profile: { name: "User" } };
+    const paginatedData = { posts: paginatedPosts, comments: [], profile: { } };
     document.querySelector('#menu-container').innerHTML = template(paginatedData);
+
+    // Re-attach event listeners after rendering
     setDeleteButtonListeners();
+    setUpdateListeners();
     updatePageInfo();
   }
 
@@ -89,6 +88,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
 
       alert('Post added successfully');
+      document.getElementById('create-post').value = '';
+      document.getElementById('contentArea').value = '';
 
       const updatedResponse = await fetch('/db.json');
       if (!updatedResponse.ok) {
@@ -112,11 +113,8 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   async function deletePostRequest(e) {
-    console.log('post', e.target);
-
     e.preventDefault();
     const postId = e.target.getAttribute('data-id');
-    console.log('Deleting post with ID:', postId);
 
     try {
       const deleteResponse = await fetch(`/posts/${postId}`, {
@@ -145,58 +143,63 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
 
-  async function getUpdateRequest(e) {
-  e.preventDefault();
+  function setUpdateListeners() {
+    const menuItemLiElements = document.querySelectorAll('.menu-item');
 
-  const postId = e.target.getAttribute('data-id'); // Get the ID from the clicked button
-  if (!postId) {
-    console.error('No post ID found');
-    return;
-  }
-
-  try {
-    const response = await fetch(`/posts/${postId}`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch data from db.json');
-    }
-    const post = await response.json();
-
-    const title = prompt('Enter the new title', post.title);
-    const content = prompt('Enter the new content', post.content);
-
-    const updatedPost = {
-      id: postId,
-      title: title,
-      content: content
-    };
-
-    const updateResponse = await fetch(`/posts/${postId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(updatedPost)
+    menuItemLiElements.forEach(item => {
+      item.addEventListener('click', getUpdateRequest);
     });
-
-    if (!updateResponse.ok) {
-      const errorText = await updateResponse.text();
-      throw new Error(`Failed to update post: ${errorText}`);
-    }
-
-    alert('Post updated successfully');
-
-    // Fetch the updated posts data and re-render
-    const updatedPostsResponse = await fetch('/db.json');
-    if (!updatedPostsResponse.ok) {
-      throw new Error('Failed to fetch updated data');
-    }
-    const updatedData = await updatedPostsResponse.json();
-    postsData = updatedData.posts; // Update local postsData
-    pagination(); // Re-render posts with updated data
-  } catch (error) {
-    console.error('Error updating post:', error);
   }
-}
 
-  
+  async function getUpdateRequest(e) {
+    e.preventDefault();
+
+    const postId = e.target.getAttribute('data-id');
+    if (!postId) {
+      console.error('No post ID found');
+      return;
+    }
+
+    try {
+      const response = await fetch(`/posts/${postId}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch data from db.json');
+      }
+      const post = await response.json();
+
+      const title = prompt('Enter the new title', post.title);
+      const content = prompt('Enter the new content', post.content);
+
+      const updatedPost = {
+        id: postId,
+        title: title,
+        content: content
+      };
+
+      const updateResponse = await fetch(`/posts/${postId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedPost)
+      });
+
+      if (!updateResponse.ok) {
+        const errorText = await updateResponse.text();
+        throw new Error(`Failed to update post: ${errorText}`);
+      }
+
+      alert('Post updated successfully');
+
+      const updatedPostsResponse = await fetch('/db.json');
+      if (!updatedPostsResponse.ok) {
+        throw new Error('Failed to fetch updated data');
+      }
+      const updatedData = await updatedPostsResponse.json();
+      postsData = updatedData.posts;
+      pagination();
+    } catch (error) {
+      console.error('Error updating post:', error);
+    }
+  }
 });

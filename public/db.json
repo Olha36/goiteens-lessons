@@ -2,57 +2,51 @@
   "posts": [
     {
       "id": "9490",
-      "title": "exchange",
+      "title": "Spanish",
       "views": 0,
-      "content": "retest server.mjs"
-    },
-    {
-      "id": "3779",
-      "title": "English",
-      "views": 0,
-      "content": "English is a world wide language"
-    },
-    {
-      "id": "939",
-      "title": "German",
-      "views": 0,
-      "content": "German is a really popular language in Europe"
-    },
-    {
-      "id": "9539",
-      "title": "",
-      "views": 0,
-      "content": ""
-    },
-    {
-      "id": "6396",
-      "title": "ghjk",
-      "views": 0,
-      "content": "dfghjkl;"
+      "content": "It is a wonderful language"
     },
     {
       "id": "7472",
-      "title": "fghj",
+      "title": "German",
       "views": 0,
-      "content": "dfghjk"
+      "content": "German is one of the most popular languages in the world"
     },
     {
       "id": "7042",
-      "title": "hi",
+      "title": "French",
       "views": 0,
-      "content": "sdfghjkl"
-    },
-    {
-      "id": "6125",
-      "title": "234",
-      "views": 0,
-      "content": "sdfghj"
+      "content": "French is the language of love"
     },
     {
       "id": "6669",
       "title": "Ivanhoe",
       "views": 0,
       "content": "Novel"
+    },
+    {
+      "id": "7366",
+      "title": "August",
+      "views": 0,
+      "content": "It is one of the most beautiful months of the year!"
+    },
+    {
+      "id": "8313",
+      "title": "Clean input",
+      "views": 0,
+      "content": "It is important to clean input after publishing"
+    },
+    {
+      "id": "4909",
+      "title": "Music",
+      "views": 0,
+      "content": "Music is a natural anti stress according to scientosts research"
+    },
+    {
+      "id": "6725",
+      "title": "Books",
+      "views": 0,
+      "content": "Nowadays people do not prefer reading books"
     }
   ],
   "comments": [
