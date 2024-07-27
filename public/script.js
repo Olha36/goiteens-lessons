@@ -110,8 +110,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
   
-  const deletePostButton = document.querySelectorAll('.delete-post');
-  const deletePostButtons = document.querySelectorAll('.delete-post');
+  function setDeleteButtonListeners() {
+    const deletePostButtons = document.querySelectorAll('.delete-post');
+
+    deletePostButtons.forEach(button => {
+      button.addEventListener('click', deletePostRequest);
+    });
+  }
 
   async function deletePostRequest(e) {
     console.log('post', e.target);
@@ -141,15 +146,16 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
       const updatedData = await updatedResponse.json();
       document.querySelector('#menu-container').innerHTML = template(updatedData);
+
+      setDeleteButtonListeners()
     } catch (error) {
       console.error('Error deleting post:', error);
     }
   }
   
-  deletePostButtons.forEach(button => {
-    button.addEventListener('click', deletePostRequest);
-  });
+  
   
   document.getElementById('posts').addEventListener('submit', getPostRequest);
+  setDeleteButtonListeners();
   
 });
