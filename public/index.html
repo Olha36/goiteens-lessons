@@ -29,7 +29,7 @@
       <ul class="menu-list">
         {{#each posts}}
         <div class="menu-list-wrapper">
-          <li class="menu-item">{{this.id}}, {{this.title}}, {{this.views}}</li>
+          <li class="menu-item" data-id="{{this.id}}"> {{this.id}}, {{this.title}}, {{this.views}}</li>
           <button class="delete-post" data-id="{{this.id}}">Delete</button>
         </div>
         {{/each}}

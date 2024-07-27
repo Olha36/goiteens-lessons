@@ -146,52 +146,57 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   async function getUpdateRequest(e) {
-    e.preventDefault();
-    try {
-      const response = await fetch('/db.json');
-      if (!response.ok) {
-        throw new Error('Failed to fetch data from db.json');
-      }
-      const data = await response.json();
-      const postId = '1'; // ID of the post to update
-  
-      const post = data.posts.find(post => post.id === postId);
-      if (!post) {
-        throw new Error('Post not found');
-      }
-  
-      const title = prompt('Enter the new title', post.title);
-      const content = prompt('Enter the new content', post.content);
-  
-      const updatedPost = {
-        id: postId,
-        title: title,
-        content: content
-      };
-  
-      const updateResponse = await fetch(`/posts/${postId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(updatedPost)
-      });
-  
-      if (!updateResponse.ok) {
-        const errorText = await updateResponse.text();
-        throw new Error(`Failed to update post: ${errorText}`);
-      }
-  
-      alert('Post updated successfully');
-  
-      const updatedResponse = await fetch('/db.json');
-      if (!updatedResponse.ok) {
-        throw new Error('Failed to fetch updated data');
-      }
-      const updatedData = await updatedResponse.json();
-      document.querySelector('#menu-container').innerHTML = template(updatedData);
-    } catch (error) {
-      console.error('Error updating post:', error);
-    }
+  e.preventDefault();
+
+  const postId = e.target.getAttribute('data-id'); // Get the ID from the clicked button
+  if (!postId) {
+    console.error('No post ID found');
+    return;
   }
+
+  try {
+    const response = await fetch(`/posts/${postId}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch data from db.json');
+    }
+    const post = await response.json();
+
+    const title = prompt('Enter the new title', post.title);
+    const content = prompt('Enter the new content', post.content);
+
+    const updatedPost = {
+      id: postId,
+      title: title,
+      content: content
+    };
+
+    const updateResponse = await fetch(`/posts/${postId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedPost)
+    });
+
+    if (!updateResponse.ok) {
+      const errorText = await updateResponse.text();
+      throw new Error(`Failed to update post: ${errorText}`);
+    }
+
+    alert('Post updated successfully');
+
+    // Fetch the updated posts data and re-render
+    const updatedPostsResponse = await fetch('/db.json');
+    if (!updatedPostsResponse.ok) {
+      throw new Error('Failed to fetch updated data');
+    }
+    const updatedData = await updatedPostsResponse.json();
+    postsData = updatedData.posts; // Update local postsData
+    pagination(); // Re-render posts with updated data
+  } catch (error) {
+    console.error('Error updating post:', error);
+  }
+}
+
+  
 });
