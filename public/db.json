@@ -1,12 +1,6 @@
 {
   "posts": [
     {
-      "id": "1",
-      "title": "",
-      "views": 0,
-      "content": ""
-    },
-    {
       "id": "2",
       "title": "another title",
       "views": 200
@@ -20,21 +14,6 @@
       "id": "4048",
       "title": "post1",
       "content": "test function"
-    },
-    {
-      "id": "7273",
-      "title": null,
-      "content": null
-    },
-    {
-      "id": "8683",
-      "title": "3",
-      "content": "sdfghj"
-    },
-    {
-      "id": "5161",
-      "title": "3",
-      "content": "xdfcghvjbkll"
     },
     {
       "id": "3333",

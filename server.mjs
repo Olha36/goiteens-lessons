@@ -110,7 +110,6 @@ app.put('/posts/:id', (req, res) => {
 
 app.delete('/posts/:id', (req, res) => {
   const postId = req.params.id;
-  const deletedPostData = req.body;
 
   fs.readFile(path.join(__dirname, 'public', 'db.json'), 'utf8', (err, data) => {
     if (err) {
@@ -120,7 +119,6 @@ app.delete('/posts/:id', (req, res) => {
     }
 
     const db = JSON.parse(data);
-    
     const postIndex = db.posts.findIndex(post => post.id === postId);
 
     if (postIndex === -1) {
@@ -128,10 +126,8 @@ app.delete('/posts/:id', (req, res) => {
       return;
     }
 
-    // Delete the post
     db.posts.splice(postIndex, 1);
 
-    // Write the updated database back to the file
     fs.writeFile(path.join(__dirname, 'public', 'db.json'), JSON.stringify(db, null, 2), 'utf8', (err) => {
       if (err) {
         console.error('Error writing to database file:', err);

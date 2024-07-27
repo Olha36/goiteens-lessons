@@ -111,40 +111,21 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
   
   const deletePostButton = document.querySelectorAll('.delete-post');
+  const deletePostButtons = document.querySelectorAll('.delete-post');
 
   async function deletePostRequest(e) {
     console.log('post', e.target);
-
+  
     e.preventDefault();
+    const postId = e.target.getAttribute('data-id');
+    console.log('Deleting post with ID:', postId);
+  
     try {
-      const response = await fetch('/db.json');
-      if (!response.ok) {
-        throw new Error('Failed to fetch data from db.json');
-      }
-      const data = await response.json();
-      const postId = '1'; // ID of the post to update
-  
-      const post = data.posts.find(post => post.id === postId);
-      if (!post) {
-        throw new Error('Post not found');
-      }
-
-      const title = document.getElementById('create-post').value;
-      const content = document.getElementById('contentArea').value;
-  
-      const deletePost = {
-        id: postId,
-        title: title,
-        views: 0,
-        content: content
-      };
-
       const deleteResponse = await fetch(`/posts/${postId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(deletePost)
+        }
       });
   
       if (!deleteResponse.ok) {
@@ -154,29 +135,21 @@ document.addEventListener('DOMContentLoaded', async function () {
   
       alert('Post deleted successfully');
   
-      const deletedResponse = await fetch('/db.json');
-      if (!deletedResponse.ok) {
-        throw new Error('Failed to fetch deleted data');
+      const updatedResponse = await fetch('/db.json');
+      if (!updatedResponse.ok) {
+        throw new Error('Failed to fetch updated data');
       }
-      const deletedData = await deletedResponse.json();
-
-      const deletedListItem = document.querySelector(`.menu-list-wrapper`);
-      console.log(deletedListItem);
-      if (deletedListItem) {
-        console.log(deletedListItem.remove()); // Remove the parent element (wrapper)
-      }
-
-      document.querySelector('#menu-container').innerHTML = template(deletedData);
+      const updatedData = await updatedResponse.json();
+      document.querySelector('#menu-container').innerHTML = template(updatedData);
     } catch (error) {
       console.error('Error deleting post:', error);
     }
-
-    
   }
-
+  
+  deletePostButtons.forEach(button => {
+    button.addEventListener('click', deletePostRequest);
+  });
   
   document.getElementById('posts').addEventListener('submit', getPostRequest);
-  deletePostButton.forEach(button => {
-  button.addEventListener('click', deletePostRequest)
-})
+  
 });
