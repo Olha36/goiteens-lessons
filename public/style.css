@@ -118,7 +118,6 @@ body {
 }
 
 .butterfly {
-  width: 500px;
   position:absolute;
   animation: floatup 20s linear infinite, sideways 20s linear infinite, change 10s linear infinite alternate;
 }
@@ -126,7 +125,6 @@ body {
   width: 200px;
   display: flex;
   perspective: 500px;
-  margin-right:100px;
 }
 
 .box::before,

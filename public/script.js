@@ -1,3 +1,4 @@
+import { getPostRequest } from "./scripts/post-request.js";
 let template;
 let currentPage = 1;
 const postsPerPage = 3;
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   document.getElementById('prev-page').addEventListener('click', showPreviousPage);
   document.getElementById('next-page').addEventListener('click', showNextPage);
 
-  function pagination() {
+function pagination() {
     const start = (currentPage - 1) * postsPerPage;
     const end = start + postsPerPage;
     const paginatedPosts = postsData.slice(start, end);
@@ -60,49 +61,49 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
 
-  async function getPostRequest(e) {
-    e.preventDefault();
+  // async function getPostRequest(e) {
+  //   e.preventDefault();
 
-    const title = document.getElementById('create-post').value;
-    const content = document.getElementById('contentArea').value;
+  //   const title = document.getElementById('create-post').value;
+  //   const content = document.getElementById('contentArea').value;
 
-    const newPost = {
-      id: (Math.random() * 10000).toFixed(0),
-      title: title,
-      views: 0,
-      content: content
-    };
+  //   const newPost = {
+  //     id: (Math.random() * 10000).toFixed(0),
+  //     title: title,
+  //     views: 0,
+  //     content: content
+  //   };
 
-    try {
-      const postResponse = await fetch('/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newPost)
-      });
+  //   try {
+  //     const postResponse = await fetch('/posts', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify(newPost)
+  //     });
 
-      if (!postResponse.ok) {
-        const errorText = await postResponse.text();
-        throw new Error('Failed to add post to database', errorText);
-      }
+  //     if (!postResponse.ok) {
+  //       const errorText = await postResponse.text();
+  //       throw new Error('Failed to add post to database', errorText);
+  //     }
 
-      alert('Post added successfully');
-      document.getElementById('create-post').value = '';
-      document.getElementById('contentArea').value = '';
+  //     alert('Post added successfully');
+  //     document.getElementById('create-post').value = '';
+  //     document.getElementById('contentArea').value = '';
 
-      const updatedResponse = await fetch('/db.json');
-      if (!updatedResponse.ok) {
-        throw new Error('Failed to fetch updated data');
-      }
-      const updatedData = await updatedResponse.json();
-      postsData = updatedData.posts;
-      currentPage = 1; // Reset to first page after adding a new post
-      pagination();
-    } catch (error) {
-      console.log('Error adding post to database', error);
-    }
-  }
+  //     const updatedResponse = await fetch('/db.json');
+  //     if (!updatedResponse.ok) {
+  //       throw new Error('Failed to fetch updated data');
+  //     }
+  //     const updatedData = await updatedResponse.json();
+  //     postsData = updatedData.posts;
+  //     currentPage = 1; // Reset to first page after adding a new post
+  //     pagination();
+  //   } catch (error) {
+  //     console.log('Error adding post to database', error);
+  //   }
+  // }
 
   function setDeleteButtonListeners() {
     const deletePostButtons = document.querySelectorAll('.delete-post');
