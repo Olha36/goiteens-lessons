@@ -13,22 +13,10 @@
       "content": "German is one of the most popular languages in the world and it is quite easy to learn"
     },
     {
-      "id": "7042",
-      "title": "French",
-      "views": 0,
-      "content": "French is the language of love"
-    },
-    {
       "id": "6669",
       "title": "Ivanhoe",
       "views": 0,
       "content": "Novel"
-    },
-    {
-      "id": "8313",
-      "title": "Clean input",
-      "views": 0,
-      "content": "It is important to clean input after publishing"
     },
     {
       "id": "4909",
@@ -37,22 +25,10 @@
       "content": "Music is a natural anti stress according to scientosts research"
     },
     {
-      "id": "395",
-      "title": "Parrots",
-      "views": 0,
-      "content": "dsfgchvjbknlm;,"
-    },
-    {
-      "id": "3109",
-      "title": "Test changing function",
-      "views": 0,
-      "content": "Test"
-    },
-    {
       "id": "7433",
-      "title": "My favourite movie",
+      "title": null,
       "views": 0,
-      "content": "My favourite movie is Zorro la espada y la rosa"
+      "content": null
     },
     {
       "id": "7121",

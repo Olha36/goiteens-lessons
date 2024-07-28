@@ -1,5 +1,6 @@
 import { getPostRequest } from "./scripts/post-request.js";
 import { getUpdateRequest } from "./scripts/update-request.js";
+import { deletePostRequest } from "./scripts/delete-request.js";
 
 let template;
 let currentPage = 1;
@@ -115,36 +116,36 @@ function pagination() {
     });
   }
 
-  async function deletePostRequest(e) {
-    e.preventDefault();
-    const postId = e.target.getAttribute('data-id');
+  // async function deletePostRequest(e) {
+  //   e.preventDefault();
+  //   const postId = e.target.getAttribute('data-id');
 
-    try {
-      const deleteResponse = await fetch(`/posts/${postId}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+  //   try {
+  //     const deleteResponse = await fetch(`/posts/${postId}`, {
+  //       method: 'DELETE',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       }
+  //     });
 
-      if (!deleteResponse.ok) {
-        const errorText = await deleteResponse.text();
-        throw new Error(`Failed to delete post: ${errorText}`);
-      }
+  //     if (!deleteResponse.ok) {
+  //       const errorText = await deleteResponse.text();
+  //       throw new Error(`Failed to delete post: ${errorText}`);
+  //     }
 
-      alert('Post deleted successfully');
+  //     alert('Post deleted successfully');
 
-      const updatedResponse = await fetch('/db.json');
-      if (!updatedResponse.ok) {
-        throw new Error('Failed to fetch updated data');
-      }
-      const updatedData = await updatedResponse.json();
-      postsData = updatedData.posts;
-      pagination();
-    } catch (error) {
-      console.error('Error deleting post:', error);
-    }
-  }
+  //     const updatedResponse = await fetch('/db.json');
+  //     if (!updatedResponse.ok) {
+  //       throw new Error('Failed to fetch updated data');
+  //     }
+  //     const updatedData = await updatedResponse.json();
+  //     postsData = updatedData.posts;
+  //     pagination();
+  //   } catch (error) {
+  //     console.error('Error deleting post:', error);
+  //   }
+  // }
 
   function setUpdateListeners() {
     const menuItemLiElements = document.querySelectorAll('.menu-item');
