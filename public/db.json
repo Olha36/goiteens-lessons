@@ -2,15 +2,15 @@
   "posts": [
     {
       "id": "9490",
-      "title": null,
+      "title": "The adventures of Zorro",
       "views": 0,
-      "content": null
+      "content": "I highly recommend you to read this book"
     },
     {
       "id": "7472",
-      "title": "German",
+      "title": "German is not boring",
       "views": 0,
-      "content": "German is one of the most popular languages in the world"
+      "content": "German is one of the most popular languages in the world and it is quite easy to learn"
     },
     {
       "id": "7042",
@@ -23,12 +23,6 @@
       "title": "Ivanhoe",
       "views": 0,
       "content": "Novel"
-    },
-    {
-      "id": "7366",
-      "title": "August",
-      "views": 0,
-      "content": "It is one of the most beautiful months of the year!"
     },
     {
       "id": "8313",
@@ -89,6 +83,12 @@
       "title": "My favourite book",
       "views": 0,
       "content": "My favourite book is Zorro"
+    },
+    {
+      "id": "4362",
+      "title": "Test moving getUpdateRequest",
+      "views": 0,
+      "content": "Test moving getUpdateRequest to another file"
     }
   ],
   "comments": [
