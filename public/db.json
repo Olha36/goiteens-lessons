@@ -2,9 +2,9 @@
   "posts": [
     {
       "id": "9490",
-      "title": "Spanish",
+      "title": null,
       "views": 0,
-      "content": "It is a wonderful language"
+      "content": null
     },
     {
       "id": "7472",
@@ -43,10 +43,10 @@
       "content": "Music is a natural anti stress according to scientosts research"
     },
     {
-      "id": "6725",
-      "title": "Books",
+      "id": "395",
+      "title": "Parrots",
       "views": 0,
-      "content": "Nowadays people do not prefer reading books"
+      "content": "dsfgchvjbknlm;,"
     }
   ],
   "comments": [

@@ -202,4 +202,5 @@ document.addEventListener('DOMContentLoaded', async function () {
       console.error('Error updating post:', error);
     }
   }
+  
 });
