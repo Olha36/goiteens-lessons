@@ -1,44 +1,38 @@
 import './App.css';
-import PropTypes from 'prop-types';
+import { PropTypes } from 'prop-types';
+import Welcome from './welcome';
 
 function App() {
-  Welcome.propTypes = {
-    name: PropTypes.string.isRequired,
+  Year.propTypes = {
+    year: PropTypes.number.isRequired,
   };
 
   Product.propTypes = {
+    name: PropTypes.string.isRequired,
     imgUrl: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    alt: PropTypes.string.isRequired,
   };
-  Profile.propTypes = {
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-  };
-  function Welcome(props) {
-    return <h1>Привіт, {props.name}!</h1>;
+
+  function Year(props) {
+    return <p>зараз {props.year} </p>;
   }
 
-  function Product({ imgUrl, name, price }) {
+  const Test = () => {
     return (
-      <>
-        <div>
-          <img src={imgUrl} alt={name} width='640' />
-          <h2>{name}</h2>
-          <p>Price: {price}$</p>
-          <button type='button'>Add to cart</button>
-        </div>
-      </>
+      <img
+        src='https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg'
+        alt='picture'
+      />
     );
-  }
+  };
 
-  function Profile({ name, email }) {
+  function Product({ name, imgUrl, alt }) {
     return (
       <div>
-      <p>Name: {name}</p>
-      <p>Email: {email}</p>
-    </div>
-    )
+        <h1>{name}</h1>
+        <img src={imgUrl} alt={alt} style={{ width: 100, height: 100 }} />
+      </div>
+    );
   }
 
   return (
@@ -53,26 +47,18 @@ function App() {
           </p>
           <p>Компоненти можна перевикористовувати повторно і в поточному, і в новому проеккті</p>
           <p>Найпростішим способом визначення компонента є написання функції JavaScript:</p>
-          приклад функціонального компоненту: <Welcome name='React' />
+          приклад функціонального компоненту: <Welcome name='My favourite group' />
+          <Year year={2024} />
           <p>Зробимо картку продукту компонентом-функцією:</p>
-        </div>
-
-        <div>
-          <h1>Best selling products</h1>
           <Product
-            imgUrl='https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640'
-            name='Tacos With Lime'
-            price={10.99}
-          />
-          <Product
-            imgUrl='https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?dpr=2&h=480&w=640'
-            name='Fries and Burger'
-            price={14.29}
+            name='Телефон'
+            imgUrl='https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg'
+            alt='gif'
           />
         </div>
-
-        <Profile name='Olha' email='olha@gmail.com' />
       </div>
+
+      <Test />
     </>
   );
 }
