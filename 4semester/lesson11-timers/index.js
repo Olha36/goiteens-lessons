@@ -84,15 +84,15 @@
 
 
 //task 4
-function clock() {
-	const currentTime = new Date();
-	const hours = currentTime.getHours();
-	const minutes = currentTime.getMinutes();
-	const seconds = currentTime.getSeconds();
+// function clock() {
+// 	const currentTime = new Date();
+// 	const hours = currentTime.getHours();
+// 	const minutes = currentTime.getMinutes();
+// 	const seconds = currentTime.getSeconds();
 
-	return `${hours}:${minutes}:${seconds}`
-}
+// 	return `${hours}:${minutes}:${seconds}`
+// }
 
-setInterval(() => {
-	console.log(clock());
-}, 1000)
+// setInterval(() => {
+// 	console.log(clock());
+// }, 1000)
