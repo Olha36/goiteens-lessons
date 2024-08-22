@@ -60,7 +60,7 @@ function formatTme() {
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
-  const miliseconds = (totalSeconds / 1000).toString().padStart(1);
+  const miliseconds = (totalSeconds % 1000).toString().padStart(1, '0');
 
   // return `${hours}:${minutes}:${seconds}:${miliseconds}`;
   console.log(`${hours}:${minutes}:${seconds}:${miliseconds}`);
