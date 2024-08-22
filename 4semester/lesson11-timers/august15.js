@@ -53,26 +53,37 @@ const resetTimerButton = document.querySelector('.button-reset');
 
 let timer = 0;
 let elapsedTime = 0;
+let interval;
 
-function countTime() {
-//   const totalSeconds = Math.floor(elapsedTime / 100);
-  const hours = Math.floor(elapsedTime / 3600000);
-  const minutes = Math.floor(elapsedTime / 60000);
-  const seconds = Math.floor(elapsedTime / 1000);
-  const miliseconds = Math.floor(elapsedTime / 1000)
+function formatTme() {
+  const totalSeconds = Math.floor(elapsedTime / 1000);
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  const miliseconds = (totalSeconds / 1000).toString().padStart(1);
 
-//   return `${hours}:${minutes}:${seconds}:${miliseconds}`;
+  // return `${hours}:${minutes}:${seconds}:${miliseconds}`;
   console.log(`${hours}:${minutes}:${seconds}:${miliseconds}`);
 }
-countTime();
 
 function startTimer() {
-    let startTime = Date.now() - elapsedTime;
-    console.log(startTime);
+  let startTime = Date.now() - elapsedTime;
 
-    setInterval(() => {
-        elapsedTime = Date.now() - startTime;
-    })
-    
+ interval = setInterval(() => {
+    elapsedTime = Date.now() - startTime;
+    formatTme();
+  }, 1000);
 }
-startTimer()
+function stopTimer() {
+  clearInterval(interval);
+}
+
+function resetTimer() {
+  clearInterval(interval);
+  elapsedTime = 0;
+  formatTme()
+}
+
+startTimerButton.addEventListener('click', startTimer);
+stopTimerButton.addEventListener('click', stopTimer);
+resetTimerButton.addEventListener('click', resetTimer);
