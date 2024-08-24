@@ -11,3 +11,13 @@
 Використайте Parcel.js для збирання та оптимізації фронтенду.
 Додайте стилі та оформлення сторінки.
 Надішліть завершений проєкт викладачеві.
+
+
+
+parcel:
+src > index.html, index.js, style.css
+formData.js
+server.js
+
+
+npm init -y

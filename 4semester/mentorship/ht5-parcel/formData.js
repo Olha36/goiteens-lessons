@@ -1,8 +1,8 @@
 const formData = [];
 
 function addData(data) {
-    formData.push(data);
-    console.log("Current Form Data: ", formData);
+  formData.push(data);
+  console.log('Наявні дані:', formData);
 }
 
 module.exports = { addData };
