@@ -1,0 +1,2 @@
+document.getElementById("feedbackForm").addEventListener("submit",function(e){e.preventDefault(),fetch("/submit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:document.getElementById("name").value,email:document.getElementById("email").value,message:document.getElementById("message").value})}).then(e=>e.json()).then(e=>{document.getElementById("responseMessage").classList.remove("hidden")}).catch(e=>console.error("Error:",e))});
+//# sourceMappingURL=index.b1baa892.js.map
