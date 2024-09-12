@@ -12,12 +12,29 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0; 
   }
-    .title-wrapper {
+    #root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    }
+    .card-container {
+    width: 350px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin-bottom: 30px;
+    }
+  .title-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
 
-  h1, h2, h3, h4, h5, h6 {
+  h2 {
     color: #333; 
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
   }
 
   p {
@@ -31,15 +48,27 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const PageBoard = ({ name, location, speaker, type, start, end, Icon }) => {
+  const getColorByType = (type) => {
+    switch (type) {
+      case 'free':
+        return 'green';
+      case 'paid':
+        return 'blue';
+      case 'vip':
+        return 'red';
+      default:
+        return 'black';
+    }
+  };
   return (
-    <div>
+    <div className='card-container'>
       <div className='title-wrapper'>
         {Icon && <Icon />}
         <h2>{name}</h2>
       </div>
       <p>{location}</p>
       <p>{speaker}</p>
-      <p>{type}</p>
+      <p style={{ color: getColorByType(type) }}>{type}</p>
       <p>{start}</p>
       <p>{end}</p>
     </div>
