@@ -1,5 +1,3 @@
-
-
 //Підключити обробник подіх по завантаженню контенту
 document.addEventListener('DOMContentLoaded', () => {
 // знайти формочку та табличку
@@ -60,3 +58,5 @@ studentForm.addEventListener('submit', (e) => {
 }
 findStudents() 
 })
+
+
