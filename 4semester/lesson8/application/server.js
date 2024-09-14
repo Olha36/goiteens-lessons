@@ -8,6 +8,7 @@ const PORT = 3000;
 const filePath = 'students.json';
 
 app.use(express.static('public'));
+app.use(bodyParser.json());
 
 app.get('/students', function (req, res) {
     fs.readFile(filePath, 'utf8', (err, data) => {
@@ -28,7 +29,7 @@ app.post('/students', function (req, res) {
       return res.status(500).send('Error reading a file');
     }
     const db = JSON.parse(data);
-    db.students.push(newStudent);
+    db.push(newStudent);
     fs.writeFile(filePath, JSON.stringify(db), 'utf8', (err) => {
       if (err) {
         console.error('Error writing to database file:', err);
