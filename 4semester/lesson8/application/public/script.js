@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const studentsTable = document.querySelector('#students-table');
   console.log(studentsTable);
 
-
   // прописати функцію для знаходження студентів
   function findStudents() {
     // отримати дані з файлу джейсон
@@ -51,13 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
       body: JSON.stringify(student),
     })
       .then((response) => {
-       // studentForm.reset(); // Очистити форму
+        // studentForm.reset(); // Очистити форму
         findStudents(); // Оновити список студентів після додавання
         console.log('Status code:', response.status);
-        return response.json();
-      })
-      .then((jsonData) => {
-        console.log(jsonData);
+        const responseJson = response.json();
+        console.log(responseJson);
+
+        return responseJson;
       })
       .catch((error) => {
         console.error('Error adding student:', error);
