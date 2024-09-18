@@ -36,13 +36,14 @@ h1 {
 }
 
 button {
-  padding: '8px';
-  font-size: '16px';
-  background-color: '#28a745';
-  color: 'white';
-  border: 'none';
-  border-radius: '5px';
-  cursor: 'pointer';
+  padding: 8px;
+  margin: 8px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 button:hover {
   border-color: #646cff;
