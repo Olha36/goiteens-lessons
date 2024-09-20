@@ -39,6 +39,15 @@ class TaskList extends Component {
     }
   };
 
+  deleteTask = (index) => {
+    const {tasks} = this.state;
+
+    const updatedTasks = tasks.filter((task, i) => i !== index);
+    this.setState({ tasks: updatedTasks});
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+    
+  }
+
   render() {
     return (
       <div className='tasks-container'>
@@ -53,10 +62,10 @@ class TaskList extends Component {
           Додати
         </button>
         <ul className='tasks'>
-          {this.state.tasks.map((text, id) => (
-            <li key={id}>
+          {this.state.tasks.map((text, index) => (
+            <li key={index}>
               {text}
-              <button className='delete-task'>Видалити</button>
+              <button className='delete-task' onClick={() => this.deleteTask(index)}>Видалити</button>
               <button className='edit-task'>Редагувати</button>
             </li>
           ))}
