@@ -1,12 +1,14 @@
-import { Component } from 'react';
+import React from 'react';
 import '../src/App.css';
 
-class TaskList extends Component {
+class TaskList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       tasks: [],
       newTask: '',
+      editingIndex: null,
+      editingTask: '',
     };
   }
 
@@ -20,7 +22,6 @@ class TaskList extends Component {
   // function to get input value
   handleInputChange = (e) => {
     this.setState({ newTask: e.target.value });
-    console.log(e.target.value);
   };
 
   // function to add a task
@@ -40,13 +41,37 @@ class TaskList extends Component {
   };
 
   deleteTask = (index) => {
-    const {tasks} = this.state;
-
+    const { tasks } = this.state;
     const updatedTasks = tasks.filter((task, i) => i !== index);
-    this.setState({ tasks: updatedTasks});
+    this.setState({ tasks: updatedTasks });
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));
-    
-  }
+  };
+
+
+  startEditingTask = (index) => {
+    this.setState({
+      editingIndex: index,
+      editingTask: this.state.tasks[index] || '',
+    });
+  };
+  
+  handleEditingInputChange = (event) => {
+    this.setState({ editingTask: event.target.value });
+  };
+
+  saveTask = () => {
+    const { tasks, editingTask, editingIndex } = this.state;
+    const updatedTasks = [...tasks];
+    updatedTasks[editingIndex] = editingTask;
+
+    this.setState({
+      tasks: updatedTasks,
+      editingIndex: null,
+      editingTask: '',
+    });
+
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+  };
 
   render() {
     return (
@@ -64,9 +89,27 @@ class TaskList extends Component {
         <ul className='tasks'>
           {this.state.tasks.map((text, index) => (
             <li key={index}>
-              {text}
-              <button className='delete-task' onClick={() => this.deleteTask(index)}>Видалити</button>
-              <button className='edit-task'>Редагувати</button>
+              {this.state.editingIndex === index ? (
+                <input
+                  type='text'
+                  value={this.state.editingTask || ''}
+                  onChange={this.handleEditingInputChange}
+                />
+              ) : (
+                text
+              )}
+              <button className='delete-task' onClick={() => this.deleteTask(index)}>
+                Видалити
+              </button>
+              {this.state.editingIndex === index ? (
+                <button className='save-task' onClick={this.saveTask}>
+                  Зберегти
+                </button>
+              ) : (
+                <button className='edit-task' onClick={() => this.startEditingTask(index)}>
+                  Редагувати
+                </button>
+              )}
             </li>
           ))}
         </ul>
