@@ -6,18 +6,26 @@ function App() {
     good: 0,
     neutral: 0,
     bad: 0,
+    total: 0
   });
 
   const handleGoodFeedback = () => {
     setState(prevState => ({...prevState, good: prevState.good + 1}))
+    countTotalFeedback()
   }
 
   const handleNeutralFeedback = () => {
     setState(prevState => ({...prevState, neutral: prevState.neutral + 1}))
+    countTotalFeedback()
   }
 
   const handleNegativeFeedback = () => {
     setState(prevState => ({...prevState, bad: prevState.bad + 1}))
+    countTotalFeedback()
+  }
+
+  const countTotalFeedback = () => {
+    setState(prevState=> ({...prevState, total: prevState.good + prevState.neutral + prevState.bad}))
   }
 
 
@@ -35,6 +43,7 @@ function App() {
       <p>Good: {state.good}</p>
       <p>Neutral: {state.neutral}</p>
       <p>Bad: {state.bad}</p>
+      <p>Total: {state.total}</p>
     </div>
   );
 }
