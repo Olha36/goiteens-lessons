@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import Statistics from './components/statistics';
 
 function App() {
   const [state, setState] = useState({
@@ -41,7 +42,7 @@ function App() {
       const percentage = total > 0 ? (prevState.good / total) * 100 : 0;
       return {
         ...prevState,
-        percentage: percentage.toFixed(2)
+        percentage: Number(percentage.toFixed(2)),
       };
     });
   };
@@ -61,14 +62,9 @@ function App() {
           Bad
         </button>
       </div>
-
-      <h2>Statistics</h2>
-      <p>Good: {state.good}</p>
-      <p>Neutral: {state.neutral}</p>
-      <p>Bad: {state.bad}</p>
-      <p>Total: {state.total}</p>
-      <p>Positive feedback: {state.percentage}%</p>
-    </div>
+      <Statistics good={state.good} neutral={state.neutral} bad={state.bad} total={state.total} positivePercentage={state.percentage} />
+      </div>
+      
   );
 }
 
