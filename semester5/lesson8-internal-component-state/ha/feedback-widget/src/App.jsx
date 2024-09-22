@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import Statistics from './components/statistics';
 import FeedbackOptions from './components/feedbackOptions';
+import Section from './components/section';
 
 function App() {
   const [state, setState] = useState({
@@ -41,7 +42,7 @@ function App() {
 
   return (
     <div className='feedback-container'>
-      <h1>Please leave feedback</h1>
+      <Section title='Please leave feedback' />
 
       <FeedbackOptions
         options={['good', 'neutral', 'bad']}
