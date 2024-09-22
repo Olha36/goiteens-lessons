@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Statistics from './components/statistics';
+import FeedbackOptions from './components/feedbackOptions';
 
 function App() {
   const [state, setState] = useState({
@@ -11,20 +12,11 @@ function App() {
     percentage: 0,
   });
 
-  const handleGoodFeedback = () => {
-    setState((prevState) => ({ ...prevState, good: prevState.good + 1 }));
-    countTotalFeedback();
-    countPositiveFeedbackPercentage();
-  };
-
-  const handleNeutralFeedback = () => {
-    setState((prevState) => ({ ...prevState, neutral: prevState.neutral + 1 }));
-    countTotalFeedback();
-    countPositiveFeedbackPercentage();
-  };
-
-  const handleNegativeFeedback = () => {
-    setState((prevState) => ({ ...prevState, bad: prevState.bad + 1 }));
+  const handleFeedback = (feedbackType) => {
+    setState((prevState) => ({
+      ...prevState,
+      [feedbackType]: prevState[feedbackType] + 1,
+    }));
     countTotalFeedback();
     countPositiveFeedbackPercentage();
   };
@@ -51,20 +43,18 @@ function App() {
     <div className='feedback-container'>
       <h1>Please leave feedback</h1>
 
-      <div className='button-wrapper'>
-        <button className='feedback-positive' onClick={handleGoodFeedback}>
-          Good
-        </button>
-        <button className='feedback-neutral' onClick={handleNeutralFeedback}>
-          Neutral
-        </button>
-        <button className='feedback-negative' onClick={handleNegativeFeedback}>
-          Bad
-        </button>
-      </div>
-      <Statistics good={state.good} neutral={state.neutral} bad={state.bad} total={state.total} positivePercentage={state.percentage} />
-      </div>
-      
+      <FeedbackOptions
+        options={['good', 'neutral', 'bad']}
+        onLeaveFeedback={handleFeedback}
+      ></FeedbackOptions>
+      <Statistics
+        good={state.good}
+        neutral={state.neutral}
+        bad={state.bad}
+        total={state.total}
+        positivePercentage={state.percentage}
+      />
+    </div>
   );
 }
 
