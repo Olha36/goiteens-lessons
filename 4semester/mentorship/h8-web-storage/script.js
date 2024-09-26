@@ -1,8 +1,6 @@
 // Функція для отримання контактів з localStorage
 // 1. використати метод для отримання даних з локального сховища, отримувати контакти і помістити це все в змінну.
-// 2. якщо в локальному сховищі є дані, то повернути обєкт джаваскрипт контактів. Для цього їх треба розпарсити. Якщо контактів немає, повернути пустий масив. Дану задачу можна робити за допомогою тернарного оператора або умовних виразів 
-
-
+// 2. якщо в локальному сховищі є дані, то повернути обєкт джаваскрипт контактів. Для цього їх треба розпарсити. Якщо контактів немає, повернути пустий масив. Дану задачу можна робити за допомогою тернарного оператора або умовних виразів
 
 // Функція для збереження контактів в localStorage
 // Як це зробити:
@@ -92,6 +90,53 @@
 
 // Подія для збереження контакту
 
-
 // Відображаємо контакти при завантаженні сторінки
 
+function getContact (){ 
+  const contacts = localStorage.getItem('contacts') 
+      if(contacts) { 
+         return JSON.parse(contacts) 
+      }else{ 
+          return[] 
+      } 
+  } 
+   
+  function saveContact (contacts){ 
+  localStorage.setItem('contacts', JSON.stringify(contacts)) 
+  } 
+   
+   
+  function renderContact (){ 
+      console.log('render'); 
+       
+   const contactList = document.getElementById('contactList') 
+      contactList.innerHTML = ''; 
+    const contacts =  getContact() 
+   contacts.forEach((contact, index) =>{ 
+  const li = document.createElement('li') 
+  li.innerHTML = `${contact.firstName}, ${contact.lastName}, ${contact.foneNumber}, ${contact.email} 
+  <button type="submit" onclick="editContact(${index})">Edit Contact</button> 
+  // <button type="submit" onclick="">Delete Contact</button> 
+  ` 
+   }) 
+  } 
+  function saveContacts (event){ 
+      event.preventDefault() 
+    const  contact = getContact() 
+  saveContact(contact) 
+  } 
+   
+  function editContact (){ 
+  console.log('editContact'); 
+   
+  } 
+  console.log('edit') 
+  // console.log(getContact()) 
+   
+  // function deleteContact (){ 
+  //     splice() 
+  //     console.log(saveContact()) 
+  //     console.log(renderContact()) 
+  // } 
+  // console.log(getContact()) 
+  document.getElementById('contactForm').addEventListener('submit',saveContacts)
