@@ -91,52 +91,65 @@
 // Подія для збереження контакту
 
 // Відображаємо контакти при завантаженні сторінки
+function getContact() {
+  const contacts = localStorage.getItem('contacts')
+  if (contacts) {
+      return JSON.parse(contacts)
+  } else {
+      return []
+  }
+}
 
-function getContact (){ 
-  const contacts = localStorage.getItem('contacts') 
-      if(contacts) { 
-         return JSON.parse(contacts) 
-      }else{ 
-          return[] 
-      } 
-  } 
-   
-  function saveContact (contacts){ 
-  localStorage.setItem('contacts', JSON.stringify(contacts)) 
-  } 
-   
-   
-  function renderContact (){ 
-      console.log('render'); 
-       
-   const contactList = document.getElementById('contactList') 
-      contactList.innerHTML = ''; 
-    const contacts =  getContact() 
-   contacts.forEach((contact, index) =>{ 
-  const li = document.createElement('li') 
-  li.innerHTML = `${contact.firstName}, ${contact.lastName}, ${contact.foneNumber}, ${contact.email} 
+function saveContact(contacts) {
+  localStorage.setItem('contacts', JSON.stringify(contacts))
+}
+
+
+function renderContact() {
+  console.log('render');
+
+  const contactList = document.getElementById('contactList')
+  contactList.innerHTML = '';
+  const contacts = getContact()
+  contacts.forEach((contact, index) => {
+      const li = document.createElement('li')
+      li.innerHTML = `${contact.firstName}, ${contact.lastName}, ${contact.phoneNumber}, ${contact.email} 
   <button type="submit" onclick="editContact(${index})">Edit Contact</button> 
   // <button type="submit" onclick="">Delete Contact</button> 
-  ` 
-   }) 
-  } 
-  function saveContacts (event){ 
-      event.preventDefault() 
-    const  contact = getContact() 
-  saveContact(contact) 
-  } 
-   
-  function editContact (){ 
-  console.log('editContact'); 
-   
-  } 
-  console.log('edit') 
-  // console.log(getContact()) 
-   
-  // function deleteContact (){ 
-  //     splice() 
-  //     console.log(saveContact()) 
-  //     console.log(renderContact()) 
-  // } 
-  // console.log(getContact()) 
-  document.getElementById('contactForm').addEventListener('submit',saveContacts)
+  `
+      contactList.appendChild(li)
+  })
+}
+function saveContacts(event) {
+  event.preventDefault()
+  const inputFirstName = document.querySelector('#firstName').value
+  const inputLastName = document.querySelector('#lastName').value
+  const inputPhone = document.querySelector('#phone').value
+  const inputEmail = document.querySelector('#email').value
+  console.log(inputFirstName, inputLastName, inputEmail, inputPhone)
+  const localStorageContacts = {
+      firstName: inputFirstName,
+      lastName: inputLastName,
+      phoneNumber: inputPhone,
+      email: inputEmail
+  }
+  const contact = getContact()
+  contact.push(localStorageContacts)
+  saveContact(contact)
+  renderContact()
+}
+
+function editContact() {
+  console.log('editContact');
+
+}
+console.log('edit')
+// console.log(getContact()) 
+
+// function deleteContact (){ 
+//     splice() 
+//     console.log(saveContact()) 
+//     console.log(renderContact()) 
+// } 
+// console.log(getContact()) 
+document.getElementById('contactForm').addEventListener('submit', saveContacts)
