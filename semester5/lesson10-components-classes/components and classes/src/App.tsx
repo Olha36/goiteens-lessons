@@ -15,7 +15,7 @@ interface CounterProps {
 }
 
 interface CounterState {
-  count: number
+  count: number;
 }
 
 class Counter extends Component<CounterProps, CounterState> {
@@ -24,16 +24,21 @@ class Counter extends Component<CounterProps, CounterState> {
   };
 
   state = {
-    count: 0
-  }
+    count: 0,
+  };
 
   handleIncreaseClick = () => {
     this.setState((prevState) => ({
-      count: prevState.count +this.props.step,
+      count: prevState.count + this.props.step,
     }));
   };
 
- 
+  handleDecreaseClick = () => {
+    this.setState((prevState) => ({
+     count:  prevState.count - this.props.step,
+    }));
+  };
+
   render() {
     const { step } = this.props;
     const { count } = this.state;
@@ -41,7 +46,7 @@ class Counter extends Component<CounterProps, CounterState> {
       <>
         <p>Counter is: {count}</p>;
         <button onClick={this.handleIncreaseClick}>Increase counter by {step}</button>
-        <button>Decrease counter by {step}</button>
+        <button onClick={this.handleDecreaseClick}>Decrease counter by {step}</button>
       </>
     );
   }
