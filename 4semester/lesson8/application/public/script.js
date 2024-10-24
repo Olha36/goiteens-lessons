@@ -1,67 +1,88 @@
-// Підключити обробник подій по завантаженню контенту
 document.addEventListener('DOMContentLoaded', () => {
-  // знайти форму та табличку
-  const studentForm = document.querySelector('#student-form');
-  console.log(studentForm);
+  const form = document.getElementById('student-form');
+  const tableBody = document.getElementById('students-table').getElementsByTagName('tbody')[0];
 
-  const studentsTable = document.querySelector('#students-table');
-  console.log(studentsTable);
+  // Функція для завантаження студентів
+  const loadStudents = () => {
+      fetch('/students')
+          .then(response => response.json())
+          .then(students => {
+              tableBody.innerHTML = '';
+              students.forEach((student, index) => {
+                  const row = document.createElement('tr');
+                  row.innerHTML = `
+                      <td>${student.name}</td>
+                      <td>${student.surname}</td>
+                      <td>${student.age}</td>
+                      <td>${student.course}</td>
+                      <td>${student.faculty}</td>
+                      <td>${student.subjects}</td>
+                      <td>
+                          <button onclick="editStudent(${index})">Edit</button>
+                          <button onclick="deleteStudent(${index})">Delete</button>
+                      </td>
+                  `;
+                  tableBody.appendChild(row);
+              });
+          });
+  };
 
-  // прописати функцію для знаходження студентів
-  function findStudents() {
-    // отримати дані з файлу джейсон
-    fetch('/students')
-      .then((response) => response.json())
-      .then((students) => {
-        studentsTable.innerHTML = ''; // Очищення таблиці перед оновленням
-        students.forEach((student, index) => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
-                       <td>${student.name}</td>
-                       <td>${student.surname}</td>
-                       <td>
-                           <button onClick="deleteStudents(${index})">Delete</button>
-                       </td>
-                   `;
-          studentsTable.appendChild(row);
-        });
-      })
-      .catch((error) => {
-        console.error('Error fetching students:', error);
-      });
-  }
+  // Додавання студента
+  form.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-  // Прописати функцію для додавання студентів
-  studentForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Заборонити перезавантаження форми за замовчуванням
+      const student = {
+          name: form.name.value,
+          surname: form.surname.value,
+          age: form.age.value,
+          course: form.course.value,
+          faculty: form.faculty.value,
+          subjects: form.subjects.value
+      };
 
-    // Створити об'єкт з даними форми
-    const student = {
-      name: studentForm.name.value,
-      surname: studentForm.surname.value,
-    };
-
-    // Надіслати POST-запит для додавання нового студента
-    fetch('/students', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(student),
-    })
-      .then((response) => {
-        // studentForm.reset(); // Очистити форму
-        findStudents(); // Оновити список студентів після додавання
-        console.log('Status code:', response.status);
-        const responseJson = response.json();
-        console.log(responseJson);
-
-        return responseJson;
-      })
-      .catch((error) => {
-        console.error('Error adding student:', error);
+      fetch('/students', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(student)
+      }).then(() => {
+          form.reset();
+          loadStudents();
       });
   });
 
-  findStudents(); // Завантажити список студентів при завантаженні сторінки
+  // Видалення студента
+  window.deleteStudent = (index) => {
+      fetch(`/students/${index}`, {
+          method: 'DELETE'
+      }).then(() => {
+          loadStudents();
+      });
+  };
+
+  // Оновлення студента
+  window.editStudent = (index) => {
+      const student = {
+          name: prompt("Ім'я"),
+          surname: prompt("Прізвище"),
+          age: prompt("Вік"),
+          course: prompt("Курс"),
+          faculty: prompt("Факультет"),
+          subjects: prompt("Курси")
+      };
+
+      fetch(`/students/${index}`, {
+          method: 'PUT',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(student)
+      }).then(() => {
+          loadStudents();
+      });
+  };
+
+  // Завантаження студентів при завантаженні сторінки
+  loadStudents();
 });

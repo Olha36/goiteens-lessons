@@ -1,48 +1,82 @@
 const express = require('express');
-const fs = require('fs');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 
 const app = express();
-
-const PORT = 3000;
+const port = 3000;
 const filePath = 'students.json';
 
-app.use(express.static('public'));
+// Middleware для парсингу JSON
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/students', function (req, res) {
-    fs.readFile(filePath, 'utf8', (err, data) => {
+// Сервер статичних файлів
+app.use(express.static('public'));
+
+// Отримати всі записи про студентів
+app.get('/students', (req, res) => {
+    fs.readFile(filePath, (err, data) => {
         if (err) {
-          return res.status(500).send('Error reading a file')
-
+            return res.status(500).send('Error reading file');
         }
-       const jsonParseStudents = JSON.parse(data);
-       res.json(jsonParseStudents)
-      });
-})
-
-app.post('/students', function (req, res) {
-  const newStudent = req.body;
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      console.log('Error reading database file:', err);
-      return res.status(500).send('Error reading a file');
-    }
-    const db = JSON.parse(data);
-    db.push(newStudent);
-    fs.writeFile(filePath, JSON.stringify(db), 'utf8', (err) => {
-      if (err) {
-        console.error('Error writing to database file:', err);
-        res.status(500).send('Error writing to database file');
-        return;
-      }
-      res.status(201).send('Post added successfully');
+        const students = JSON.parse(data);
+        res.json(students);
     });
-  });
 });
 
-app.listen(PORT, () => {
-    console.log(`Service is running on port http://localhost:${PORT}`);
-})
+// Додати нового студента
+app.post('/students', (req, res) => {
+    fs.readFile(filePath, (err, data) => {
+        if (err) {
+            return res.status(500).send('Error reading file');
+        }
+        const students = JSON.parse(data);
+        students.push(req.body);
+        fs.writeFile(filePath, JSON.stringify(students, null, 2), (err) => {
+            if (err) {
+                return res.status(500).send('Error writing file');
+            }
+            res.send('Student added');
+        });
+    });
+});
 
+// Оновити студента
+app.put('/students/:index', (req, res) => {
+    const index = req.params.index;
+    fs.readFile(filePath, (err, data) => {
+        if (err) {
+            return res.status(500).send('Error reading file');
+        }
+        const students = JSON.parse(data);
+        students[index] = req.body;
+        fs.writeFile(filePath, JSON.stringify(students, null, 2), (err) => {
+            if (err) {
+                return res.status(500).send('Error writing file');
+            }
+            res.send('Student updated');
+        });
+    });
+});
 
+// Видалити студента
+app.delete('/students/:index', (req, res) => {
+    const index = req.params.index;
+    fs.readFile(filePath, (err, data) => {
+        if (err) {
+            return res.status(500).send('Error reading file');
+        }
+        const students = JSON.parse(data);
+        students.splice(index, 1);
+        fs.writeFile(filePath, JSON.stringify(students, null, 2), (err) => {
+            if (err) {
+                return res.status(500).send('Error writing file');
+            }
+            res.send('Student deleted');
+        });
+    });
+});
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
