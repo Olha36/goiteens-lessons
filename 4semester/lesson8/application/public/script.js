@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('student-form');
   const tableBody = document.getElementById('students-table').getElementsByTagName('tbody')[0];
+  const editForm = document.getElementById('editForm');
+  let currentEditIndex = null;
 
   // Функція для завантаження студентів
   const loadStudents = () => {
@@ -63,22 +65,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Оновлення студента
   window.editStudent = (index) => {
-      const student = {
-          name: prompt("Ім'я"),
-          surname: prompt("Прізвище"),
-          age: prompt("Вік"),
-          course: prompt("Курс"),
-          faculty: prompt("Факультет"),
-          subjects: prompt("Курси")
+      fetch('/students')
+          .then(response => response.json())
+          .then(students => {
+              const student = students[index];
+              currentEditIndex = index;
+
+              // Заповнення форми редагування
+              editForm.style.display = 'block';
+              document.getElementById('editName').value = student.name;
+              document.getElementById('editSurname').value = student.surname;
+              document.getElementById('editAge').value = student.age;
+              document.getElementById('editCourse').value = student.course;
+              document.getElementById('editFaculty').value = student.faculty;
+              document.getElementById('editSubjects').value = student.subjects;
+          });
+  };
+
+  // Збереження зміненого студента
+  window.saveStudent = () => {
+      const updatedStudent = {
+          name: document.getElementById('editName').value,
+          surname: document.getElementById('editSurname').value,
+          age: document.getElementById('editAge').value,
+          course: document.getElementById('editCourse').value,
+          faculty: document.getElementById('editFaculty').value,
+          subjects: document.getElementById('editSubjects').value
       };
 
-      fetch(`/students/${index}`, {
+      fetch(`/students/${currentEditIndex}`, {
           method: 'PUT',
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify(student)
+          body: JSON.stringify(updatedStudent)
       }).then(() => {
+          editForm.style.display = 'none';
           loadStudents();
       });
   };
