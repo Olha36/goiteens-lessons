@@ -34,5 +34,25 @@
       "Кримінологія",
       "Історія"
     ]
+  },
+  {
+    "name": "Olha",
+    "surname": "Kucheruk",
+    "age": "23",
+    "course": "4",
+    "faculty": "NNI",
+    "subjects": [
+      "3"
+    ]
+  },
+  {
+    "name": "Anna",
+    "surname": "Kucheruk",
+    "age": "2",
+    "course": "2",
+    "faculty": "NNI",
+    "subjects": [
+      "2"
+    ]
   }
 ]

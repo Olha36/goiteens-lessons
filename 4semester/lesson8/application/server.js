@@ -108,17 +108,35 @@ app.get('/students', function (req, res) {
 }) 
  
 app.post('/students', (req, res) => { 
+    console.log("Received data:", req.body); // Debug: Log received data
+
     fs.readFile(filePath, 'utf8', (err, data) => { 
         if (err) { 
-            return res.status(500).send('Error reading file'); 
+            console.error("Error reading file:", err); 
+            return res.status(500).send('Error reading file');
         }
-        const jsStudents = JSON.parse(data);
-        jsStudents.push(req.body);
-        
-        fs.writeFile(filePath, JSON.stringify(jsStudents, null, 2), (error) => {
+
+        let students;
+        try {
+            students = JSON.parse(data); 
+        } catch (parseErr) {
+            console.error("Error parsing JSON:", parseErr);
+            return res.status(500).send("Error parsing JSON data");
+        }
+
+        const newStudent = { 
+            ...req.body, 
+            subjects: Array.isArray(req.body.subjects) ? req.body.subjects : [req.body.subjects] // Ensure subjects is an array
+        };
+
+        students.push(newStudent);
+
+        fs.writeFile(filePath, JSON.stringify(students, null, 2), (error) => {
             if (error) { 
-                return res.status(500).send('Error writing file'); 
+                console.error("Error writing file:", error); 
+                return res.status(500).send('Error writing file');
             }
+            console.log("Student successfully added:", newStudent); // Debug: Log successful addition
             res.send("Student is added");
         });
     });

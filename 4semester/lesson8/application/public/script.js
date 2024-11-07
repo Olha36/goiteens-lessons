@@ -32,25 +32,40 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     function addStudents(event) {
         event.preventDefault();
+        
         const studentsData = {
             name: studentsForm.name.value,
             surname: studentsForm.surname.value,
             age: studentsForm.age.value,
             course: studentsForm.course.value,
             faculty: studentsForm.faculty.value,
-            subjects: studentsForm.subjects.value
-        }
+            subjects: studentsForm.subjects.value // This should be a string; we'll handle it as an array on the server
+        };
+    
+        console.log("Sending student data:", studentsData); // Debug: Log the data being sent
+    
         fetch('/students', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(studentsData)
-        }).then(()=>{
-            findStudents()
         })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Server error: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(message => {
+            console.log("Server response:", message); // Debug: Log server response
+            findStudents(); // Refresh the student list
+        })
+        .catch(error => {
+            console.error("Error adding student:", error); // Log client-side error
+        });
     }
-
+    
     studentsForm.addEventListener('submit', addStudents)
     findStudents()
 })
