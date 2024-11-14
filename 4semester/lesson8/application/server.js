@@ -82,21 +82,20 @@
 // });
 
 
-const express = require ("express"); 
+const express = require("express"); 
 const fs = require('fs'); 
 const bodyParser = require('body-parser'); 
+const { error } = require("console");
 
- 
- 
 const app = express() 
 const PORT = 3000 
 const filePath = 'students.json'; 
- 
+
 app.use(bodyParser.json()) 
 app.use(bodyParser.urlencoded({extended:true})) 
- 
+
 app.use(express.static('public')) 
- 
+
 app.get('/students', function (req, res) { 
     fs.readFile(filePath, 'utf8', (err, data) => { 
         if (err) { 
@@ -106,7 +105,7 @@ app.get('/students', function (req, res) {
         res.json(jsonParseStudents) 
         }); 
 }) 
- 
+
 app.post('/students', (req, res) => { 
     console.log("Received data:", req.body); // Debug: Log received data
 
@@ -141,6 +140,49 @@ app.post('/students', (req, res) => {
         });
     });
 });
+
+
+app.put('/students', (req, res) => {
+    const editIndex = req.params.index;
+    fs.readFile(filePath, (error, data) => {
+        if (error) { 
+            console.error("Error reading file:", error); 
+            return res.status(500).send('Error reading file');
+        }
+        const  students = JSON.parse(data); 
+        students[editIndex] = req.body;
+        fs.writeFile(filePath, JSON.stringify(students), (error) => {
+            if (error) { 
+                console.error("Error writing file:", error); 
+                return res.status(500).send('Error writing file');
+            }
+            res.send("Student is updated");
+        })                                   
+    })
+})
+
+app.delete('/students', (req, res) => {
+    const editIndex = req.params.index;
+    fs.readFile(filePath, (error, data) => {
+        if (error) { 
+            console.error("Error reading file:", error); 
+            return res.status(500).send('Error reading file');
+        }
+        const  students = JSON.parse(data); 
+        students.splice(editIndex,1);
+        fs.writeFile(filePath, JSON.stringify(students), (error) => {
+            if (error) { 
+                console.error("Error writing file:", error); 
+                return res.status(500).send('Error writing file');
+            }
+            res.send("Student is deleted");
+        })                                   
+    })
+})
+
+
+
+
 
 
 app.listen(PORT, () => { 
