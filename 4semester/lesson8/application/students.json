@@ -60,9 +60,7 @@
     "surname": "Бондарчук",
     "age": "23",
     "course": "2",
-    "faculty": "2",
-    "subjects": [
-      "3"
-    ]
+    "faculty": "fghjk",
+    "subjects": "3"
   }
 ]
