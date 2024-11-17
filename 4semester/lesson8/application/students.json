@@ -54,5 +54,15 @@
     "subjects": [
       "2"
     ]
+  },
+  {
+    "name": "Olha",
+    "surname": "Бондарчук",
+    "age": "23",
+    "course": "2",
+    "faculty": "2",
+    "subjects": [
+      "3"
+    ]
   }
 ]
