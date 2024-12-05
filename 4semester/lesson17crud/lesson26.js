@@ -1,4 +1,3 @@
-
 const api = 'https://jsonplaceholder.typicode.com/posts?_limit=3';
 const postForm = document.getElementById('postForm');
 const titleInput = document.getElementById('titleInput');
@@ -13,16 +12,16 @@ async function getData() {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        posts = await response.json(); // Wait for JSON to be parsed
+        posts = await response.json(); // Parse JSON response
         renderPosts(); // Render posts after fetching
     } catch (err) {
         console.error('Error fetching posts:', err);
     }
 }
 
-// Render posts to the UI
+// Render posts in the DOM
 function renderPosts() {
-    postList.innerHTML = ''; // Clear the list
+    postList.innerHTML = ''; // Clear existing list
     posts.forEach((post) => {
         const li = document.createElement('li');
         li.dataset.id = post.id;
@@ -38,23 +37,22 @@ function renderPosts() {
 
 // Add a new post
 postForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Prevent form reload
+    e.preventDefault();
     const newPost = {
         title: titleInput.value,
         body: bodyInput.value,
-        id: Date.now(), // Use a unique ID for local posts
+        id: Date.now(), // Temporary ID
     };
     try {
-        // Simulate API POST request
         const response = await fetch(api, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newPost),
         });
         const createdPost = await response.json();
-        posts = [createdPost, ...posts]; // Add new post to the top
+        posts = [createdPost, ...posts];
         renderPosts(); // Re-render posts
-        postForm.reset(); // Clear form inputs
+        postForm.reset(); // Clear inputs
     } catch (err) {
         console.error('Error adding post:', err);
     }
@@ -77,13 +75,14 @@ function editPost(id) {
     if (postToEdit) {
         titleInput.value = postToEdit.title;
         bodyInput.value = postToEdit.body;
+
         postForm.onsubmit = async (e) => {
             e.preventDefault();
             postToEdit.title = titleInput.value;
             postToEdit.body = bodyInput.value;
 
-            // Simulate API PUT request
             try {
+                // Simulate PUT request
                 await fetch(`${api}/${id}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
@@ -91,7 +90,7 @@ function editPost(id) {
                 });
                 renderPosts();
                 postForm.reset();
-                postForm.onsubmit = addPost; // Reset to default add functionality
+                postForm.onsubmit = addPost; // Reset to add functionality
             } catch (err) {
                 console.error('Error editing post:', err);
             }
@@ -102,17 +101,29 @@ function editPost(id) {
 // Delete a post
 async function deletePost(id) {
     try {
-        // Simulate API DELETE request
+        // Simulate DELETE request
         await fetch(`${api}/${id}`, {
             method: 'DELETE',
         });
-        posts = posts.filter((post) => post.id !== +id); // Remove from local array
-        renderPosts(); // Re-render posts
+        posts = posts.filter((post) => post.id !== +id);
+        renderPosts();
     } catch (err) {
         console.error('Error deleting post:', err);
     }
 }
 
+// Reset form to add functionality
+function addPost(e) {
+    e.preventDefault();
+    const newPost = {
+        title: titleInput.value,
+        body: bodyInput.value,
+        id: Date.now(),
+    };
+    posts = [newPost, ...posts];
+    renderPosts();
+    postForm.reset();
+}
+
 // Initialize
 getData();
-
