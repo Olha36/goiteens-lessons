@@ -67,7 +67,7 @@ function print(str) {
 }
 
 2. Додаткові завдання
-Напиши функцію яка повертає середнє значення з масиву чисел:
+1. Напиши функцію яка повертає середнє значення з масиву чисел:
 console.log(changeCase('qweRTY')); // QWErty
 console.log(changeCase('mAnGo')); // MaNgO
 console.log(changeCase('AjAx')); // aJaX
