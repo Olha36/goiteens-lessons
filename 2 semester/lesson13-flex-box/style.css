@@ -1,0 +1,37 @@
+.flex-container {
+  display: flex;
+flex-direction: row;
+  /* background-color: green; */
+  /* border: 3px solid rgb(28, 71, 28); */
+}
+
+.flex-item {
+    width: 200px;
+    height: 200px;
+/*   
+  border: 1px dashed black; */
+}
+
+.green {
+    display: flex;
+  background-color: rgb(140, 255, 0);
+}
+
+.blue {
+  background-color: blue;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.gold {
+  background-color: gold;
+}
+
+.purple {
+  background-color: purple;
+}
+.red {
+  background-color: red;
+}
