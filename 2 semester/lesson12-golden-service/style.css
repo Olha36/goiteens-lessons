@@ -5,8 +5,8 @@
 }
 .header-wrapper {
   display: flex;
-  justify-content: space-evenly;
   margin-top: 30px;
+  justify-content: space-evenly;
 }
 .logo {
   color: #fed136;
