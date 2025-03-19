@@ -38,48 +38,43 @@
 // parent.addEventListener('click', example2)
 
 // task2
-// const colorPalette = document.querySelector(".color-palette");
-// const output = document.querySelector(".output");
 
-// // This is where delegation «magic» happens
-// function selectColor(event) {
-//   if (event.target.nodeName !== "BUTTON") {
-//     return;
-//   }
 
-//   const selectedColor = event.target.dataset.color; // на клікнутий елемент встановити еолір і це все помістити в змінну selectedColor
-//   output.textContent = `Selected color: ${selectedColor}`;
-//   output.style.color = selectedColor;
-// }
 
-// // Some helper functions to render palette items
-// createPaletteItems();
 
-// function createPaletteItems() {
-//   const items = [];
-//   for (let i = 0; i < 60; i++) {
-//     const color = getRandomColor();
-//     const item = document.createElement("button");
-//     item.type = "button";
-//     item.dataset.color = color;
-//     item.style.backgroundColor = color;
-//     item.classList.add("item");
-//     items.push(item);
-//   }
-//   colorPalette.append(...items);
-// }
 
-// function getRandomColor() {
-//   return `#${getRandomHex()}${getRandomHex()}${getRandomHex()}`;
-// }
 
-// function getRandomHex() {
-//   return Math.round(Math.random() * 256)
-//     .toString(16)
-//     .padStart(2, "0");
-// }
 
-// colorPalette.addEventListener("click", selectColor);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //example1
 // const btns = document.querySelectorAll('.btn');
@@ -112,20 +107,20 @@
 // })
 
 //task4
-const buttonList = document.querySelectorAll(".btn");
-console.log(buttonList);
+// const buttonList = document.querySelectorAll(".btn");
+// console.log(buttonList);
 
-const hightLightElement = (event) => {
-  console.log(event.target);
+// const hightLightElement = (event) => {
+//   console.log(event.target);
 
-   buttonList.forEach((btn) => {
-    btn.classList.remove('active')
-  })
+//    buttonList.forEach((btn) => {
+//     btn.classList.remove('active')
+//   })
 
-  event.target.classList.add('active')
-};
+//   event.target.classList.add('active')
+// };
 
-buttonList.forEach((btn) => {
-  btn.addEventListener('click', hightLightElement);
-})
+// buttonList.forEach((btn) => {
+//   btn.addEventListener('click', hightLightElement);
+// })
 
