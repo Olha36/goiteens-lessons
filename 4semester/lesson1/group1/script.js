@@ -1,47 +1,81 @@
-// const parent = document.querySelector("#parent");
-// const child = document.querySelector("#child");
-// const descendant = document.querySelector("#descendant");
-// const button = document.querySelector("button");
+// const child = document.querySelector('#child');
 // const parent = document.querySelector('.parent');
-
-// parent.addEventListener("click", () => {
-//   alert("parent was clicked");
-// });
-
-// child.addEventListener("click", () => {
-//   alert("child was clicked");
-
-// });
-
-// descendant.addEventListener("click", (e) => {
-//   alert("descendant was clicked");
-//   e.stopPropagation()
-// });
-
-// function example(e) {
-//   console.log(`event detached:`, e.target);
-//    console.log(`event detached:`, e.currentTarget);
-//   // let text = e.target.nodeName;
-//   // document.getElementById("demo").innerHTML = text;
-// }
-// document.addEventListener('click', example)
-
-//додати обробники подій і показати результат
-
-//example 3
-// function example2(e) {
-//   console.log('Button was clicked', e.target);
-//   e.target.style.backgroundColor ='green';
-//   e.target.style.padding = '20px'
-
-// }
-// parent.addEventListener('click', example2)
-
-// task2
+// const descendant = document.querySelector('#descendant');
+// const button = document.querySelectorAll('button');
+// console.log(button);
 
 
 
+// parent.addEventListener('click', () => {
+//     alert('Parent is clicked')
+// })
 
+// child.addEventListener('click', () => {
+//     alert('Child is clicked')
+// })
+
+// descendant.addEventListener('click', () => {
+//     alert('Descendant is clicked')
+// })
+
+// button.forEach((btn) => {
+//     btn.addEventListener('click', (event) => {
+//         console.log('event element:', event.target);
+        
+//         parent.style.backgroundColor = event.target.getAttribute('data-color');
+//     })
+// })
+
+
+const colorPalette = document.querySelector(".color-palette");
+const output = document.querySelector(".output");
+
+
+colorPalette.addEventListener("click", selectColor);
+
+
+// This is where delegation «magic» happens
+function selectColor(event) {
+  if (event.target.nodeName !== "BUTTON") {
+    return;
+  }
+
+
+  const selectedColor = event.target.dataset.color;
+  output.textContent = `Selected color: ${selectedColor}`;
+  output.style.color = selectedColor;
+}
+
+
+// Some helper functions to render palette items
+createPaletteItems();
+
+
+function createPaletteItems() {
+  const items = [];
+  for (let i = 0; i < 60; i++) {
+    const color = getRandomColor();
+    const item = document.createElement("button");
+    item.type = "button";
+    item.dataset.color = color;
+    item.style.backgroundColor = color;
+    item.classList.add("item");
+    items.push(item);
+  }
+  colorPalette.append(...items);
+}
+
+
+function getRandomColor() {
+  return `#${getRandomHex()}${getRandomHex()}${getRandomHex()}`;
+}
+
+
+function getRandomHex() {
+  return Math.round(Math.random() * 256)
+    .toString(16)
+    .padStart(2, "0");
+}
 
 
 
