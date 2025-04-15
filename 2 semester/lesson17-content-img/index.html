@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css">
+    <title>
+      Урок 17. Контентні і декоративні зображення: властивості та відмінності.
+      Декоративні елементи. Тінь
+    </title>
+  </head>
+  <body>
+
+    <!-- JPEG - картинки без прозорого фону
+      PNG картинки з прозорим фоном
+      webP - сучасний формат зображень,що замінює JPEG та PNG
+       SVG векторна графіка, використовується для логотипів, іконок, графіки
+       -->
+    <!-- example 1 -->
+
+    <figure class="base">
+      <img
+        src="https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320&w=240"
+        alt=""
+      />
+      <figcaption class="label">Original image</figcaption>
+    </figure>
+
+    <div class="container">
+      <div class="card-set">
+        <figure class="card">
+          <div class="thumb">
+            <img
+              src="https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320&w=240"
+              alt=""
+            />
+          </div>
+          <figcaption class="label">object-fit: fill</figcaption>
+        </figure>
+
+        <figure class="card">
+          <div class="thumb">
+            <img
+              src="https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320&w=240"
+              alt=""
+            />
+          </div>
+          <figcaption class="label">object-fit: contain</figcaption>
+        </figure>
+
+        <figure class="card">
+          <div class="thumb">
+            <img
+              src="https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320&w=240"
+              alt=""
+            />
+          </div>
+          <figcaption class="label">object-fit: cover</figcaption>
+        </figure>
+
+        <figure class="card">
+          <div class="thumb">
+            <img
+              src="https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320&w=240"
+              alt=""
+            />
+          </div>
+          <figcaption class="label">object-fit: scale-down</figcaption>
+        </figure>
+
+        <figure class="card">
+          <div class="thumb">
+            <img
+              src="https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320&w=240"
+              alt=""
+            />
+          </div>
+          <figcaption class="label">object-fit: none</figcaption>
+        </figure>
+      </div>
+    </div>
+  </body>
+</html>

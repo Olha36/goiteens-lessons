@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.base {
+  width: 480px;
+  margin-bottom: 20px;
+}
+
+.base > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 2px dashed blue;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.card-set {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px;
+}
+
+.card {
+    margin: 20px 0 0 20px;
+    flex-basis: calc(100% / 2 - 20px);
+}
+
+.card,
+.base {
+    box-shadow: 7px 7px 15px -3px #3800ff;
+}
+.thumb {
+    position: relative;
+    height: 380px;
+    width: 100%;
+    border: 2px dashed lightblue;
+    border-radius: 4px;
+}
+.thumb > img {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.card:nth-child(1) {
+    object-fit: fill;
+}
+
+.card:nth-child(2) {
+    object-fit: contain;
+}
