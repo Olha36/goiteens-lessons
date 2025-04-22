@@ -3,6 +3,7 @@ import Weather from "./Weather";
 import Movies from "./Movies";
 import Math from './Math'
 import PersistentDrawerLeft from "./PersistentDrawerLeft";
+import Example from './Example'
 
 function App() {
   // пишемо джаваскрипт код
@@ -11,7 +12,9 @@ function App() {
   return (
     // пишемо HTML код
     <div className="container">
+
       <PersistentDrawerLeft />
+      <Example />
       <h1>{name}</h1>
       <p>Вчимо розмітку JSX</p>
       <button>Click me</button>

@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 29% auto;
+}
+.card-price {
+  background-color: #6161f0;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 42px;
+  border-radius: 10px 10px 0 0;
+}
+
+h2 {
+    margin: 0 5px;
+}
+
+.card-info {
+    padding: 25px 12px;
+    color: grey;
+    box-shadow: -1px 8px 11px 9px #f9f6f6;
+    border-radius: 0 0 10px 10px;
+}
+
+.card-info p:nth-of-type(2),
+button {
+   margin: 25px 0;
+}
+button {
+    border-radius: 10px;
+}
