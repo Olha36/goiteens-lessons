@@ -1,10 +1,15 @@
+import React from "react";
 export default function Products({ name1, name2, price }) {
+  function sum (a, b) {
+    return a + b;
+  } 
   return (
     <>
       <h2>Best selling products</h2>
       <h3>{name1}</h3>
       <p>Price is: {price}$</p>
       <button>Add to card</button>
+      <p>{sum(4, 5)}</p>
 
       <h3>{name2}</h3>
       <img

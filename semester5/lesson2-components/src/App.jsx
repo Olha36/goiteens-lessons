@@ -1,6 +1,9 @@
 import "./App.css";
+import React from "react";
 import ProductsCard from "./Products";
-import User from './User'
+import User from "./User";
+import PropTypesExample from "./Proptypes";
+import Greeting from './Greeting'
 
 function App() {
   return (
@@ -11,6 +14,11 @@ function App() {
       {/* <ProductsCard name1="Coca-cola" name2="Fanta" price="30" /> */}
 
       <User />
+      <PropTypesExample>
+        <p>Hello world!</p>
+        <p>Helo 2</p>
+      </PropTypesExample>
+      <Greeting  text="Hello world"/>
     </>
   );
 }
