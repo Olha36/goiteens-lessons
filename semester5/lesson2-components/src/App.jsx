@@ -4,6 +4,7 @@ import ProductsCard from "./Products";
 import User from "./User";
 import PropTypesExample from "./Proptypes";
 import Greeting from './Greeting'
+import { BiTimeFive } from "react-icons/bi";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <p>Hello world!</p>
         <p>Helo 2</p>
       </PropTypesExample>
-      <Greeting  text="Hello world"/>
+      <Greeting  text="Hello world" title="Hi"/>
+      <BiTimeFive />
     </>
   );
 }
