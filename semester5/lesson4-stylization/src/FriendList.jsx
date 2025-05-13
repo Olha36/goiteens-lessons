@@ -1,15 +1,18 @@
-
+import "./css/friends.css";
 
 export default function FriendList({ friends }) {
   return (
     <>
-      <h1>friend list</h1>
-      <ul className="friend-list">
+      <ul>
         {friends.map((friend) => (
-          <li key={friend.id}>
+          <li className="card" key={friend.id}>
             <img src={friend.avatar} alt={friend.name} />
-            <p>{friend.name}</p>
-            <p>{friend.isOnline ? "true" : "false"}</p>
+            <p className="font-size"> {friend.name}</p>
+            <p
+              className={`order styles ${
+                friend.isOnline ? "online" : "offline"
+              }`}
+            ></p>
           </li>
         ))}
       </ul>

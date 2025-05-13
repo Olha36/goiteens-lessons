@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+.card {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 35px -1px grey;
+  margin-bottom: 5%;
+  padding: 0 5px;
+}
+.order {
+  order: -1;
+}
+.font-size {
+  font-size: 40px;
+}
+img {
+  margin: 0 3%;
+}
+.online {
+  background-color: green;
+}
+.offline {
+  background-color: red;
+}
+.styles {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+}
