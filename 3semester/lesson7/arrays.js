@@ -24,16 +24,25 @@
 // console.log(Number(Arr1[2]) + Arr2[1]);
 
 // 3
-const cart = [54, 28, 105, 70, 92, 17, 120, 12, 25, 90];
-let total = 0;
+// const cart = [54, 28, 105, 70, 92, 17, 120, 12, 25, 90];
+// let total = 0;
 
 // for (let i = 0; i < cart.length; i++) {
 //     console.log(cart[i]);
 
 // }
-for (let item of cart) {
-  total += item;
+// for (let item of cart) {
+//   total += item;
   
-}
+// }
 
-console.log(total);
+// console.log(total);
+
+
+let login = ['ivan', 'petro', 'sasha', 'vova'];
+let user = 'goiteens';
+let message = `Користувач ${user} не знайдено.`;
+
+message = login.includes(user) ? `Користувач ${user} знайдено` : `Користувач ${user} не знайдено`
+
+console.log(message);
