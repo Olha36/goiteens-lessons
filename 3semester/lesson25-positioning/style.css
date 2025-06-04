@@ -1,0 +1,54 @@
+.parent-container {
+    width: 100%;
+    height: auto;
+    border: 1px solid yellow;
+    background-color: black;
+}
+
+.parent-sticky {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+.parent-relative {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+}
+.parent-absolute {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(109, 243, 109);
+}
+.parent-fixed {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
+.parent-container p,
+h2 {
+    color: white;
+}
+
+.test {
+    background-color: pink;
+    border: 1px solid purple;
+    padding: 2rem;
+}
+h2 {
+    position: sticky;
+    top: 2%;
+    background-color: aquamarine;
+}
+.absolute-text {
+    position: absolute;
+    top: 10%;
+    left: 3%;
+    background-color: bisque;
+}
+.relative-text {
+    position: relative;
+    top: 150px;
+    left: 60px;
+    margin: 0;
+}
