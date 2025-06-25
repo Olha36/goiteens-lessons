@@ -1,0 +1,65 @@
+.container-one__relative {
+  width: 300px;
+  height: 300px;
+  background-color: green;
+  border: 3px solid blue;
+}
+.relative-child {
+  position: relative;
+  top: 35%;
+  left: 30%;
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+}
+
+.container-two__absolute {
+  margin-top: 5%;
+  width: 300px;
+  height: 300px;
+  background-color: black;
+  border: 3px solid red;
+  color: white;
+}
+
+.absolute-child {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(137, 9, 9);
+}
+.text-fixed {
+  position: fixed;
+  top: 5%;
+  left: 15%;
+  background-color: blue;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.text-sticky {
+  position: sticky;
+  top: 20%;
+  right: 30%;
+  background-color: rgb(208, 10, 208);
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
+.container-four {
+  width: 300px;
+  height: 300px;
+  background-color: #39fdfa;
+}
+
+.z-index {
+  position: relative;
+  z-index: -1;
+  width: 400px;
+  height: 400px;
+  background-color: yellow;
+}
