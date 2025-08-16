@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import GifSearch from "./GifSearch";
-import GifList from "./GifList";
 import styled from "styled-components";
 
 const AppContainer = styled.div`
@@ -10,25 +9,11 @@ const AppContainer = styled.div`
   font-family: Arial;
 `;
 
-class App extends Component {
-  state = {
-    keyword: "cats",
-  };
-
-  handleSearch = (newKeyword) => {
-    this.setState({ keyword: newKeyword });
-  };
-
-  render() {
-    const { keyword } = this.state;
-    return (
-      <AppContainer>
-        <h1>Giphy Search App</h1>
-        <GifSearch onSearch={this.handleSearch} />
-        <GifList keyword={keyword} />
-      </AppContainer>
-    );
-  }
-}
+const App = () => (
+  <AppContainer>
+    <h1>Giphy Search App</h1>
+    <GifSearch defaultKeyword="cats" />
+  </AppContainer>
+);
 
 export default App;
