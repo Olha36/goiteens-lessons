@@ -52,6 +52,7 @@ body {
   height: 40px;
   cursor: pointer;
   transition: transform 250ms ease-in-out;
+  color: #9c1a1a;
 }
 
 .color-palette .item:hover {

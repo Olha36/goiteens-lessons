@@ -1,6 +1,7 @@
 // example 1
 const parent = document.getElementById("parent");
-parent.addEventListener("click", () => {
+parent.addEventListener("click", (event) => {
+  event.stopImmediatePropagation();
   alert("parent is clicked");
 });
 
@@ -23,6 +24,10 @@ function selectColor(event) {
   if (event.target.nodeName !== "BUTTON") {
     return;
   }
+
+  console.log('event target', event.target);
+    console.log("current target", event.currentTarget);
+  
 
   const selectedColor = event.target.dataset.color;
   output.textContent = `Selected color: ${selectedColor}`;
