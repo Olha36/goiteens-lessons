@@ -12,28 +12,23 @@
   text-transform: uppercase;
 }
 
-
 #parent {
   background-color: #673ab7;
 }
-
 
 #child {
   background-color: #448aff;
 }
 
-
 #descendant {
   background-color: #ff9800;
 }
-
 
 /* example 2 */
 body {
   margin: 8px;
   font-family: sans-serif;
 }
-
 
 .output {
   text-align: center;
@@ -42,13 +37,11 @@ body {
   font-weight: 700;
 }
 
-
 .color-palette {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
   gap: 4px;
 }
-
 
 .color-palette .item {
   padding: 0;
@@ -60,7 +53,6 @@ body {
   cursor: pointer;
   transition: transform 250ms ease-in-out;
 }
-
 
 .color-palette .item:hover {
   transform: scale(1.1);

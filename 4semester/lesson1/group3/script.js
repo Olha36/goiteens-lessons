@@ -1,7 +1,22 @@
+// example 1
+const parent = document.getElementById("parent");
+parent.addEventListener("click", () => {
+  alert("parent is clicked");
+});
+
+const child = document.getElementById("child");
+child.addEventListener("click", () => {
+  alert("Child is clicked");
+});
+
+const descendant = document.getElementById("descendant");
+descendant.addEventListener("click", () => {
+  alert("descendant is clicked");
+});
+// example 2
+
 const colorPalette = document.querySelector(".color-palette");
 const output = document.querySelector(".output");
-
-colorPalette.addEventListener("click", selectColor);
 
 // This is where delegation «magic» happens
 function selectColor(event) {
@@ -19,7 +34,7 @@ createPaletteItems();
 
 function createPaletteItems() {
   const items = [];
-  for (let i = 0; i < 60; i++) {
+  for (let i = 0; i < 100; i++) {
     const color = getRandomColor();
     const item = document.createElement("button");
     item.type = "button";
@@ -41,5 +56,4 @@ function getRandomHex() {
     .padStart(2, "0");
 }
 
-
-
+colorPalette.addEventListener("click", selectColor);
