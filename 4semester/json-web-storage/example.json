@@ -1,0 +1,7 @@
+{
+  "name": "Mango",
+  "age": 5,
+  "isHappy": true,
+  "hobbies": ["go", "play", "eat"]
+}
+
