@@ -1,0 +1,40 @@
+div {
+  text-transform: capitalize;
+}
+
+/* p {
+ text-transform: uppercase;
+} */
+
+p {
+  text-transform: inherit;
+}
+.text-indent {
+  text-indent: 30px;
+}
+.white-space {
+  border: 3px solid red;
+  /* white-space: wrap; */
+  word-break: keep-all;
+}
+
+.yellow-border {
+  border: 10px groove yellow;
+}
+
+.word-wrap {
+  word-wrap: break-word;
+  word-spacing: 30px;
+  letter-spacing: 20px;
+}
+
+/* 10 */
+#example {
+  color: green;
+}
+
+/* 1 */
+p {
+  color: aqua;
+  border: 3px groove pink;
+}

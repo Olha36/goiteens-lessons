@@ -1,0 +1,13 @@
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 30px;
+  letter-spacing: 15px;
+}
+
+p {
+    letter-spacing: 30px;
+    text-align: center;
+}
+span {
+    text-align: center;
+}
