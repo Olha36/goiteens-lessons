@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a:link:nth-of-type(1) {
+  color: aqua;
+  font-size: 40px;
+}
+
+a:visited {
+  color: pink;
+  font-size: 20px;
+}
+p:hover {
+  font-size: 100px;
+}
+
+a:focus:nth-of-type(2) {
+  color: yellow;
+  font-size: 50px;
+}
+button:disabled {
+  background-color: gray;
+  border: 3px soild red;
+  color: antiquewhite;
+}
+p {
+  font-size: 30px;
+  box-shadow: 0px 5px 49px 14px black;
+  color: darkorange;
+}
+p:not(.text-3) {
+  color: blue;
+}
+input:checked {
+  border: none;
+  outline: 2px solid green;
+}
+
+p {
+  color: deeppink;
+}
+ul > li{
+  list-style-type: disc;
+}
