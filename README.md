@@ -39,8 +39,6 @@ Module №16 - Object-Oriented Programming. Classes. Prototype Inheritance.
 * Module №9 - Web Storage
 * Module №10 - Asynchrony
 * Module №11 - Timers
-
-**To be covered:** 
 * Module №12 - Date and Time
 * Module №13 - Promises
 * Module №14 - Promise Class Methods. Event Loop
@@ -50,4 +48,7 @@ Module №16 - Object-Oriented Programming. Classes. Prototype Inheritance.
 * Module №18 - CRUD Interaction with Backend Resources
 * Module №19 - Asynchronous Functions async/await
 * Module №20 - Mini Project: Asynchronous Functions async/await
+
+  **Topics included in semester 5:** 
+
 
